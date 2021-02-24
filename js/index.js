@@ -2,6 +2,9 @@ $(document).ready(function () {
 
     getCategorias()
 
+    getTemaDestaque()
+
+    getNovosTemas()
 
 });
 
@@ -10,18 +13,10 @@ $(document).ready(function () {
 function getCategorias() {
 
     for (var i = 0; i < 5; i++) {
-
-        //a href="resultadoBusca.html" class="btn btn-primary item-btn display-7" target="_blank">Categoria Destaque 1</a>
-
         var divCategoria = $('#colunasCategorias')
-        console.log(divCategoria)
         var tagA = '<a href="resultadoBusca.html" class="btn btn-primary item-btn display-7" target="_blank">Categoria Destaque 1</a>'
-
         var link = $(tagA)
-
-        //console()
         divCategoria.append(link)
-
     }
 
 }
@@ -31,61 +26,88 @@ function getTemaDestaque() {
 
     for (var i = 0; i < 3; i++) {
         var divCarrossel;
-        if (i == 0) {
+        if (i == 0)
             divCarrossel = $('<div class="carousel-item slider-image item active">')
-        } else {
+        else
             divCarrossel = $('<div class="carousel-item slider-image item">')
-        }
+    }
 
-        var carrosel = $('#carroselSlider')
+    var carrosel = $('#carroselSlider')
 
-        var divItemWrapper = $('<div class="item-wrapper">')
+    var divItemWrapper = $('<div class="item-wrapper">')
 
-        var divItemContent = $('<div class="item-content">')
+    var divItemContent = $('<div class="item-content">')
 
-        var divImg = $('<div class="item-img">')
+    var divImg = $('<div class="item-img">')
 
-        var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
+    var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Tema Destaque 1</h5>')
+    var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Tema Destaque ' + i + '</h5>')
 
-        var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
+    var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
+    var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
 
 
 
-        divImg.append(img)
+    divImg.append(img)
 
-        divSectionBtn.append(linkProposta)
+    divSectionBtn.append(linkProposta)
 
-        divItemContent.append(divImg)
+    divItemContent.append(divImg)
 
-        divItemContent.append(h5)
+    divItemContent.append(h5)
+
+    divItemWrapper.append(divItemContent)
+    divItemWrapper.append(divSectionBtn)
+
+    divCarrossel.append(divItemWrapper)
+
+    carrosel.append(divCarrossel)
+
+}
+
+
+function getNovosTemas() {
+
+    for (var i = 0; i < 4; i++) {
+        var divGallery = $('#galeriaRow')
+
+        var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
+        var linkProposta = $('<a href="proposta.html" style="color: white;">')
+        var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
+        var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
+        var iconWrapper = $('<div class="icon-wrapper">')
+        var pText = $('<p>Novo Tema '+i+'</p>')
+
+
+        iconWrapper.append(pText)
+
+        divItemWrapper.append(img)
+        divItemWrapper.append(iconWrapper)
+        linkProposta.append(divItemWrapper)
+        divItemGalery.append(linkProposta)
+
+        divGallery.append(divItemGalery)
 
     }
 
 
+
     /*
-                                <div class="carousel-item slider-image item active">
-                                    <div class="item-wrapper">
-                                        <div class="item-content">
-                                            <div class="item-img">
-                                                <img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">
-                                            </div>
-                                            <h5 class="item-title mbr-fonts-style display-5">Tema Destaque 1</h5>
-    
-                                        </div>
-                                        <div class="mbr-section-btn item-footer mt-2">
-                                            <a href="proposta.html" class="btn btn-primary item-btn display-7"
-                                                target="_blank">
-                                                Acesse a Pagina
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-    
+    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                    <a href="proposta.html" style="color: white;">
+                        <div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">
+                            <img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">
+                            <div class="icon-wrapper">
+                                <p>Novo Tema 4</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
     
     */
 
+
 }
+
