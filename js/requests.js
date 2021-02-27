@@ -2,7 +2,7 @@
 //CURSOS
 //GET cursos
 function getCursos() {
-    $.get("http://201.3.251.188:5000/api/v1/cursos", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/cursos", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -13,7 +13,7 @@ function getCursos() {
 
 //GET curso
 function getCursos(id) {
-    $.get("http://201.3.251.188:5000/api/v1/curso/"+ id, function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/curso/"+ id, function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -23,12 +23,12 @@ function getCursos(id) {
 }
 
 
-
+//aa
 
 //UNIVERSITARIOS
 //GET Universitarios
 function getUniversitarios() {
-    $.get("http://201.3.251.188:5000/api/v1/universitarios", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/universitarios", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -39,10 +39,10 @@ function getUniversitarios() {
 
 //GET Universitarios
 function getUniversitario(id) {
-    $.get("http://201.3.251.188:5000/api/v1/universitario/"+id, function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/universitario/"+id, function (resp, status) {
 
         if (status == 'success') {
-            return resp
+        return resp
         }
     })
 
@@ -53,7 +53,7 @@ function getUniversitario(id) {
 function postUniversitario(universitario) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/universitario", type: "POST", data:
+        url: "simprestapi.ddns.net:5000/api/v1/universitario", type: "POST", data:
             JSON.stringify(universitario), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
@@ -65,7 +65,7 @@ function postUniversitario(universitario) {
 function putUniversitario(universitario) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/universitario", type: "PUT", data:
+        url: "simprestapi.ddns.net:5000/api/v1/universitario", type: "PUT", data:
             JSON.stringify(universitario), success: function (result) {
                 alert("Alteração feita com sucesso!")
             }, contentType: "application/json"
@@ -76,7 +76,7 @@ function putUniversitario(universitario) {
 //DELETE Universitario
 function deleteUniversitario(id) {
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/universitario/" + id, type: "DELETE"
+        url: "simprestapi.ddns.net:5000/api/v1/universitario/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -90,7 +90,7 @@ function deleteUniversitario(id) {
 //PROPOSTAS
 //GET Propostas
 function getPropostas() {
-    $.get("http://201.3.251.188:5000/api/v1/propostas", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/propostas", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -101,7 +101,7 @@ function getPropostas() {
 
 //GET Proposta
 function getProposta(id) {
-    $.get("http://201.3.251.188:5000/api/v1/proposta/"+id, function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/proposta/"+id, function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -115,7 +115,7 @@ function getProposta(id) {
 function postProposta(proposta) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/proposta", type: "POST", data:
+        url: "simprestapi.ddns.net:5000/api/v1/proposta", type: "POST", data:
             JSON.stringify(proposta), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
@@ -127,7 +127,7 @@ function postProposta(proposta) {
 function putProposta(proposta) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/proposta", type: "PUT", data:
+        url: "simprestapi.ddns.net:5000/api/v1/proposta", type: "PUT", data:
             JSON.stringify(proposta), success: function (result) {
                 alert("Alteração feita com sucesso!")
             }, contentType: "application/json"
@@ -138,7 +138,7 @@ function putProposta(proposta) {
 //DELETE Proposta
 function deleteProposta(id) {
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/proposta/" + id, type: "DELETE"
+        url: "simprestapi.ddns.net:5000/api/v1/proposta/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -152,7 +152,7 @@ function deleteProposta(id) {
 //instituicoes
 //GET instituicoes
 function getInstituicoes() {
-    $.get("http://201.3.251.188:5000/api/v1/instituicoes", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/instituicoes", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -163,7 +163,7 @@ function getInstituicoes() {
 
 //GET instituicao
 function getInstituicao(id) {
-    $.get("http://201.3.251.188:5000/api/v1/instituicao/"+id, function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/instituicao/"+id, function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -177,7 +177,7 @@ function getInstituicao(id) {
 function postInstituicao(instituicao) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/instituicao", type: "POST", data:
+        url: "simprestapi.ddns.net:5000/api/v1/instituicao", type: "POST", data:
             JSON.stringify(instituicao), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
@@ -189,7 +189,7 @@ function postInstituicao(instituicao) {
 function putinstituicao(instituicao) {
 
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/instituicao", type: "PUT", data:
+        url: "simprestapi.ddns.net:5000/api/v1/instituicao", type: "PUT", data:
             JSON.stringify(instituicao), success: function (result) {
                 alert("Alteração feita com sucesso!")
             }, contentType: "application/json"
@@ -200,7 +200,7 @@ function putinstituicao(instituicao) {
 //DELETE instituicao
 function deleteInstituicao(id) {
     $.ajax({
-        url: "http://201.3.251.188:5000/api/v1/instituicao/" + id, type: "DELETE"
+        url: "simprestapi.ddns.net:5000/api/v1/instituicao/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -214,7 +214,7 @@ function deleteInstituicao(id) {
 //Recomendações
 //GET recomendacao
 function getRecomendacao(id) {
-    $.get("http://201.3.251.188:5000/api/v1/recomendacao/id", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/recomendacao/id", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -226,7 +226,7 @@ function getRecomendacao(id) {
 //Temas Populares
 //GET TemasPopulares
 function getTemasPopulares() {
-    $.get("http://201.3.251.188:5000/api/v1/temaspopulares", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/temaspopulares", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -239,7 +239,7 @@ function getTemasPopulares() {
 //Novos Temas
 //GET NovosTemas
 function getNovosTemas() {
-    $.get("http://201.3.251.188:5000/api/v1/novostemas", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/novostemas", function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -252,7 +252,7 @@ function getNovosTemas() {
 //Pesquisa Avançada
 //GET PesquisaAvancada
 function getNovosTemas() {
-    $.get("http://201.3.251.188:5000/api/v1/pesquisaavancada", function (resp, status) {
+    $.get("simprestapi.ddns.net:5000/api/v1/pesquisaavancada", function (resp, status) {
 
         if (status == 'success') {
             return resp
