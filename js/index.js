@@ -66,6 +66,11 @@ function getTemaDestaque() {
             carrosel.append(divCarrossel)
         
             console.log(carrosel)
+
+            console.log(carrosel)
+            console.log(carrosel)
+            console.log(carrosel)
+            console.log(carrosel)
         }
 
 
