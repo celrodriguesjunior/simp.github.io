@@ -6,13 +6,13 @@ $(document).ready(function () {
 
 
 
-function getCategorias(){
+function getCategorias() {
 
     var divListCategorias = $("#Categorias")
 
     //console.log(divListCategorias)
 
-    for(var i = 0; i<4; i++){
+    for (var i = 0; i < 4; i++) {
 
         var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-6">')
 
@@ -24,7 +24,7 @@ function getCategorias(){
 
         var divItemContent = $('<div class="item-content">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Categoria '+i+'</h5>')
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Categoria ' + i + '</h5>')
 
         var divBtnSection = $('<div class="mbr-section-btn item-footer mt-2">')
 
@@ -40,7 +40,7 @@ function getCategorias(){
         divItemWrapper.append(divItemImg)
 
         divItemWrapper.append(divItemContent)
-        
+
         divItemWrapper.append(divBtnSection)
 
         divItem.append(divItemWrapper)
