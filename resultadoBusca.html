@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="assets/theme/css/style.css">
     <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/resultadoBusca.js"></script>
 
 
 
@@ -130,161 +132,163 @@
     </section>
 
     <section class="features8 cid-sh0CsUhlUl" xmlns="http://www.w3.org/1999/html" id="features9-m">
-        <div class="container">
-            <div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">
+        <div class="container" id="listaResultados">
+            <!--
+
+                <div class="card">
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4">
+                                <div class="image-wrapper">
+                                    <img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-5">
-                                            <strong>Proposta 1</strong>
-                                        </h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin literature from 45 BC, making it over
-                                            2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-                                            College in Virginia, looked up one of the more obscure Latin words,
-                                            consectetur, from a Lorem Ipsum passage, and going through the cites of the
-                                            word in classical literature, discovered the undoubtable source.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mbr-section-btn">
-                                            <a href="proposta.html" class="btn btn-primary display-4">
-                                                Visitar Página
-                                            </a>
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6 class="card-title mbr-fonts-style display-5">
+                                                <strong>Proposta 1</strong>
+                                            </h6>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                                roots in a piece of classical Latin literature from 45 BC, making it over
+                                                2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+                                                College in Virginia, looked up one of the more obscure Latin words,
+                                                consectetur, from a Lorem Ipsum passage, and going through the cites of the
+                                                word in classical literature, discovered the undoubtable source.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <div class="mbr-section-btn">
+                                                <a href="proposta.html" class="btn btn-primary display-4">
+                                                    Visitar Página
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <img src="img/temas/91004416-robot-assembled-from-the-designer-on-the-table-robotics.jpg" alt="Mobirise">
+                <div class="card">
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4">
+                                <div class="image-wrapper">
+                                    <img src="img/temas/91004416-robot-assembled-from-the-designer-on-the-table-robotics.jpg" alt="Mobirise">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-5">
-                                            <strong>Proposta 2</strong>
-                                        </h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words which don't look even slightly believable. If you are going
-                                            to use a passage of Lorem Ipsum, you need to be sure there isn't anything
-                                            embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
-                                            the Internet tend to repeat predefined chunks as necessary, making this the
-                                            first true generator on the Internet.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mbr-section-btn">
-                                            <a href="proposta.html" class="btn btn-primary display-4">
-                                                Visitar Página
-                                            </a>
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6 class="card-title mbr-fonts-style display-5">
+                                                <strong>Proposta 2</strong>
+                                            </h6>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration in some form, by injected humour, or
+                                                randomised words which don't look even slightly believable. If you are going
+                                                to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                                                embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
+                                                the Internet tend to repeat predefined chunks as necessary, making this the
+                                                first true generator on the Internet.
+                                            </p>
                                         </div>
+                                        <div class="col-md-auto">
+                                            <div class="mbr-section-btn">
+                                                <a href="proposta.html" class="btn btn-primary display-4">
+                                                    Visitar Página
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div></div>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <img src="img/temas/montessori-alternative-education-pedagogy-special-materials_47726-6724.jpg" alt="Mobirise">
+                <div class="card">
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4">
+                                <div class="image-wrapper">
+                                    <img src="img/temas/montessori-alternative-education-pedagogy-special-materials_47726-6724.jpg" alt="Mobirise">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-5">
-                                            <strong>Proposta 3</strong>
-                                        </h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin literature from 45 BC, making it over
-                                            2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-                                            College in Virginia, looked up one of the more obscure Latin words,
-                                            consectetur, from a Lorem Ipsum passage, and going through the cites of the
-                                            word in classical literature, discovered the undoubtable source.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mbr-section-btn">
-                                            <a href="proposta.html" class="btn btn-primary display-4">
-                                                Visitar Página
-                                            </a>
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6 class="card-title mbr-fonts-style display-5">
+                                                <strong>Proposta 3</strong>
+                                            </h6>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                                roots in a piece of classical Latin literature from 45 BC, making it over
+                                                2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+                                                College in Virginia, looked up one of the more obscure Latin words,
+                                                consectetur, from a Lorem Ipsum passage, and going through the cites of the
+                                                word in classical literature, discovered the undoubtable source.
+                                            </p>
                                         </div>
+                                        <div class="col-md-auto">
+                                            <div class="mbr-section-btn">
+                                                <a href="proposta.html" class="btn btn-primary display-4">
+                                                    Visitar Página
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div></div>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <img src="img/temas/unknown.png" alt="Mobirise">
+                <div class="card">
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4">
+                                <div class="image-wrapper">
+                                    <img src="img/temas/unknown.png" alt="Mobirise">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-5">
-                                            <strong>Proposta 4</strong>
-                                        </h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words which don't look even slightly believable. If you are going
-                                            to use a passage of Lorem Ipsum, you need to be sure there isn't anything
-                                            embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
-                                            the Internet tend to repeat predefined chunks as necessary, making this the
-                                            first true generator on the Internet.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mbr-section-btn">
-                                            <a href="proposta.html" class="btn btn-primary display-4">
-                                                Visitar Página
-                                            </a>
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6 class="card-title mbr-fonts-style display-5">
+                                                <strong>Proposta 4</strong>
+                                            </h6>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration in some form, by injected humour, or
+                                                randomised words which don't look even slightly believable. If you are going
+                                                to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                                                embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
+                                                the Internet tend to repeat predefined chunks as necessary, making this the
+                                                first true generator on the Internet.
+                                            </p>
                                         </div>
+                                        <div class="col-md-auto">
+                                            <div class="mbr-section-btn">
+                                                <a href="proposta.html" class="btn btn-primary display-4">
+                                                    Visitar Página
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div></div>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            -->
 
         </div>
     </section>
