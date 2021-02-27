@@ -210,3 +210,59 @@ function deleteInstituicao(id) {
 }
 
 
+
+//Recomendações
+//GET recomendacao
+function getRecomendacao(id) {
+    $.get("http://201.3.251.188:5000/api/v1/recomendacao/id", function (resp, status) {
+
+        if (status == 'success') {
+            return resp
+        }
+    })
+
+}
+
+//Temas Populares
+//GET TemasPopulares
+function getTemasPopulares() {
+    $.get("http://201.3.251.188:5000/api/v1/temaspopulares", function (resp, status) {
+
+        if (status == 'success') {
+            return resp
+        }
+    })
+
+}
+
+
+//Novos Temas
+//GET NovosTemas
+function getNovosTemas() {
+    $.get("http://201.3.251.188:5000/api/v1/novostemas", function (resp, status) {
+
+        if (status == 'success') {
+            return resp
+        }
+    })
+
+}
+
+
+//Pesquisa Avançada
+//GET PesquisaAvancada
+function getNovosTemas() {
+    $.get("http://201.3.251.188:5000/api/v1/pesquisaavancada", function (resp, status) {
+
+        if (status == 'success') {
+            return resp
+        }
+    })
+
+}
+
+
+
+
+
+
