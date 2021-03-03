@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="assets/theme/css/style.css">
     <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/proposta.js"></script>
 
 
 
@@ -95,10 +96,12 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10">
                     <div class="mbr-section-head" style="display: flex;flex-direction: column;align-items: center;">
-                        <h4 class="mbr-section-title mbr-fonts-style mb-0 display-2">
-                            <strong>Título</strong>
+                        <h4 class="mbr-section-title mbr-fonts-style mb-0 display-2" id="tituloProposta">
+                            <!--
+                                <strong>Título</strong>
+                            -->
                         </h4>
-                        <h5 class="mbr-section-subtitle mbr-fonts-style mb-0 mt-2 display-7">
+                        <h5 class="mbr-section-subtitle mbr-fonts-style mb-0 mt-2 display-7" id="categoriaProposta">
                             Categoria
                         </h5>
                     </div>
@@ -109,23 +112,25 @@
                             <li data-slide-to="1" data-target="#sh0vWOavgF"></li>
                             <li data-slide-to="2" data-target="#sh0vWOavgF"></li>
                         </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item slider-image item active">
-                                <div class="item-wrapper">
-                                    <img class="d-block w-100" src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">
+                        <div class="carousel-inner" id="carroselImagem">
+                            <!--
+                                <div class="carousel-item slider-image item active">
+                                    <div class="item-wrapper">
+                                        <img class="d-block w-100" src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item slider-image item">
-                                <div class="item-wrapper">
-                                    <img class="d-block w-100" src="img/temas/91004416-robot-assembled-from-the-designer-on-the-table-robotics.jpg">
-
+                                <div class="carousel-item slider-image item">
+                                    <div class="item-wrapper">
+                                        <img class="d-block w-100" src="img/temas/91004416-robot-assembled-from-the-designer-on-the-table-robotics.jpg">
+    
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item slider-image item">
-                                <div class="item-wrapper">
-                                    <img class="d-block w-100" src="img/temas/montessori-alternative-education-pedagogy-special-materials_47726-6724.jpg">
+                                <div class="carousel-item slider-image item">
+                                    <div class="item-wrapper">
+                                        <img class="d-block w-100" src="img/temas/montessori-alternative-education-pedagogy-special-materials_47726-6724.jpg">
+                                    </div>
                                 </div>
-                            </div>
+                            -->
                         </div>
                         <a class="carousel-control carousel-control-prev" role="button" data-slide="prev"
                             href="#sh0vWOavgF">
@@ -182,15 +187,17 @@
                         <div id="tab1" class="tab-pane in active" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="mbr-text mbr-fonts-style display-7">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here', making it look like readable English. Many desktop
-                                        publishing packages and web page editors now use Lorem Ipsum as their default
-                                        model text, and a search for 'lorem ipsum' will uncover many web sites still in
-                                        their infancy. Various versions have evolved over the years, sometimes by
-                                        accident, sometimes on purpose (injected humour and the like).
+                                    <p class="mbr-text mbr-fonts-style display-7" id="textoDescricao">
+                                        <!--
+                                            It is a long established fact that a reader will be distracted by the readable
+                                            content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                            that it has a more-or-less normal distribution of letters, as opposed to using
+                                            'Content here, content here', making it look like readable English. Many desktop
+                                            publishing packages and web page editors now use Lorem Ipsum as their default
+                                            model text, and a search for 'lorem ipsum' will uncover many web sites still in
+                                            their infancy. Various versions have evolved over the years, sometimes by
+                                            accident, sometimes on purpose (injected humour and the like).
+                                        -->
                                     </p>
                                 </div>
                             </div>
@@ -198,10 +205,12 @@
                         <div id="tab2" class="tab-pane" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="mbr-text mbr-fonts-style display-7">
-                                        <b>Integrantes:</b> 2
-                                        <br>
-                                        <b>Tempo:</b> 2 anos
+                                    <p class="mbr-text mbr-fonts-style display-7" id="detalhesTecnicos">
+                                        <!--
+                                            <b id="integrantes">Integrantes:</b> 2
+                                            <br>
+                                            <b id="tempo">Tempo:</b> 2 anos
+                                        -->
                                     </p>
                                 </div>
                             </div>
@@ -209,12 +218,14 @@
                         <div id="tab3" class="tab-pane" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="mbr-text mbr-fonts-style display-7">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable. If you are going to use a passage of
-                                        Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
-                                        middle of text.
+                                    <p class="mbr-text mbr-fonts-style display-7" id="contatoProposta">
+                                        <!--
+                                            There are many variations of passages of Lorem Ipsum available, but the majority
+                                            have suffered alteration in some form, by injected humour, or randomised words
+                                            which don't look even slightly believable. If you are going to use a passage of
+                                            Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                                            middle of text.
+                                        -->
                                     </p>
                                 </div>
                             </div>
