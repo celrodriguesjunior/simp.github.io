@@ -251,8 +251,8 @@ function getNovosTemas() {
 
 //Pesquisa Avançada
 //GET PesquisaAvancada
-function getNovosTemas() {
-    $.get("simprestapi.ddns.net:5000/api/v1/pesquisaavancada", function (resp, status) {
+function getNovosTemas(dados) {
+    $.get("simprestapi.ddns.net:5000/api/v1/pesquisaavancada"+"?"+encodeQueryData(dados), function (resp, status) {
 
         if (status == 'success') {
             return resp
@@ -262,7 +262,17 @@ function getNovosTemas() {
 }
 
 
+function encodeQueryData(dados) {
+    return new URLSearchParams(dados);
+}
 
+// const dados = {
+//     var1: 'value1',
+//     var2: 'value2'
+//   }
 
+// const querystring = encodeQueryData(dados);
+
+// searchParams.toString() === 'var1=value1&var2=value2'
 
 
