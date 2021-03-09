@@ -251,7 +251,7 @@ function getNovosTemas() {
 
 //Pesquisa Avançada
 //GET PesquisaAvancada
-function getNovosTemas(dados) {
+function getPesquisaAvancada(dados) {
     $.get("simprestapi.ddns.net:5000/api/v1/pesquisaavancada"+"?"+encodeQueryData(dados), function (resp, status) {
 
         if (status == 'success') {

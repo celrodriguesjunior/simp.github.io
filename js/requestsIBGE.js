@@ -8,7 +8,7 @@ function getEstados() {
         }
     })
 
-    /*
+    /*SCHEMA
     [
         {
         id:
