@@ -1,26 +1,26 @@
 $(document).ready(function () {
 
-    getCategorias()
+    getCursos()
 
     getTemaDestaque()
 
-    getNovosTemas()
+    colocarNovosTemas()
 
-    getCursos()
-  
+    //getCursos()
+
 });
 
-function retornaCursos(curso){
+function retornaCursos(curso) {
     curso.data[0].ds_nome
 }
 
 
 
-function getCategorias() {
-
+function getCategorias(dados) {
+    //console.log(dados)
+    var divCategoria = $('#colunasCategorias')
     for (var i = 0; i < 5; i++) {
-        var divCategoria = $('#colunasCategorias')
-        var tagA = '<a href="resultadoBusca.html" class="btn btn-primary item-btn display-7" target="_blank">Categoria Destaque '+i+'</a>'
+        var tagA = '<a href="resultadoBusca.html?Categoria='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" target="_blank">' + dados.data[i].ds_nome + '</a>'
         var link = $(tagA)
         divCategoria.append(link)
     }
@@ -37,59 +37,59 @@ function getTemaDestaque() {
             divCarrossel = $('<div class="carousel-item slider-image item active">')
         else
             divCarrossel = $('<div class="carousel-item slider-image item">')
-    
-            var divItemWrapper = $('<div class="item-wrapper">')
-        
-            var divItemContent = $('<div class="item-content">')
-        
-            var divImg = $('<div class="item-img">')
-        
-            var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
-        
-            var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Tema Destaque ' + i + '</h5>')
-        
-            var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
-        
-            var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
-        
-        
-        
-            divImg.append(img)
-        
-            divSectionBtn.append(linkProposta)
-        
-            divItemContent.append(divImg)
-        
-            divItemContent.append(h5)
-        
-            divItemWrapper.append(divItemContent)
-            divItemWrapper.append(divSectionBtn)
-        
-            divCarrossel.append(divItemWrapper)
-        
-            console.log(divCarrossel)
-        
-            carrosel.append(divCarrossel)
-        
-            console.log(carrosel)
-        }
+
+        var divItemWrapper = $('<div class="item-wrapper">')
+
+        var divItemContent = $('<div class="item-content">')
+
+        var divImg = $('<div class="item-img">')
+
+        var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
+
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Tema Destaque ' + i + '</h5>')
+
+        var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
+
+        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
+
+
+
+        divImg.append(img)
+
+        divSectionBtn.append(linkProposta)
+
+        divItemContent.append(divImg)
+
+        divItemContent.append(h5)
+
+        divItemWrapper.append(divItemContent)
+        divItemWrapper.append(divSectionBtn)
+
+        divCarrossel.append(divItemWrapper)
+
+        console.log(divCarrossel)
+
+        carrosel.append(divCarrossel)
+
+        console.log(carrosel)
+    }
 
 
 
 }
 
 
-function getNovosTemas() {
+function colocarNovosTemas() {
 
+    var divGallery = $('#galeriaRow')
     for (var i = 0; i < 4; i++) {
-        var divGallery = $('#galeriaRow')
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
         var linkProposta = $('<a href="proposta.html" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
-        var pText = $('<p>Novo Tema '+i+'</p>')
+        var pText = $('<p>Novo Tema ' + i + '</p>')
 
 
         iconWrapper.append(pText)

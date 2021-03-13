@@ -19,6 +19,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/cadastroUsuario.css">
     <script src="js/cadastroUsuario.js"></script>
+    <script src="js/requestsIBGE.js"></script>
+    <script src="js/requests.js"></script>
+
+
+    <style>
+        .col-5,
+        .col-6 {
+            margin-top: 6px;
+        }
+
+        input[type=password], input[type=email] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        
+    </style>
 
 </head>
 
@@ -81,61 +101,26 @@
     <section class="gallery2 cid-sh0JK8291P" id="gallery2-t">
 
         <div class="container1">
-            <form action="action_page.php">
+            <!--<form action="action_page.php">-->
                 <div class="row">
                     <div class="col-25">
-                        <label for="fname">First Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Seu sobrenome...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="email">E-mail</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="email" name="email" placeholder="E-mail...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="emailConfirmar">Confirmar E-mail</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="emailConfirmar" name="emailConfirmar" placeholder="Confirmar E-mail...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="senha">Senha</label>
+                        <label>Tipo de Usuário:</label>
                     </div>
                     <div class="col-25">
-                        <input type="password" id="senha" name="senha" placeholder="Senha...">
-                    </div>
-                    <div class="col-25">
-                        <label for="confirmarSenha">Confirmar Senha</label>
-                    </div>
-                    <div class="col-25">
-                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar senha...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="universitario" >Universitário</label>
-                        <input type="radio" id="universitario2" name="tipoPessoa" value="universitario" ><br>
+                        <label for="universitario">Universitário</label>
+                        <input type="radio" id="universitario2" name="tipoPessoa" value="universitario"><br>
                     </div>
                     <div class="col-25">
                         <label for="instutuicao">Instituição</label>
                         <input type="radio" id="instutuicao2" name="tipoPessoa" value="instutuicao"><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname" id="labelNome">Primeiro Nome</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
                     </div>
                 </div>
                 <div class="row" id="razaoSocialDiv">
@@ -150,8 +135,49 @@
                     <div class="col-25">
                         <label for="cpnj">CNPJ</label>
                     </div>
+                    <div class="col-6">
+                        <input type="text" id="cpnj" name="cpnj" placeholder="CNPJ..." maxlength="18">
+                    </div>
+                </div>
+                <div class="row" id="labelSobrenome">
+                    <div class="col-25">
+                        <label for="lname">Sobrenome</label>
+                    </div>
                     <div class="col-75">
-                        <input type="text" id="cpnj" name="cpnj" placeholder="CNPJ...">
+                        <input type="text" id="lname" name="lastname" placeholder="Seu sobrenome...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="email">E-mail</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="email" id="email" name="email" placeholder="E-mail...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="emailConfirmar">Confirmar E-mail</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="email" id="emailConfirmar" name="emailConfirmar" placeholder="Confirmar E-mail...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="password" id="senha" name="senha" placeholder="Senha...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="password" id="confirmarSenha" name="confirmarSenha"
+                            placeholder="Confirmar senha...">
                     </div>
                 </div>
                 <div class="row" id="ramoDiv">
@@ -171,7 +197,8 @@
                         <label for="resumo">Um Resumo da Empresa</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="resumo" name="resumo" placeholder="De forma resumida, conte-nos sobre a sua Instituição"
+                        <textarea id="resumo" name="resumo"
+                            placeholder="De forma resumida, conte-nos sobre a sua Instituição"
                             style="height:200px"></textarea>
                     </div>
                 </div>
@@ -180,23 +207,50 @@
                         <label for="detalhes">Descrição mais detalhada</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="detalhes" name="detalhes" placeholder="De uma descrição mais detalhada, que será mostrada no seu perfil..."
+                        <textarea id="detalhes" name="detalhes"
+                            placeholder="De uma descrição mais detalhada, que será mostrada no seu perfil..."
                             style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="emailConfirmar">Endereço</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" id="emailConfirmar" name="emailConfirmar" placeholder="Endereço...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="states">Estado</label>
+                    </div>
+                    <div class="col-6">
+                        <select id="states" name="states">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="cities">Cidade</label>
+                    </div>
+                    <div class="col-6">
+                        <select id="cities" name="cities">
+                        </select>
                     </div>
                 </div>
                 <div class="row" id="telefoneDiv">
                     <div class="col-25">
                         <label for="phone">Telefone</label>
                     </div>
-                    <div class="col-50">
-                        <input type="text" id="phone" name="phone" placeholder="Telefone...">
+                    <div class="col-5">
+                        <input type="text" id="phone" name="phone" placeholder="Telefone..." maxlength="15">
                     </div>
                 </div>
                 <div class="row" id="horaDiv">
                     <div class="col-25">
                         <label for="hora">Horário de Funcionamento</label>
                     </div>
-                    <div class="col-75">
+                    <div class="col-5">
                         <input type="text" id="hora" name="hora" placeholder="Horário...">
                     </div>
                 </div>
@@ -214,9 +268,9 @@
                     </div>
                 </div>
                 <div class="row" style="float: right;padding-right: 0.6rem;">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="cadastrarUsuario()">
                 </div>
-            </form>
+            <!--</form>-->
         </div>
 
     </section>

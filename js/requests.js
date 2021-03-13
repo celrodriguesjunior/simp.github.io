@@ -6,7 +6,7 @@ function getCursos() {
    $.get("http://simprestapi.ddns.net:5000/v1/cursos", function (resp, status) {
 
         if (status == 'success') {
-            retornaCursos(resp)
+            getCategorias(resp)
         }
     })
 }
@@ -16,7 +16,7 @@ function getCurso(id) {
     $.get("http://simprestapi.ddns.net:5000/v1/curso/"+ id, function (resp, status) {
 
         if (status == 'success') {
-            retornaCurso(resp)
+            return resp
         }
     })
 
@@ -108,6 +108,17 @@ function getProposta(id) {
         }
     })
 
+}
+
+//GET Propostas por categoria
+function getPropostasPorCategoria(idCategoria) {
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/"+idCategoria, function (resp, status) {
+ 
+        if (status == 'success') {
+            retornaPropostasPorCategoria(resp)
+        }
+    })
+ 
 }
 
 
@@ -273,7 +284,6 @@ function getPesquisaAvancada(dados) {
     })
 
 }
-
 
 function encodeQueryData(dados) {
     return new URLSearchParams(dados);

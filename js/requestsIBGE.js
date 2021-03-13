@@ -4,7 +4,7 @@ function getEstados() {
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome", function (resp, status) {
 
         if (status == 'success') {
-            return resp
+            pegarEstados(resp) 
         }
     })
 
@@ -36,13 +36,14 @@ function getEstados() {
 
 }
 
+
 //Cidades
 //GET cidadesPorEstado
 function getCidadesPorEstado(idEstado) {
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+idEstado+"/municipios?orderBy=nome", function (resp, status) {
 
         if (status == 'success') {
-            return resp
+            pegarCidades(resp) 
         }
     })
     //SCHEMA

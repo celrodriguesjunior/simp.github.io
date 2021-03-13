@@ -1,18 +1,18 @@
 $(document).ready(function () {
 
-    getCategorias()
+    getCursos()
 
 })
 
 
 
-function getCategorias() {
+function getCategorias(dados) {
 
     var divListCategorias = $("#Categorias")
 
-    //console.log(divListCategorias)
+    console.log(dados.data.length)
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < dados.data.length; i++) {
 
         var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-6">')
 
@@ -24,7 +24,7 @@ function getCategorias() {
 
         var divItemContent = $('<div class="item-content">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Categoria ' + i + '</h5>')
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">' + dados.data[i].ds_nome + '</h5>')
 
         var divBtnSection = $('<div class="mbr-section-btn item-footer mt-2">')
 
@@ -49,26 +49,6 @@ function getCategorias() {
 
 
     }
-
-
-
-    /*
-    <div class="item features-image сol-12 col-md-6 col-lg-6">
-                    <div class="item-wrapper">
-                        <div class="item-img">
-                            <img src="img/cursos/7425388_stock-photo-computer-science-concept.jpg">
-                        </div>
-                        <div class="item-content">
-                            <h5 class="item-title mbr-fonts-style display-5">Categoria 1</h5>
-
-
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2">
-                            <a href="resultadoBusca.html" class="btn btn-primary item-btn display-7" target="_blank"> Ver Propostas</a>
-                        </div>
-                    </div>
-                </div>
-    
-    */
+    console.log(dados)
 
 }
