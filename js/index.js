@@ -11,8 +11,7 @@ $(document).ready(function () {
 });
 
 function retornaCursos(curso){
-    alert("chegoiu")
-    alert(curso)
+    curso.data[0].ds_nome
 }
 
 
