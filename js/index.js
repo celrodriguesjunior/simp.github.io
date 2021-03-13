@@ -6,7 +6,14 @@ $(document).ready(function () {
 
     getNovosTemas()
 
+    getCursos()
+  
 });
+
+function retornaCursos(curso){
+    alert("chegoiu")
+    alert(curso)
+}
 
 
 
