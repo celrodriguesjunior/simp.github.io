@@ -254,7 +254,7 @@ function postUsuario(usuario) {
 
     $.ajax({
         url: "http://simprestapi.ddns.net:5000/v1/usuario", type: "POST", data:
-            JSON.stringify(universitario), success: function (result) {
+            JSON.stringify(usuario), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
     });
