@@ -99,6 +99,17 @@ function getPropostas() {
 
 }
 
+//GET Propostas por categoria
+function getPropostasPorCategoria(idCategoria) {
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/"+idCategoria, function (resp, status) {
+
+        if (status == 'success') {
+            retornaPropostasPorCategoria(resp)
+        }
+    })
+
+}
+
 //GET Proposta
 function getProposta(id) {
     $.get("http://simprestapi.ddns.net:5000/v1/proposta/"+id, function (resp, status) {
