@@ -18,7 +18,23 @@
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/cadastroUsuario.css">
-    <script src="js/cadastroUsuario.js"></script>
+    <script src="js/cadastroProposta.js"></script>
+    <script src="js/requests.js"></script>
+
+    <style>
+        input[type=number] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        input[type=file]{
+            margin-top: 6px;
+        }
+    </style>
 
 </head>
 
@@ -81,78 +97,108 @@
     <section class="gallery2 cid-sh0JK8291P" id="gallery2-t">
 
         <div class="container1">
-            <form action="action_page.php">
+            <form action="">
                 <div class="row">
                     <div class="col-25">
-                        <label for="fname">First Name</label>
+                        <label for="tipo">Tipo</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">E-mail</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="email" name="lastname" placeholder="Your last name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Confirmar E-mail</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="emailConfirmar" name="lastname" placeholder="Your last name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Senha</label>
-                    </div>
-                    <div class="col-25">
-                        <input type="password" id="senha" name="lastname" placeholder="Your last name..">
-                    </div>
-                    <div class="col-25">
-                        <label for="lname">Confirmar Senha</label>
-                    </div>
-                    <div class="col-25">
-                        <input type="password" id="confirmarSenha" name="lastname" placeholder="Your last name..">
-                    </div>
-                </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="country" name="country">
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="usa">USA</option>
+                        <select id="tipo" name="tipo">
+                            <option value="1">TCC</option>
+                            <option value="2">Projeto de Extensão</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="subject">Subject</label>
+                        <label for="fname">Nome</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="subject" name="subject" placeholder="Write something.."
+                        <input type="text" id="nomeProposta" name="nomeProposta" placeholder="Nome da Proposta..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="categorias">Categoria</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="categorias" name="categorias">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="descricao">Descrição do Projeto</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="descricao" name="descricao" placeholder="Descreva o Projeto.."
                             style="height:200px"></textarea>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="requisitos">Requisitos</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="requisitos" name="requisitos" placeholder="Requisitos do Projeto.."
+                            style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="qtdeParticipantes">Quantidade de Participantes</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="qtdeParticipantes" name="qtdeParticipantes" min="1" max="10" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="duracao">Duração</label>
+                    </div>
+                    <div class="col-2">
+                        <input type="number" id="duracao" name="duracao">
+                    </div>
+                    <div class="col-25">
+                        <label for="duracao">Mêses</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="contato">Contato</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="contato" name="contato" placeholder="Formas de Contato.."
+                            style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="imagens">Imagem 1</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="imagens">Imagem 2</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="imagens">Imagem 3</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
+                    </div>
+                </div>
+
                 <div class="row" style="float: right;padding-right: 0.6rem;">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="salvarImg()">
                 </div>
             </form>
         </div>
