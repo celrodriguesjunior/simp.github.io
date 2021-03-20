@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/busca.js"></script>
+    <script src="js/requests.js"></script>
 
     <style>
         .qtdPessoas {
@@ -71,7 +72,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link text-black display-4" href="categorias.html">
-                                Categorias
+                                Cursos
                             </a>
                         </li>
                         <li class="nav-item">
@@ -101,7 +102,7 @@
             <div class="inner-form">
                 <div class="basic-search">
                     <div class="input-field">
-                        <input id="search" type="text" placeholder="Pesquisar..." />
+                        <input id="search" type="text" placeholder="Digite termos, descrições..." />
                         <div class="icon-wrap">
                             <svg class="svg-inline--fa fa-search fa-w-16" fill="#ccc" aria-hidden="true"
                                 data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +119,7 @@
                     <div class="row">
                         <div class="input-field">
                             <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
+                                <select id="tipo" data-trigger="" name="choices-single-defaul">
                                     <option placeholder="" value="">Tipo</option>
                                     <option>TCC</option>
                                     <option>Projeto Extensão</option>
@@ -139,9 +140,7 @@
                         <div class="input-field">
                             <div class="input-select">
                                 <select data-trigger="" name="choices-single-defaul" id="selectCategorias">
-                                        <option placeholder="" value="">Curso</option>
-                                        <option>Curso 1</option>
-                                        <option>Curso 2</option>
+                                        <option placeholder="aaaa" value="">Curso</option>
                                 </select>
                             </div>
                         </div>
@@ -153,13 +152,13 @@
 
                         <div class="input-field">
                             <div class="input-select dataField qtdPessoas">
-                                <input type="date" class="inputExterno">
+                                <input id="de" type="date" class="inputExterno">
                             </div>
                         </div>
                         <span class="desc" style="padding-top: 25px;">ATÉ</span>
                         <div class="input-field">
                             <div class="input-select dataField qtdPessoas">
-                                <input type="date" class="inputExterno" name="DataFinal">
+                                <input id="atee" type="date" class="inputExterno" name="DataFinal">
                             </div>
                         </div>
                     </div>
@@ -167,7 +166,7 @@
                     <div class="row second">
                         <div class="input-field">
                             <div class="input-select qtdPessoas">
-                                <input type="number" class="inputExterno">
+                                <input id="qtd" type="number" class="inputExterno">
                             </div>
                         </div>
                     </div>
@@ -175,7 +174,7 @@
                         <div class="input-field">
                             <div class="group-btn" style="display: flex;">
                                 <button class="btn-delete" id="delete">RESETAR</button>
-                                <a href="resultadoBusca.html">
+                                <a id="link" href="resultadoBusca.html" onclick="montaPesquisa()">
                                     <div class="btn-search"
                                         style="padding-top: 13px; background-color: #6592e6 !important;">PESQUISAR</div>
                                 </a>
@@ -186,7 +185,7 @@
             </div>
         </form>
     </div>
-
+    
     <section class="footer4 cid-sh0krBX9Gq" once="footers" id="footer4-6" style="background-color: white">
 
 
@@ -247,21 +246,7 @@
 
     <script src="js/extention/choices.js"></script>
     <script>
-        const customSelects = document.querySelectorAll("select");
-        const deleteBtn = document.getElementById('delete')
-        const choices = new Choices('select',
-            {
-                searchEnabled: false,
-                itemSelectText: '',
-                removeItemButton: true,
-            });
-        deleteBtn.addEventListener("click", function (e) {
-            e.preventDefault()
-            const deleteAll = document.querySelectorAll('.choices__button')
-            for (let i = 0; i < deleteAll.length; i++) {
-                deleteAll[i].click();
-            }
-        });
+        getCursosBusca()
 
     </script>
     <script src="assets/web/assets/jquery/jquery.min.js"></script>

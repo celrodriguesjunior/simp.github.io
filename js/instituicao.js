@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var url = new URL(window.location.href)
     
-    console.log(url.searchParams.get("id"))
+    
     getInstituicao(url.searchParams.get("id"))
     
 })

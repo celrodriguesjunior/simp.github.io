@@ -10,17 +10,17 @@ $(document).ready(function () {
 
 });
 
-function retornaCursos(curso) {
-    curso.data[0].ds_nome
-}
+// function retornaCursos(curso) {
+//     curso.data[0].ds_nome
+// }
 
 
 
-function getCategorias(dados) {
+function retornaCursos(dados) {
     //console.log(dados)
     var divCategoria = $('#colunasCategorias')
     for (var i = 0; i < 5; i++) {
-        var tagA = '<a href="resultadoBusca.html?Categoria='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" target="_blank">' + dados.data[i].ds_nome + '</a>'
+        var tagA = '<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso='+dados.data[i].nr_id+'&qt_participantes=&ds_nome_ds_desc_projeto=" class="btn btn-primary item-btn display-7">' + dados.data[i].ds_nome + '</a>'
         var link = $(tagA)
         divCategoria.append(link)
     }
@@ -50,7 +50,7 @@ function getTemaDestaque() {
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
 
 
 
@@ -106,4 +106,9 @@ function colocarNovosTemas() {
 
 
 }
+
+function pesquisar(){
+    window.location='resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso=&qt_participantes=&ds_nome_ds_desc_projeto='+$('#barraPesquisa')[0].value
+}
+
 
