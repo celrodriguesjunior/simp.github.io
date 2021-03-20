@@ -1,33 +1,35 @@
 $(document).ready(function () {
-
-    getInstituicao()
-
+    var url = new URL(window.location.href)
+    
+    console.log(url.searchParams.get("id"))
+    getInstituicao(url.searchParams.get("id"))
+    
 })
 
-function getInstituicao() {
+function retornaInstituicao(dados) {
+    var instituicao = dados.data
 
-    getCabecalho()
 
-    getDescricao()
+    getCabecalho(instituicao)
 
-    getPropostasFeitas()
+    getDescricao(instituicao)
 
-    getContatos()
+    getPropostasInstituicao(instituicao.nr_id)
+
+    getContatos(instituicao)
 
 }
 
 
 
-function getCabecalho() {
+function getCabecalho(instituicao) {
 
 
     var cabecalho = $('#cabecalho')
 
-    var h5Nome = $('<h5 class="mbr-title mbr-fonts-style display-2"><strong>Nome Instituicao1</strong></h5>')
+    var h5Nome = $('<h5 class="mbr-title mbr-fonts-style display-2"><strong> '+ instituicao.ds_razao_social + '</strong></h5>')
 
-    var resumo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada vestibulum diam eu" +
-        "consectetur. Maecenas faucibus cursus arcu ac interdum. Lorem ipsum dolor sit amet," +
-        "consectetur adipiscing elit. In molestie nisl metus, a congue purus egestas at.";
+    var resumo = instituicao.ds_resumo;
 
     var pText = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
@@ -39,18 +41,11 @@ function getCabecalho() {
 
 }
 
-function getDescricao() {
+function getDescricao(instituicao) {
 
     var descricao = $('#descricaoTexto')
 
-    var texto = "Nunc hendrerit quis dolor vel tempor. Ut id magna ut ligula consequat placerat eget nec ipsum." +
-        "Pellentesque eu fermentum tellus.Integer interdum semper varius.Fusce sed volutpat felis, nec" +
-        "sodales mi.Proin sapien purus, porttitor ac diam ut, fermentum gravida sapien.Morbi tempus" +
-        "sollicitudin eleifend.Duis sit amet pellentesque lorem.Suspendisse et aliquam sem.Maecenas" +
-        "quis interdum turpis.Nunc non diam a ligula dignissim molestie at ac nisl.Donec facilisis arcu" +
-        "in lacus porta, semper sagittis orci ullamcorper.Integer ultrices maximus massa, at malesuada" +
-        "lorem accumsan vel.Aenean a mauris id sem sollicitudin placerat.Etiam accumsan orci ac sapien" +
-        "consectetur, quis tempor dolor dictum."
+    var texto = instituicao.ds_descricao
 
     var pDescricao = $('<p class="mbr-text mbr-fonts-style display-7">' + texto + '</p>')
 
@@ -59,11 +54,11 @@ function getDescricao() {
 }
 
 
-function getPropostasFeitas() {
-
+function retornaPropostasInstituicao(propostas) {
+    var propostas = propostas.data
     var listaPropostas = $("#PropostasFeitas")
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < propostas.length; i++) {
 
         var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
 
@@ -75,13 +70,13 @@ function getPropostasFeitas() {
 
         var divItemContent = $('<div class="item-content">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Proposta ' + i + '</strong></h5>')
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + propostas[i].ds_nome + '</strong></h5>')
 
-        var textoResumo = "Etiam quis mollis nisl. Mauris tincidunt nisl lorem, quis porttitor enim malesuada in."
+        var textoResumo = propostas[i].ds_desc_projeto
 
         var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
 
-        var aLink = $('<a href="proposta.html" class="text-primary">Saiba Mais</a>')
+        var aLink = $('<a href="proposta.html?id='+propostas[i].nr_id +'" class="text-primary"> <br>Saiba Mais</a>')
 
         pResumo.append(aLink)
 
@@ -100,27 +95,28 @@ function getPropostasFeitas() {
 
 }
 
-function getContatos() {
+function getContatos(instituicao) {
 
-    getTelefone()
+    getTelefone(instituicao)
 
-    getEmail()
+    getEmail(instituicao)
 
-    getEndereco()
+    getLocalizacao(instituicao.nr_id_localizacao)
+    
 
-    getHorario()
+    getHorario(instituicao)
 
 }
 
-function getTelefone() {
+function getTelefone(instituicao) {
 
     var divTelefone = $('#telefone')
 
     var p = $('<p class="mbr-text mbr-fonts-style display-7">')
 
-    var telefone = "991765793"
+    
 
-    var aLink = $('<a href="tel:+' + telefone + '" class="text-primary">' + telefone + '</a>')
+    var aLink = $('<a href="tel:+' + instituicao.ds_telefone + '" class="text-primary">' + instituicao.ds_telefone + '</a>')
     //dps ver para formatar telefone
 
     p.append(aLink)
@@ -130,15 +126,15 @@ function getTelefone() {
 
 }
 
-function getEmail() {
+function getEmail(instituicao) {
 
     var divEmail = $('#email')
 
     var p = $('<p class="mbr-text mbr-fonts-style display-7">')
 
-    var email = "info@site1.com"
+    
 
-    var aLink = $('<a href="mailto:' + email + '" class="text-primary">' + email + '</a>')
+    var aLink = $('<a href="mailto:' + instituicao.ds_email_contato + '" class="text-primary">' + instituicao.ds_email_contato + '</a>')
 
     p.append(aLink)
 
@@ -154,25 +150,26 @@ function getEmail() {
 }
 
 
-function getEndereco() {
+function retornaLocalizacao(localizacao) {
+    localizacao = localizacao.data
 
     var divEndereco = $('#endereco')
 
-    var endereco = "R. Antônio da Veiga, 140 - Itoupava Seca, Blumenau"
+    
 
-    var p = $('<p class="mbr-text mbr-fonts-style display-7">' + endereco + '</p>')
+    var p = $('<p class="mbr-text mbr-fonts-style display-7">' + localizacao.ds_estado+' - '+localizacao.ds_cidade+'</p>')
 
     divEndereco.append(p)
 
 }
 
-function getHorario() {
+function getHorario(instituicao) {
 
     var divHorario = $('#horaAtendimento')
 
-    var atendimento = "7:30 - 22:00"
+    
 
-    var p = $('<p class="mbr-text mbr-fonts-style display-7">' + atendimento + '</p>')
+    var p = $('<p class="mbr-text mbr-fonts-style display-7">' + instituicao.ds_horario_funcionamento + '</p>')
 
     divHorario.append(p)
 

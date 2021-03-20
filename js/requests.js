@@ -169,6 +169,19 @@ function deleteProposta(id) {
 
 }
 
+//GET Propostas por instituição
+function getPropostasInstituicao(id) {
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/instituicao/"+id, function (resp, status) {
+
+        if (status == 'success') {
+            retornaPropostasInstituicao(resp)
+        }
+    })
+
+}
+
+
+
 
 
 //instituicoes
@@ -283,6 +296,18 @@ function postUsuario(usuario) {
 
 }
 
+
+//Localizacoes
+//GET localizacao
+function getLocalizacao(id) {
+    $.get("http://simprestapi.ddns.net:5000/v1/localizacao/"+id, function (resp, status) {
+
+        if (status == 'success') {
+            retornaLocalizacao(resp)
+        }
+    })
+
+}
 
 //Pesquisa Avançada
 //GET PesquisaAvancada
