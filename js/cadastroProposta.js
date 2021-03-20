@@ -22,10 +22,26 @@ function getCategorias(dados) {
 }
 
 
-function salvarImg() {
+function salvarProposta() {
+    var dados = {
+        "nr_id_curso" : $('#categorias').val(),
+        "nr_id_instituicao" : $('#categorias').val(),
+        "nr_id_proposta_uni" : 1,
+        "ds_nome" : "",
+        "ds_desc_projeto" : "Gravado",
+        "cd_status" : "AB",
+        "ds_requisito" : "",
+        "qt_participantes" : 2,
+        "ds_info_contatos" : "",
+        "ds_tipo" : "",
+        "dt_geracao" : "2021-03-13T00:00:00-03:00"    
+}
 
-    let blob = new Blob([texto], { type: "image" });
-    saveAs(blob, titulo + ".txt");
+    postProposta(dados)
+
+
+    // let blob = new Blob([texto], { type: "image" });
+    // saveAs(blob, titulo + ".txt");
 
 
 }
