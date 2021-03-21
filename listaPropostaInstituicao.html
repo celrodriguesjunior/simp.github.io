@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+    <!-- Site made with Mobirise Website Builder v5.0.29, https://mobirise.com -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <meta name="generator" content="Mobirise v5.0.29, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="img/logo_lampada.png" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>ResultadoBusca</title>
     <link rel="stylesheet" href="assets/tether/tether.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -17,29 +22,17 @@
     <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/cadastroUsuario.css">
-    <script src="js/cadastroProposta.js"></script>
+    <script src="js/listaPropostaInitutuicao.js"></script>
     <script src="js/requests.js"></script>
     <script src="js/geral.js"></script>
 
-    <style>
-        input[type=number] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            resize: vertical;
-        }
 
-        input[type=file]{
-            margin-top: 6px;
-        }
-    </style>
+
 
 </head>
 
 <body>
+
     <section class="menu menu1 cid-sh0bLgfLHk" once="menu" id="menu1-4">
 
 
@@ -71,7 +64,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link text-black display-4" href="categorias.html">
-                                Cursos
+                                Categorias
                             </a>
                         </li>
                         <li class="nav-item">
@@ -90,113 +83,24 @@
         </nav>
     </section>
 
-    <section class="gallery2 cid-sh0JK8291P" id="gallery2-t">
-        <h1 style="text-align: center;" id="tituloPaginaProposta">Cadastro de Proposta</h1>
-        <div class="container1">
-                <div class="row">
-                    <div class="col-25">
-                        <label for="tipo">Tipo</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="tipo" name="tipo">
-                            <option value="1">TCC</option>
-                            <option value="2">Projeto de Extensão</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="fname">Nome</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="nomeProposta" name="nomeProposta" placeholder="Nome da Proposta..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="categorias">Cursos</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="categorias" name="categorias">
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="descricao">Descrição do Projeto</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="descricao" name="descricao" placeholder="Descreva o Projeto.."
-                            style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="requisitos">Requisitos</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="requisitos" name="requisitos" placeholder="Requisitos do Projeto.."
-                            style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="qtdeParticipantes">Quantidade de Participantes</label>
-                    </div>
-                    <div class="col-2">
-                        <input type="number" id="qtdeParticipantes" name="qtdeParticipantes" min="1" max="10" >
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="duracao">Duração</label>
-                    </div>
-                    <div class="col-2">
-                        <input type="number" id="duracao" name="duracao">
-                    </div>
-                    <div class="col-25">
-                        <label for="duracao">Mêses</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="contato">Contato</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="contato" name="contato" placeholder="Formas de Contato.."
-                            style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="imagens">Imagem 1</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="imagens">Imagem 2</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="imagens">Imagem 3</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="file" id="img" name="imagens" accept="image/*" multiple>
-                    </div>
-                </div>
 
-                <div class="row" style="float: right;padding-right: 0.6rem;">
-                    <input type="submit" value="Submit" onclick="salvarProposta()">
+    <section class="content4 cid-sh0D1rWWoz" id="content4-n">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="title col-md-12 col-lg-10">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
+                        <strong>Minhas Propostas</strong>
+                    </h3>
                 </div>
+            </div>
         </div>
+    </section>
 
+
+    <section class="features8 cid-sh0CsUhlUl" xmlns="http://www.w3.org/1999/html" id="features9-m">
+        <div class="container" id="listaResultados">
+        </div>
     </section>
 
     <section class="footer4 cid-sh0krBX9Gq" once="footers" id="footer4-6" style="background-color: white">
@@ -256,6 +160,18 @@
             </div>
         </div>
     </section>
+
+
+    <script src="assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/tether/tether.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="assets/dropdown/js/nav-dropdown.js"></script>
+    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="assets/theme/js/script.js"></script>
+
 
 
 </body>

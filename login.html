@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <script src="login.js"></script>
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/cadastroUsuario.css">
+    <script src="/js/login.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <title>Log In</title>
@@ -23,8 +35,8 @@
             </div>
         </div>
     </header>
-    <div>
 
+    <div>
         <div class="container">
             <!--<label for="uname"><b>Usuário</b></label>-->
             <input type="text" placeholder="Usuário" id="nickname">
@@ -32,11 +44,15 @@
             <!--<label for="psw"><b>Senha</b></label>-->
             <input type="password" placeholder="Senha" id="senha">
 
-            <button><a href="index.html" style="color: white; text-decoration: none;" id="loginA">Login</a></button>
+            <div class="row" style="float: right;padding-right: 0.6rem;">
+                <input type="submit" value="Submit" onclick="logarSistema()">
+            </div>
+
         </div>
         <div class="container" style="display: flex; flex-direction: column;">
-            <span class="psw" style="text-align: end;"><a href="cadastroUsuario.html">Não possui uma conta? Cadastre agora mesmo!</a></span>
-            <span class="psw" style="text-align: end;"><a href="#">Esqueceu a senha? Redefina aqui!</a></span>
+            <span class="psw" style="text-align: end;"><a href="cadastroUsuario.html">Não possui uma conta? Cadastre
+                    agora mesmo!</a></span>
+            <!--<span class="psw" style="text-align: end;"><a href="#">Esqueceu a senha? Redefina aqui!</a></span>-->
         </div>
 
     </div>
