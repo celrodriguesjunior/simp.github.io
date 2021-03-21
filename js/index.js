@@ -2,9 +2,11 @@ $(document).ready(function () {
 
     getCursos()
 
-    getTemaDestaque()
+    //getPropostas() // dps trocar para o populares
 
-    colocarNovosTemas()
+    getTemasPopulares()
+
+    getNovosTemas()
 
     //getCursos()
 
@@ -27,11 +29,11 @@ function getCategorias(dados) {
 
 }
 
+function retornaTemasPopulares(dados) {
 
-function getTemaDestaque() {
-
+    var limite = dados.data.length < 3 ? dados.data.length : 3
     var carrosel = $('#carroselSlider')
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < limite; i++) {
         var divCarrossel;
         if (i == 0)
             divCarrossel = $('<div class="carousel-item slider-image item active">')
@@ -46,11 +48,13 @@ function getTemaDestaque() {
 
         var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">Tema Destaque ' + i + '</h5>')
+        var titulo = dados.data[i].ds_nome
+
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-5">' + titulo + '</h5>')
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html?id='+ dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
 
 
 
@@ -67,11 +71,8 @@ function getTemaDestaque() {
 
         divCarrossel.append(divItemWrapper)
 
-        console.log(divCarrossel)
-
         carrosel.append(divCarrossel)
 
-        console.log(carrosel)
     }
 
 
@@ -79,17 +80,18 @@ function getTemaDestaque() {
 }
 
 
-function colocarNovosTemas() {
+function retornaNovosTemas(dados) {
 
     var divGallery = $('#galeriaRow')
-    for (var i = 0; i < 4; i++) {
+    var limite = dados.data.length < 4 ? dados.data.length : 4
+    for (var i = 0; i < limite; i++) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
-        var linkProposta = $('<a href="proposta.html" style="color: white;">')
+        var linkProposta = $('<a href="proposta.html?id='+ dados.data[i].nr_id+'" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
-        var pText = $('<p>Novo Tema ' + i + '</p>')
+        var pText = $('<p style="text-align: center;">' + dados.data[i].ds_nome + '</p>')
 
 
         iconWrapper.append(pText)

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //getCategorias()
+    getCategorias()
 
 })
 
@@ -10,7 +10,7 @@ function getCategorias() {
     var selectCategoria = $('#selectCategorias')
     console.log(selectCategoria)
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 10; i++) {
         var option;
         if (i == 0)
             option = $('<option placeholder="" >Categoria ' + i + '</option>')

@@ -2,7 +2,7 @@ $(document).ready(function () {
     setEvents()
     $('#universitario2').click()
 
-    $("#cpnj").on("keyup", function (e) {
+    $("#cnpj").on("keyup", function (e) {
         $(this).val(
             $(this).val()
                 .replace(/\D/g, '')
@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 
     $("#phone").on("keyup", function (e) {
-        var r =  $(this).val().replace(/\D/g, "");
+        var r = $(this).val().replace(/\D/g, "");
         r = r.replace(/^0/, "");
         if (r.length > 10) {
             r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
 
 
-    $("#cpnj").blur(function () {
+    $("#cnpj").blur(function () {
         if ($(this).val() == "")
             if (!validarCNPJ($(this).val()))
                 alert("CNPJ inválido")
@@ -172,12 +172,39 @@ function pegarCidades(dados) {
 
 
 
-function cadastrarUsuario(){
-    var dados = {"ds_email" : $('#email').val(),
-                "ds_senha" : $('#senha').val(),
-                "ds_nome_exibido" : $('#fname').val() + " " + $('#lname').val()
-            }
+function cadastrarUsuario() {
 
+    var dados;
+
+    if ($('#universitario2').is(':checked')) {
+        dados = {
+            "ds_email": $('#email').val(),
+            "ds_senha": $('#senha').val(),
+            "ds_nome_exibido": $('#fname').val() + " " + $('#lname').val(),
+            "ds_ramo": $("#ramo").val(),
+            "ds_resumo": $('#resumo').val()
+        }
+    } else {
+        dados = {
+            "ds_email": $('#email').val(),
+            "ds_senha": $('#senha').val(),
+            "ds_nome_exibido": $('#fname').val(),
+            "ds_razao_social": $('#razaoSocial').val(),
+            "cd_cnpj": $('#cnpj').val(),
+            "ds_ramo": $("#ramo").val(),
+            "ds_resumo": $('#resumo').val(),
+            "ds_descricao": $('#detalhes').val(),
+            "ds_telefone": $('#phone').val(),
+            "ds_horario_funcionamento": $('#hora').val(),
+            "nr_id_cidade": Number($('#cities').val()),
+            "nr_id_estado": Number($('#states').val())
+        }
+        console.log("inst.")
+    }
+
+
+
+    console.log(dados)
     postUsuario(dados)
 
     //alert("usuario criado")
