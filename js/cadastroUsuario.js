@@ -173,7 +173,18 @@ function pegarCidades(dados) {
     $('#cities').val(0)
 }
 
-
+// {
+//     "ds_email": "wilmello@furb.br",
+//     "ds_senha": "1234",
+//     "ds_nome_exibido": "William Mello",
+//     "nr_id_instituicao": 1,
+//     "nr_id_cidade": 1,
+//     "nr_id_estado": 1,
+//     "ds_nome": "William",
+//     "ds_sobrenome": "Mello",
+//     "ds_telefone": "(47) 9 9772-2325",
+//     "ds_grau": "1"
+//   }
 
 function cadastrarUsuario() {
 
@@ -184,8 +195,14 @@ function cadastrarUsuario() {
             "ds_email": $('#email').val(),
             "ds_senha": $('#senha').val(),
             "ds_nome_exibido": $('#fname').val() + " " + $('#lname').val(),
-            "ds_ramo": $("#ramo").val(),
-            "ds_resumo": $('#resumo').val()
+            "nr_id_instituicao":  Number($("#country").val()),
+            "nr_id_cidade": Number($('#cities').val()),
+            "nr_id_estado": Number($('#states').val()),
+            "ds_nome": $("#fname").val(),
+            "ds_sobrenome": $("#lname").val(),
+            "ds_telefone": $('#phone').val(),
+            "ds_grau": $("#grau").val(),
+            
         }
     } else {
         dados = {
