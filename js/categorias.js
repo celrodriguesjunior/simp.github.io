@@ -10,7 +10,7 @@ function retornaCursos(dados) {
 
     var divListCategorias = $("#Categorias")
 
-    console.log(dados.data.length)
+    
 
     for (var i = 0; i < dados.data.length; i++) {
 
@@ -28,7 +28,7 @@ function retornaCursos(dados) {
 
         var divBtnSection = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var aBtnPrimary = $('<a href="resultadoBusca.html" class="btn btn-primary item-btn display-7" target="_blank"> Ver Propostas</a>')
+        var aBtnPrimary = $('<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso='+dados.data[i].nr_id+'&qt_participantes=&ds_nome_ds_desc_projeto=" class="btn btn-primary item-btn display-7"> Ver Propostas</a>')
 
 
         divBtnSection.append(aBtnPrimary)

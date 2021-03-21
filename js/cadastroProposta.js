@@ -14,7 +14,7 @@ function retornaCursos(dados) {
     //<option value="1">FURB</option>
 
     for (var i = 0; i < dados.data.length; i++) {
-        var opcao = $('<option value="' + dados.data[i].id + '">' + dados.data[i].ds_nome + '</option>')
+        var opcao = $('<option value="' + dados.data[i].nr_id + '">' + dados.data[i].ds_nome + '</option>')
         $('#categorias').append(opcao)
     }
 
