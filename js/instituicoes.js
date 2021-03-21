@@ -28,7 +28,7 @@ function retornaInstituicoes(dados) {
 
         var divFooter = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var aLink = $('<a href="instituicao.html?id='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" target="_blank">Saiba Mais</a>')
+        var aLink = $('<a href="instituicao.html?id='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" >Saiba Mais</a>')
 
         
 

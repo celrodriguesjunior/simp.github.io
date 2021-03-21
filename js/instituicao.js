@@ -101,11 +101,41 @@ function getContatos(instituicao) {
 
     getEmail(instituicao)
 
-    getLocalizacao(instituicao.nr_id_localizacao)
+    getEstado(instituicao.nr_id_estado)
+    getCidade(instituicao.nr_id_cidade)
+    
+        
+        
     
 
     getHorario(instituicao)
 
+}
+
+function retornaEstado(localizacao){
+   
+
+    var divEndereco = $('#endereco')
+
+    // ' - '+localizacao.ds_cidade+'
+
+    var p = $('<p id="enderecoP" class="mbr-text mbr-fonts-style display-7">' + localizacao.nome+'</p>')
+
+    divEndereco.append(p)
+}
+
+
+
+function retornaCidade(localizacao){
+  
+
+    var divEndereco = $('#enderecoP')
+
+    // ' - '+localizacao.ds_cidade+'
+
+    var p = $('<p id="enderecoP" class="mbr-text mbr-fonts-style display-7">' + localizacao.nome+'</p>')
+
+    divEndereco.append(p)
 }
 
 function getTelefone(instituicao) {
@@ -134,7 +164,7 @@ function getEmail(instituicao) {
 
     
 
-    var aLink = $('<a href="mailto:' + instituicao.ds_email_contato + '" class="text-primary">' + instituicao.ds_email_contato + '</a>')
+    var aLink = $('<a href="mailto:' + (instituicao.ds_email_contato ? instituicao.ds_email_contato : "") + '" class="text-primary">' + (instituicao.ds_email_contato ? instituicao.ds_email_contato : "") + '</a>')
 
     p.append(aLink)
 
@@ -150,18 +180,6 @@ function getEmail(instituicao) {
 }
 
 
-function retornaLocalizacao(localizacao) {
-    localizacao = localizacao.data
-
-    var divEndereco = $('#endereco')
-
-    
-
-    var p = $('<p class="mbr-text mbr-fonts-style display-7">' + localizacao.ds_estado+' - '+localizacao.ds_cidade+'</p>')
-
-    divEndereco.append(p)
-
-}
 
 function getHorario(instituicao) {
 

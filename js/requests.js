@@ -288,7 +288,7 @@ function deleteInstituicao(id) {
 //Recomendações
 //GET recomendacao
 function getRecomendacao(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/recomendacao/" + id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/recomendacoes/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaRecomendacao(resp)

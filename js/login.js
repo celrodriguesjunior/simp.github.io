@@ -14,3 +14,6 @@ function logarSistema() {
     localStorage.setItem('id_user','1')
 
 }
+    localStorage.setItem("recomendacoes","0")
+    
+})

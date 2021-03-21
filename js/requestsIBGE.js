@@ -42,7 +42,7 @@ function getEstado(id) {
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + id, function (resp, status) {
 
         if (status == 'success') {
-
+            retornaEstado(resp)
         }
     })
 
@@ -71,7 +71,7 @@ function getCidade(id) {
     $.get("https://servicodados.ibge.gov.br/api/v1/localidades/municipios/" + id, function (resp, status) {
 
         if (status == 'success') {
-
+            retornaCidade(resp)
         }
     })
 
