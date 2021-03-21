@@ -30,6 +30,7 @@ function retornaCursosPopulares(dados) {
 function retornaTemasPopulares(dados) {
 
     var limite = dados.data.length < 3 ? dados.data.length : 3
+    //console.log(limite)
     dados = dados.data
 
     var carrosel = $('#carroselSlider')
@@ -48,7 +49,7 @@ function retornaTemasPopulares(dados) {
 
         var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
 
-        var titulo = dados.data[i].ds_nome
+        var titulo = dados[i].ds_nome
 
         var h5 = $('<h5 class="item-title mbr-fonts-style display-5">' + titulo + '</h5>')
 
@@ -81,9 +82,9 @@ function retornaTemasPopulares(dados) {
 
 
 function retornaNovosTemas(dados) {
+    var limite = dados.data.length < 4 ? dados.data.length : 4
     dados = dados.data
     var divGallery = $('#galeriaRow')
-    var limite = dados.data.length < 4 ? dados.data.length : 4
     for (var i = 0; i < limite; i++) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
@@ -92,7 +93,7 @@ function retornaNovosTemas(dados) {
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
-        var pText = $('<p style="text-align: center;">' + dados.data[i].ds_nome + '</p>')
+        var pText = $('<p style="text-align: center;">' + dados[i].ds_nome + '</p>')
 
 
         iconWrapper.append(pText)
