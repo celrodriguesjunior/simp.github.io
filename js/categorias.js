@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 
 
-function getCategorias(dados) {
+function retornaCursos(dados) {
 
     var divListCategorias = $("#Categorias")
 

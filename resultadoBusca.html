@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/resultadoBusca.js"></script>
+    <script src="js/requests.js"></script>
 
 
 
@@ -108,9 +109,9 @@
                 <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
                     <div class="search-container" style="display: flex; flex-direction: column;">
                         <div>
-                            <input type="text" name="q" value="Pesquisar..." style="width: 80%;">
+                            <input type="text" name="q" id="barraPesquisa" placeholder="Pesquisar..." style="width: 80%;">
                             
-                                <input type="submit" value="Pesquisar" style="width: 19%;" onclick="window.location='resultadoBusca.html'">
+                                <input type="submit" value="Pesquisar" style="width: 19%;" onclick="window.location='resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso=&qt_participantes=&ds_nome_ds_desc_projeto='+$('#barraPesquisa')[0].value">
                             
                         </div>
                         <br>

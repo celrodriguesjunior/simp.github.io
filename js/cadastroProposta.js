@@ -9,8 +9,8 @@ $(document).ready(function () {
 })
 
 
-function getCategorias(dados) {
-    console.log(dados)
+function retornaCursos(dados) {
+    // console.log(dados)
     //<option value="1">FURB</option>
 
     for (var i = 0; i < dados.data.length; i++) {

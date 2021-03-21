@@ -2,25 +2,64 @@
 //CURSOS
 //GET cursos
 function getCursos() {
-    
-   $.get("http://simprestapi.ddns.net:5000/v1/cursos", function (resp, status) {
+
+    $.get("http://simprestapi.ddns.net:5000/v1/cursos", function (resp, status) {
 
         if (status == 'success') {
-            getCategorias(resp)
+            retornaCursos(resp)
+        }
+    })
+}
+
+//GET cursos
+function getCursosPopulares() {
+
+    $.get("http://simprestapi.ddns.net:5000/v1/cursos", function (resp, status) {
+
+        if (status == 'success') {
+            retornaCursosPopulares(resp)
         }
     })
 }
 
 //GET curso
 function getCurso(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/curso/"+ id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/curso/" + id, function (resp, status) {
 
         if (status == 'success') {
-            return resp
+            retornaCurso(resp)
         }
     })
 
 }
+
+//GET curso
+function getCursosBusca() {
+    $.get("http://simprestapi.ddns.net:5000/v1/cursos/", function (resp, status) {
+
+        if (status == 'success') {
+            retornaCursos(resp)
+            const customSelects = document.querySelectorAll("select");
+            const deleteBtn = document.getElementById('delete')
+            const choices = new Choices('select',
+                {
+                    searchEnabled: false,
+                    itemSelectText: '',
+                    removeItemButton: true,
+                });
+            deleteBtn.addEventListener("click", function (e) {
+                e.preventDefault()
+                const deleteAll = document.querySelectorAll('.choices__button')
+                for (let i = 0; i < deleteAll.length; i++) {
+                    deleteAll[i].click();
+                }
+            });
+            
+        }
+    })
+
+}
+
 
 
 //aa
@@ -39,7 +78,7 @@ function getUniversitarios() {
 
 //GET Universitarios
 function getUniversitario(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/universitario/"+id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/universitario/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaUniversitario(resp)
@@ -101,7 +140,7 @@ function getPropostas() {
 
 //GET Propostas por categoria
 function getPropostasPorCategoria(idCategoria) {
-    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/"+idCategoria, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/" + idCategoria, function (resp, status) {
 
         if (status == 'success') {
             retornaPropostasPorCategoria(resp)
@@ -111,8 +150,8 @@ function getPropostasPorCategoria(idCategoria) {
 }
 
 //GET Proposta
-function getProposta(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/proposta/"+id, function (resp, status) {
+function getProposta(id, idUsuario) {
+    $.get("http://simprestapi.ddns.net:5000/v1/proposta?nr_id="+id+"&nr_id_usuario=" + idUsuario, function (resp, status) {
 
         if (status == 'success') {
             retornaProposta(resp)
@@ -123,13 +162,13 @@ function getProposta(id) {
 
 //GET Propostas por categoria
 function getPropostasPorCategoria(idCategoria) {
-    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/"+idCategoria, function (resp, status) {
- 
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/categoria/" + idCategoria, function (resp, status) {
+
         if (status == 'success') {
             retornaPropostasPorCategoria(resp)
         }
     })
- 
+
 }
 
 
@@ -171,7 +210,7 @@ function deleteProposta(id) {
 
 //GET Propostas por instituição
 function getPropostasInstituicao(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/propostas/instituicao/"+id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/propostas/instituicao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaPropostasInstituicao(resp)
@@ -198,7 +237,7 @@ function getInstituicoes() {
 
 //GET instituicao
 function getInstituicao(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/instituicao/"+id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/instituicao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaInstituicao(resp)
@@ -249,7 +288,7 @@ function deleteInstituicao(id) {
 //Recomendações
 //GET recomendacao
 function getRecomendacao(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/recomendacao/"+id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/recomendacao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaRecomendacao(resp)
@@ -289,7 +328,7 @@ function postUsuario(usuario) {
 
     $.ajax({
         url: "http://simprestapi.ddns.net:5000/v1/usuario", type: "POST", data:
-            JSON.stringify(usuario), success: function (result) {
+            JSON.stringify(usuario),success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
     });
@@ -300,7 +339,7 @@ function postUsuario(usuario) {
 //Localizacoes
 //GET localizacao
 function getLocalizacao(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/localizacao/"+id, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/localizacao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaLocalizacao(resp)
@@ -311,13 +350,39 @@ function getLocalizacao(id) {
 
 //Pesquisa Avançada
 //GET PesquisaAvancada
-function getPesquisaAvancada(dados) {
-    $.get("http://simprestapi.ddns.net:5000/v1/pesquisaavancada"+"?"+encodeQueryData(dados), function (resp, status) {
+// function getPesquisaAvancada(dados) {
+//     $.get("http://simprestapi.ddns.net:5000/v1/pesquisaavancada" + "?" + dados, function (resp, status) {
 
-        if (status == 'success') {
-            retornaPesquisaAvancada(resp)
-        }
-    })
+//         if (status == 'success') {
+
+//             retornaPesquisaAvancada(resp)
+//         }
+        
+            
+        
+        
+//     }).fail(function(){
+//         // script = document.createElement("script");
+//         // script.setAttribute("src", "resultadoBusca.js")
+//         // document.querySelector('body').appendChild(script)
+//         retornaPesquisaAvancadaVazia()
+//     })
+    
+// }
+
+
+function getPesquisaAvancada(dados) {
+
+    $.ajax({
+        url: "http://simprestapi.ddns.net:5000/v1/pesquisaavancada" + "?" + dados, type: "GET", data:
+            JSON.stringify(dados),success: function (resp) {
+                retornaPesquisaAvancada(resp)
+            },   statusCode: {
+                404: function() {
+                    retornaPesquisaAvancadaVazia()
+                }
+              }, contentType: "application/json"
+    });
 
 }
 

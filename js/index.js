@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-    getCursos()
-
-    //getPropostas() // dps trocar para o populares
+    getCursosPopulares()
 
     getTemasPopulares()
 
@@ -12,17 +10,17 @@ $(document).ready(function () {
 
 });
 
-function retornaCursos(curso) {
-    curso.data[0].ds_nome
-}
+// function retornaCursos(curso) {
+//     curso.data[0].ds_nome
+// }
 
 
 
-function getCategorias(dados) {
+function retornaCursosPopulares(dados) {
     //console.log(dados)
     var divCategoria = $('#colunasCategorias')
     for (var i = 0; i < 5; i++) {
-        var tagA = '<a href="resultadoBusca.html?Categoria='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" target="_blank">' + dados.data[i].ds_nome + '</a>'
+        var tagA = '<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso='+dados.data[i].nr_id+'&qt_participantes=&ds_nome_ds_desc_projeto=" class="btn btn-primary item-btn display-7">' + dados.data[i].ds_nome + '</a>'
         var link = $(tagA)
         divCategoria.append(link)
     }
@@ -32,6 +30,8 @@ function getCategorias(dados) {
 function retornaTemasPopulares(dados) {
 
     var limite = dados.data.length < 3 ? dados.data.length : 3
+    dados = dados.data
+
     var carrosel = $('#carroselSlider')
     for (var i = 0; i < limite; i++) {
         var divCarrossel;
@@ -54,7 +54,7 @@ function retornaTemasPopulares(dados) {
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html?id='+ dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7"target="_blank">acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html?nr_id='+dados[i].nr_id+'&nr_id_usuario='+(localStorage.getItem("id_usuario")?localStorage.getItem("id_usuario"):"")+'" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
 
 
 
@@ -81,13 +81,14 @@ function retornaTemasPopulares(dados) {
 
 
 function retornaNovosTemas(dados) {
-
+    dados = dados.data
     var divGallery = $('#galeriaRow')
     var limite = dados.data.length < 4 ? dados.data.length : 4
     for (var i = 0; i < limite; i++) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
-        var linkProposta = $('<a href="proposta.html?id='+ dados.data[i].nr_id+'" style="color: white;">')
+        
+        var linkProposta = $('<a href="proposta.html?nr_id='+dados[i].nr_id+'&nr_id_usuario='+(localStorage.getItem("id_usuario")?localStorage.getItem("id_usuario"):"")+'" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
@@ -108,4 +109,9 @@ function retornaNovosTemas(dados) {
 
 
 }
+
+function pesquisar(){
+    window.location='resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso=&qt_participantes=&ds_nome_ds_desc_projeto='+$('#barraPesquisa')[0].value
+}
+
 
