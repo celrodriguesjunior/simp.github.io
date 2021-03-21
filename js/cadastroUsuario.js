@@ -63,6 +63,7 @@ function filtrarInstituicao() {
     $('#horaDiv').toggle(true)
     $('#labelSobrenome').hide()
     $('#labelNome').text("Nome Fantasia")
+    $('#grauDiv').hide()
 
 
     $('#instituicaoDiv').hide()
@@ -84,6 +85,8 @@ function filtrarUniversitario() {
 
 
     $('#instituicaoDiv').toggle(true)
+    $('#grauDiv').toggle(true)
+    
 
 
 }

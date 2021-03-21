@@ -70,54 +70,11 @@ function retornaPesquisaAvancada(dados) {
         listaResultados.append(divCard)
 
     }
-
-    
-
-    /*
-<div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-5">
-                                            <strong>Proposta 1</strong>
-                                        </h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin literature from 45 BC, making it over
-                                            2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-                                            College in Virginia, looked up one of the more obscure Latin words,
-                                            consectetur, from a Lorem Ipsum passage, and going through the cites of the
-                                            word in classical literature, discovered the undoubtable source.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mbr-section-btn">
-                                            <a href="proposta.html" class="btn btn-primary display-4">
-                                                Visitar Página
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-    */
 }
 
 
 function retornaPesquisaAvancadaVazia() {
-    var div = document.createElement("div")
-    $('#form8-7').after(div, "Nenhum resultado foi encontrado")
+    var div = $('<div style="margin-top:50px;"><p style="text-align:center;">NENHUM RESULTADO OBTIDO</p></div>')
+    $('#form8-7').append(div)
 
 }
