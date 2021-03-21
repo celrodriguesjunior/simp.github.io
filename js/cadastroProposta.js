@@ -24,18 +24,19 @@ function retornaCursos(dados) {
 
 function salvarProposta() {
     var dados = {
-        "nr_id_curso" : $('#categorias').val(),
-        "nr_id_instituicao" : $('#categorias').val(),
-        "nr_id_proposta_uni" : 1,
-        "ds_nome" : "",
-        "ds_desc_projeto" : "Gravado",
-        "cd_status" : "AB",
-        "ds_requisito" : "",
-        "qt_participantes" : 2,
-        "ds_info_contatos" : "",
-        "ds_tipo" : "",
-        "dt_geracao" : "2021-03-13T00:00:00-03:00"    
-}
+        "nr_id_curso": Number($('#categorias').val()),
+        "nr_id_instituicao": $('#categorias').val(),
+        "ds_nome": $('#nomeProposta').val(),
+        "ds_desc_projeto": $('#descricao').val(),
+        "cd_status": "AB",
+        "ds_requisito": $('#requisitos').val(),
+        "qt_participantes": Number($('#qtdeParticipantes').val()),
+        "ds_info_contatos": $('#contato').val(),
+        "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
+        "dt_geracao": new Date()
+    }
+
+    console.log(dados)
 
     postProposta(dados)
 
@@ -43,5 +44,11 @@ function salvarProposta() {
     // let blob = new Blob([texto], { type: "image" });
     // saveAs(blob, titulo + ".txt");
 
+
+}
+
+
+
+function salvarImg(){
 
 }
