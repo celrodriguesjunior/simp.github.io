@@ -11,13 +11,23 @@ function getCursos() {
     })
 }
 
+//GET cursos
+function getCursosPopulares() {
+
+    $.get("http://simprestapi.ddns.net:5000/v1/cursos", function (resp, status) {
+
+        if (status == 'success') {
+            retornaCursosPopulares(resp)
+        }
+    })
+}
+
 //GET curso
 function getCurso(id) {
     $.get("http://simprestapi.ddns.net:5000/v1/curso/" + id, function (resp, status) {
 
         if (status == 'success') {
-
-            return resp
+            retornaCurso(resp)
         }
     })
 
@@ -140,8 +150,8 @@ function getPropostasPorCategoria(idCategoria) {
 }
 
 //GET Proposta
-function getProposta(id) {
-    $.get("http://simprestapi.ddns.net:5000/v1/proposta?nr_id=" + id, function (resp, status) {
+function getProposta(id, idUsuario) {
+    $.get("http://simprestapi.ddns.net:5000/v1/proposta?nr_id="+id+"&nr_id_usuario=" + idUsuario, function (resp, status) {
 
         if (status == 'success') {
             retornaProposta(resp)
@@ -318,7 +328,7 @@ function postUsuario(usuario) {
 
     $.ajax({
         url: "http://simprestapi.ddns.net:5000/v1/usuario", type: "POST", data:
-            JSON.stringify(usuario), success: function (result) {
+            JSON.stringify(usuario),success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
     });
@@ -340,13 +350,39 @@ function getLocalizacao(id) {
 
 //Pesquisa Avançada
 //GET PesquisaAvancada
-function getPesquisaAvancada(dados) {
-    $.get("http://simprestapi.ddns.net:5000/v1/pesquisaavancada" + "?" + dados, function (resp, status) {
+// function getPesquisaAvancada(dados) {
+//     $.get("http://simprestapi.ddns.net:5000/v1/pesquisaavancada" + "?" + dados, function (resp, status) {
 
-        if (status == 'success') {
-            retornaPesquisaAvancada(resp)
-        }
-    })
+//         if (status == 'success') {
+
+//             retornaPesquisaAvancada(resp)
+//         }
+        
+            
+        
+        
+//     }).fail(function(){
+//         // script = document.createElement("script");
+//         // script.setAttribute("src", "resultadoBusca.js")
+//         // document.querySelector('body').appendChild(script)
+//         retornaPesquisaAvancadaVazia()
+//     })
+    
+// }
+
+
+function getPesquisaAvancada(dados) {
+
+    $.ajax({
+        url: "http://simprestapi.ddns.net:5000/v1/pesquisaavancada" + "?" + dados, type: "GET", data:
+            JSON.stringify(dados),success: function (resp) {
+                retornaPesquisaAvancada(resp)
+            },   statusCode: {
+                404: function() {
+                    retornaPesquisaAvancadaVazia()
+                }
+              }, contentType: "application/json"
+    });
 
 }
 

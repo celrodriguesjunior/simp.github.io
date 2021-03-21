@@ -76,7 +76,7 @@ function retornaPropostasInstituicao(propostas) {
 
         var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
 
-        var aLink = $('<a href="proposta.html?id='+propostas[i].nr_id +'" class="text-primary"> <br>Saiba Mais</a>')
+        var aLink = $('<a href="proposta.html?nr_id='+propostas[i].nr_id+'&nr_id_usuario='+localStorage.getItem("id_usuario")+'" class="text-primary"> <br>Saiba Mais</a>')
 
         pResumo.append(aLink)
 

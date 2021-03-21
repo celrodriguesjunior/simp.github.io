@@ -2,9 +2,9 @@ $(document).ready(function () {
     var url = new URL(window.location.href)
     
     
+    var parametro = url.searchParams.get("nr_id_usuario")
     
-    
-    getProposta(url.searchParams.get("id"))
+    getProposta(url.searchParams.get("nr_id"),parametro === "null" ? "": parametro)
 
     
 
@@ -12,12 +12,13 @@ $(document).ready(function () {
 
 
 function retornaProposta(proposta) {
-
+    proposta = proposta.data
     
     $('#tituloProposta').append('<strong>' + proposta.ds_nome + '</strong>')
 
+    getCurso(proposta.nr_id_curso)
+
     
-    $('#categoriaProposta').text()
 
     getImagem()
 
@@ -32,6 +33,11 @@ function retornaProposta(proposta) {
 
     getContato(proposta)
 
+}
+
+function retornaCurso(curso){
+    curso = curso.data
+    $('#categoriaProposta').text(curso.ds_nome)
 }
 
 

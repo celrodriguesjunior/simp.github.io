@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    getCursos()
+    getCursosPopulares()
 
-    getTemaDestaque()
+    getTemasPopulares()
 
-    colocarNovosTemas()
+    getNovosTemas()
 
     //getCursos()
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 
 
-function retornaCursos(dados) {
+function retornaCursosPopulares(dados) {
     //console.log(dados)
     var divCategoria = $('#colunasCategorias')
     for (var i = 0; i < 5; i++) {
@@ -28,7 +28,8 @@ function retornaCursos(dados) {
 }
 
 
-function getTemaDestaque() {
+function retornaTemasPopulares(dados) {
+    dados = dados.data
 
     var carrosel = $('#carroselSlider')
     for (var i = 0; i < 3; i++) {
@@ -50,7 +51,7 @@ function getTemaDestaque() {
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html?nr_id='+dados[i].nr_id+'&nr_id_usuario='+(localStorage.getItem("id_usuario")?localStorage.getItem("id_usuario"):"")+'" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
 
 
 
@@ -79,13 +80,14 @@ function getTemaDestaque() {
 }
 
 
-function colocarNovosTemas() {
-
+function retornaNovosTemas(dados) {
+    dados = dados.data
     var divGallery = $('#galeriaRow')
     for (var i = 0; i < 4; i++) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
-        var linkProposta = $('<a href="proposta.html" style="color: white;">')
+        
+        var linkProposta = $('<a href="proposta.html?nr_id='+dados[i].nr_id+'&nr_id_usuario='+(localStorage.getItem("id_usuario")?localStorage.getItem("id_usuario"):"")+'" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
