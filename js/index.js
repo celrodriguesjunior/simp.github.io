@@ -12,7 +12,8 @@ $(document).ready(function () {
     //getCursos()
 
     if (localStorage.getItem("recomendacoes")==="0") {
-        getRecomendacao(localStorage.getItem("id_user"))
+        modal.style.display = "block";
+        // getRecomendacao(localStorage.getItem("id_user"))
         localStorage.setItem("recomendacoes","1")
     }
 
@@ -25,6 +26,7 @@ $(document).ready(function () {
 // }
 
 function retornaRecomendacao(rec) {
+    modal.style.display = "block";
     console.log(rec)
 }
 
