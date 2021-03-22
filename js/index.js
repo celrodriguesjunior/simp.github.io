@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    localStorage.setItem('id_user',1)
+    // localStorage.setItem('id_user',1)
     localStorage.setItem('isInstituicao',true)
 
     getCursosPopulares()
@@ -12,7 +12,7 @@ $(document).ready(function () {
     //getCursos()
 
     if (localStorage.getItem("recomendacoes")==="0") {
-        getRecomendacao(localStorage.getItem("id_usuario"))
+        getRecomendacao(localStorage.getItem("id_user"))
         localStorage.setItem("recomendacoes","1")
     }
 
@@ -68,7 +68,7 @@ function retornaTemasPopulares(dados) {
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_usuario") ? localStorage.getItem("id_usuario") : "") + '" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
 
 
 
@@ -102,7 +102,7 @@ function retornaNovosTemas(dados) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
 
-        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_usuario") ? localStorage.getItem("id_usuario") : "") + '" style="color: white;">')
+        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
         var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')
