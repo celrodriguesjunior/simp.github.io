@@ -1,0 +1,19 @@
+.fundoVerde{
+    background-color: green;
+}
+.fundoAzul{
+    background-color: lightskyblue;
+}
+.fundoAmarelo{
+    background-color: yellow;
+}
+.fundoVermelho{
+    background-color: red;
+}
+.fundoBranco{
+    background-color: white;
+}
+
+.concluido{
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAQCAYAAAD52jQlAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAADrSURBVHjarNJBTsQwDAVQ3zT/u+IKaAbYVM0JAAFCQhyIxJnphuOEBUTTijRqKQsvrHw9xZaFRlmsNO816qVMv98ThZGP7uSeus9OECGyCz1RmHigMWvU3I3d3X70B5yWC+5lD/oLZGTWpO9/Q2ugMTPR66iz8e9pfF2BHmugJvU6quj5gl5PAn0DPSyAQwEL+lAJ9hX02Bq5gAV9roaN/QStggjwTJQaKjTeLsBXNLoqGOHxAWmhLThXTscjQNagQuPNCnBAgGxB2/AU3ILCIDDUVjEHN/5UkDDfceTASPkPtJzbGwJkC/o1AMy1edVhguj3AAAAAElFTkSuQmCC');
+}
