@@ -370,6 +370,29 @@ function getLocalizacao(id) {
     
 // }
 
+//Usuario (Editar)
+//GET usuario
+function getUsuario(id) {
+
+    $.get("http://simprestapi.ddns.net:5000/v1/usuario/"+id, function (resp, status) {
+
+        if (status == 'success') {
+            retornaUsuario(resp)
+        }
+    })
+}
+
+//Log Alterações
+//GET log
+function getLog(id) {
+
+    $.get("http://simprestapi.ddns.net:5000/v1/log/"+id, function (resp, status) {
+
+        if (status == 'success') {
+            retornaLog(resp)
+        }
+    })
+}
 
 function getPesquisaAvancada(dados) {
 

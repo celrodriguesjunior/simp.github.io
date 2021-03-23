@@ -39,7 +39,7 @@ function retornaPropostasInstituicao(dados) {
 
         var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
-        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="cadastroProposta.html?id='+dados[i].nr_id+'" class="btn btn-primary display-4">Editar Proposta</a></div></div>')
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="cadastroProposta.html?id='+dados[i].nr_id+'" class="btn btn-primary display-4">Editar Proposta</a></div><div class="mbr-section-btn"><p>Visualizações: '+"PLACEHOLDER"+'</p></div></div>')
 
         divColMd.append(h6Titulo)
         divColMd.append(p)
