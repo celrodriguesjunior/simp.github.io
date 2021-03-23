@@ -53,7 +53,7 @@ function salvarProposta() {
             "qt_participantes": Number($('#qtdeParticipantes').val()),
             "ds_info_contatos": $('#contato').val(),
             "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
-            "ds_duracao": $('#duracao').val()
+            "nr_duracao": $('#duracao').val()
         }
         console.log("update")
         console.log(dados)
@@ -97,7 +97,7 @@ function retornaProposta(dados) {
     $('#qtdeParticipantes').val(dados.qt_participantes),
     $('#contato').val(dados.ds_info_contatos),
     dados.ds_tipo == "TCC" ? $('#tipo').val(1) : $('#tipo').val(2)
-    $('#duracao').val(dados.ds_duracao)
+    $('#duracao').val(dados.nr_duracao)
 }
 
 

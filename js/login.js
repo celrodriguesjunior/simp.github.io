@@ -6,14 +6,8 @@ $(document).ready(function () {
 
 
 function logarSistema() {
-
-    console.log("cliquei")
-    window.href = "index.html"
-
-
-    //localStorage.setItem('id_user','1')
-
-
-    
+    window.location.href = "index.html"
+    localStorage.setItem('id_user','1')
+   
     
 }
