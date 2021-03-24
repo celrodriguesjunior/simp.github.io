@@ -416,6 +416,17 @@ function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }
 
+function mandaImagem(imagem){
+    $.ajax({
+        url: link,
+        data: imagem,
+        type: 'POST',
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+        
+    });
+}
+
 // const dados = {
 //     var1: 'value1',
 //     var2: 'value2'
