@@ -9,11 +9,11 @@ function retornaPropostasInstituicao(dados) {
     dados = dados.data
 
     for (var i = 0; i < dados.length; i++) {
-        getLog(dados[i].nr_id, dados[i])
+        getLog(dados[i].nr_id)
     }
 }
 
-function retornaLog(dados, proposta){
+function retornaLog(dados){
     dados = dados.data
     var listaResultados = $('#listaResultados')
 
@@ -38,22 +38,23 @@ function retornaLog(dados, proposta){
 
     var divColMd = $('<div class="col-md">')
 
-    var titulo = proposta.ds_nome
+    var titulo = dados.ds_nome
 
     var h6Titulo = $('<h6 class="card-title mbr-fonts-style display-5"><strong>' + titulo + '</strong></h6>')
 
-    var resumo = proposta.ds_desc_projeto
+    var resumo = dados.ds_desc_projeto
 
     var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
     
-    var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="cadastroProposta.html?id='+proposta.nr_id+'" class="btn btn-primary display-4">Editar Proposta</a></div><div class="mbr-section-btn"><p>Visualizações: '+ dados.nr_log +'</p></div></div>')
-
+    var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="cadastroProposta.html?id='+dados.nr_id+'" class="btn btn-primary display-4">Editar Proposta</a></div><div class="mbr-section-btn"><p class="btn btn-primary display-4" >Visualizações: '+ dados.qt_acessos +'</p></div></div>')
+    
     divColMd.append(h6Titulo)
     divColMd.append(p)
 
     divRow.append(divColMd)
     divRow.append(divVisitar)
+    
 
     divCardBox.append(divRow)
 

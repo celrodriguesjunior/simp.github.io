@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     //getCursos()
 
-    localStorage.setItem("recomendacoes", "0")  //RETIRAR DEPOIS
+    // localStorage.setItem("recomendacoes", "0")  //RETIRAR DEPOIS
 
     if (localStorage.getItem("recomendacoes") === "0") {
         modal.style.display = "block";

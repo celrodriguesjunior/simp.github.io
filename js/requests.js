@@ -1,6 +1,6 @@
 
-link = "https://private-51e72-simp3.apiary-mock.com/v1/"
-// link = "http://simprestapi.ddns.net:5000/v1/"
+// link = "https://private-51e72-simp3.apiary-mock.com/v1/"
+link = "http://simprestapi.ddns.net:5000/v1/"
 
 //CURSOS
 //GET cursos
@@ -387,12 +387,12 @@ function getUsuario(id) {
 
 //Log Alterações
 //GET log
-function getLog(id, proposta) {
+function getLog(id) {
 
-    $.get(link+"log/"+id, function (resp, status) {
+    $.get(link+"acessosproposta/"+id, function (resp, status) {
 
         if (status == 'success') {
-            retornaLog(resp, proposta)
+            retornaLog(resp)
         }
     })
 }
