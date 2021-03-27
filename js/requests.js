@@ -387,12 +387,12 @@ function getUsuario(id) {
 
 //Log Alterações
 //GET log
-function getLog(id, proposta) {
+function getLog(id) {
 
-    $.get(link+"log/"+id, function (resp, status) {
+    $.get(link+"acessosproposta/"+id, function (resp, status) {
 
         if (status == 'success') {
-            retornaLog(resp, proposta)
+            retornaLog(resp)
         }
     })
 }
@@ -414,6 +414,17 @@ function getPesquisaAvancada(dados) {
 
 function encodeQueryData(dados) {
     return new URLSearchParams(dados);
+}
+
+function mandaImagem(imagem){
+    $.ajax({
+        url: link,
+        data: imagem,
+        type: 'POST',
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+        
+    });
 }
 
 // const dados = {

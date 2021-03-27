@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    if(localStorage.getItem("id_user")!= null){
+        $('#tipo').remove()
+        getUsuario()
+    }
+
     setEvents()
     $('#universitario2').click()
 
@@ -39,6 +44,10 @@ $(document).ready(function () {
             getCidadesPorEstado($('#states').val())
     })
 })
+
+function retornaUsuario(){
+
+}
 
 
 

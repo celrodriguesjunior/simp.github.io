@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // localStorage.setItem('id_user',1)
-    localStorage.setItem('isInstituicao',true)
+    localStorage.setItem('isInstituicao', true)
 
     getCursosPopulares()
 
@@ -11,15 +11,19 @@ $(document).ready(function () {
 
     //getCursos()
 
-    if (localStorage.getItem("recomendacoes")==="0") {
+    // localStorage.setItem("recomendacoes", "0")  //RETIRAR DEPOIS
+
+    if (localStorage.getItem("recomendacoes") === "0") {
         modal.style.display = "block";
-        // getRecomendacao(localStorage.getItem("id_user"))
-        localStorage.setItem("recomendacoes","1")
+        getRecomendacao(localStorage.getItem("id_user"))
+        localStorage.setItem("recomendacoes", "1")
     }
 
-    
+
 
 });
+
+
 
 // function retornaCursos(curso) {
 //     curso.data[0].ds_nome
@@ -27,7 +31,97 @@ $(document).ready(function () {
 
 function retornaRecomendacao(rec) {
     modal.style.display = "block";
-    console.log(rec)
+    dados = rec.data
+    var listaResultados = $('#myModal')
+
+
+
+
+
+    for (var i = 0; i < dados.length; i++) {
+
+
+        var modalContent = $('<div class="modal-content"></div>')
+
+        if (i == 0) {
+
+            modalContent.append($('<div class="">Recomendações</div>'))
+
+            var span = document.getElementsByClassName("close")[0];
+            modalContent.append(span)
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+
+
+        var divCard = $('<div class="card">')
+
+        var divCardWrapper = $('<div class="card-wrapper">')
+
+        var divRowAlign = $('<div class="row align-items-center">')
+
+        var divCol12Img = $('<div class="col-12 col-md-4">')
+
+        var divImageWrapper = $('<div class="image-wrapper">')
+
+        var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">')
+
+        var divCol23Cont = $('<div class="col-12 col-md">')
+
+        var divCardBox = $('<div class="card-box">')
+
+        var divRow = $('<div class="row">')
+
+        var divColMd = $('<div class="col-md">')
+
+        var titulo = dados[i].ds_nome
+
+        var h6Titulo = $('<h6 class="card-title mbr-fonts-style display-5"><strong>' + titulo + '</strong></h6>')
+
+        var resumo = dados[i].ds_desc_projeto
+
+        var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
+
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary display-4">Visitar Página</a></div></div>')
+
+        divColMd.append(h6Titulo)
+        divColMd.append(p)
+
+        divRow.append(divColMd)
+        divRow.append(divVisitar)
+
+        divCardBox.append(divRow)
+
+        divCol23Cont.append(divCardBox)
+
+        divImageWrapper.append(img)
+
+        divCol12Img.append(divImageWrapper)
+
+        divRowAlign.append(divCol12Img)
+        divRowAlign.append(divCol23Cont)
+
+        divCardWrapper.append(divRowAlign)
+
+        divCard.append(divCardWrapper)
+
+
+
+        modalContent.append(divCard)
+        listaResultados.append(modalContent)
+    }
+
+    // console.log(rec)
 }
 
 

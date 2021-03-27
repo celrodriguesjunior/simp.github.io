@@ -502,9 +502,10 @@ input[type="range"] {
   padding-left: 0 !important;
   padding-right: 0 !important; }
 
-.modal-dialog,
-.modal-content {
-  height: 100%; }
+/* .modal-dialog,  COMENTADO PQ CAGA COM OS MODAL DA RECOMENDAÇÃO */
+/* .modal-content { */
+  /* height: 100%; */
+ /* } */
 
 .modal-dialog .carousel-inner {
   height: calc(100vh - 1.75rem); }

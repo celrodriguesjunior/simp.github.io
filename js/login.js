@@ -1,6 +1,6 @@
 $(document).ready(function () {
-
-    //localStorage.setItem('id_user','1')
+    localStorage.clear()
+    // localStorage.setItem('id_user',null)
     localStorage.setItem("recomendacoes","0")
 })
 
