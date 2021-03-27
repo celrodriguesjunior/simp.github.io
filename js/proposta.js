@@ -5,8 +5,7 @@ $(document).ready(function () {
     var parametro = url.searchParams.get("nr_id_usuario")
 
     getProposta(url.searchParams.get("nr_id"), parametro === "null" ? "" : parametro)
-    var status = "CO"
-    getStatus(status)
+    
 
 })
 
@@ -26,6 +25,9 @@ function retornaProposta(proposta) {
     //proposta.cs_status
 
     getImagem()
+
+    var status = "AB"
+    getStatus(status)
 
 
     $('#textoDescricao').text(proposta.ds_desc_projeto)
@@ -99,12 +101,6 @@ function getDetalhesTecnicos(proposta) {
 
     divDetalhes.append(divApoio)
 
-    /*
-    <b id="integrantes">Integrantes:</b> 2
-                                        <br>
-                                        <b id="tempo">Tempo:</b> 2 anos 
-    */
-
 }
 
 function getContato() {
@@ -116,8 +112,9 @@ function getContato() {
 function getStatus(status){
     
     console.log(status)
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px;">')
-    var h6 = $('<h6 style="text-align: center;"></h6>')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;">')
+    var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
+    div.append(h6)
     switch (status) {
         case ("AB"):
             div.addClass("fundoVerde");
@@ -138,7 +135,7 @@ function getStatus(status){
         case ("CO"):
             div.addClass("fundoBranco");
             h6.text("Concluido")
-            div.addClass("concluido")
+            div.append($('<div class="concluido" style="width: 30px;"></div>'))
             break;
         default:
             div.addClass("fundoBranco");
@@ -148,7 +145,7 @@ function getStatus(status){
 
 
 
-    div.append(h6)
+    
 
-    $(div).insertBefore("#carrosselImagens")
+    $(div).insertAfter("#headerTitulo")
 }
