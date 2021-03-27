@@ -59,19 +59,19 @@ function salvarProposta() {
 
     var cd = "AB"
     switch ($('#status').val()) {
-        case 1:
+        case "1":
             cd = "AB"
             break;
-        case 2:
+        case "2":
             cd = "NE"
             break;
-        case 3:
+        case "3":
             cd = "DV"
             break;
-        case 4:
+        case "4":
             cd = "CA"
             break;
-        case 5:
+        case "5":
             cd = "CO"
             break;
 
@@ -143,7 +143,7 @@ function retornaProposta(dados) {
 
 
 
-
+    http://127.0.0.1:5500/cadastroProposta.html?id=1
     //console.log("cheguei 2")
     
     console.log(dados)
@@ -156,19 +156,19 @@ function retornaProposta(dados) {
         dados.ds_tipo == "TCC" ? $('#tipo').val(1) : $('#tipo').val(2)
     switch (dados.cd_status) {
         case "AB":
-            $('#status').val(1)
+            $('#status')[0].selectedIndex = 0
             break;
         case "NE":
-            $('#status').val(2)
+            $('#status')[0].selectedIndex = 1
             break;
         case "DV":
-            $('#status').val(3)
+            $('#status')[0].selectedIndex = 2
             break;
         case "CA":
-            $('#status').val(4)
+            $('#status')[0].selectedIndex = 3
             break;
         case "CO":
-            $('#status').val(5)
+            $('#status')[0].selectedIndex = 4
             break;
 
         default:
