@@ -237,7 +237,7 @@ function getPropostasInstituicao(id) {
 //PROPOSTAS
 //GET Propostas por universitario
 function getPropostasUniversitario(id, status) {
-    $.get(link+"propostas/universitario/"+id+"?cd_status="+status, function (resp, status) {
+    $.get(link+"propostas/universitario/"+id+"?status="+status, function (resp, status) {
 
         if (status == 'success') {
             retornaPropostasUniversitario(resp)
