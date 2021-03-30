@@ -1,6 +1,6 @@
 
-link = "https://private-51e72-simp3.apiary-mock.com/v1/"
-// link = "http://simprestapi.ddns.net:5000/v1/"
+// link = "https://private-51e72-simp3.apiary-mock.com/v1/"
+link = "http://simprestapi.ddns.net:5000/v1/"
 
 //CURSOS
 //GET cursos
@@ -213,13 +213,25 @@ function deleteProposta(id) {
 
 //GET Propostas por instituição
 function getPropostasInstituicao(id) {
-    $.get(link+"propostas/instituicao/" + id, function (resp, status) {
+    // $.get(link+"propostas/instituicao/" + id, function (resp, status) {
 
-        if (status == 'success') {
-            retornaPropostasInstituicao(resp)
-        }
-    })
+    //     if (status == 'success') {
+    //         retornaPropostasInstituicao(resp)
+    //     }
+    // })
+ 
 
+        $.ajax({
+            url: link+"propostas/instituicao/"+ id, type: "GET",success: function (resp) {
+                retornaPropostasInstituicao(resp)
+                },   statusCode: {
+                    404: function() {
+                        retornaPropostasInstituicaoVazia()
+                    }
+                  }, contentType: "application/json"
+        });
+    
+    
 }
 
 

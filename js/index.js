@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // localStorage.setItem('id_user',1)
-    localStorage.setItem('isInstituicao', true)
+    // localStorage.setItem('isInstituicao', true)
 
     getCursosPopulares()
 
