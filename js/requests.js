@@ -1,6 +1,6 @@
 
-//link = "https://private-51e72-simp3.apiary-mock.com/v1/"
-link = "http://simprestapi.ddns.net:5000/v1/"
+link = "https://private-51e72-simp3.apiary-mock.com/v1/"
+// link = "http://simprestapi.ddns.net:5000/v1/"
 
 //CURSOS
 //GET cursos
