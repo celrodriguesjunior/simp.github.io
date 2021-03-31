@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 function logarSistema() {
     window.location.href = "index.html"
-    localStorage.setItem('id_user','24')
+    localStorage.setItem('id_user','28')
    localStorage.setItem('isInstituicao', true)
     
 }

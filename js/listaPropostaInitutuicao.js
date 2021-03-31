@@ -81,3 +81,8 @@ function retornaPesquisaAvancadaVazia() {
     $('#form8-7').append(div)
 
 }
+
+function retornaPropostasInstituicaoVazia(){
+    var div = $('<div style="margin-top:50px;"><p style="text-align:center;">NENHUMA PROPOSTA FEITA ATÉ AGORA</p></div>')
+    $('#content4-n').append(div)
+}

@@ -181,7 +181,9 @@ function postProposta(proposta) {
     $.ajax({
         url: link+"proposta", type: "POST", data:
             JSON.stringify(proposta), success: function (result) {
-                alert("Cadastro feito com sucesso!")
+                retornaCadastroProposta(result)
+                
+                
             }, contentType: "application/json"
     });
 

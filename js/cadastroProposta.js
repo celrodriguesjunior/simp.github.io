@@ -84,7 +84,7 @@ function salvarProposta() {
         var dados = {
             "nr_id": Number(url.searchParams.get("id")),
             "nr_id_curso": Number($('#categorias').val()),
-            "nr_id_instituicao": 1, //dps colocar pra pegar da instituicao logada
+            "nr_id_instituicao": Number(localStorage.getItem("id_user")),
             "ds_nome": $('#nomeProposta').val(),
             "ds_desc_projeto": $('#descricao').val(),
             "cd_status": cd,
@@ -102,7 +102,7 @@ function salvarProposta() {
     else {
         var dados = {
             "nr_id_curso": Number($('#categorias').val()),
-            "nr_id_instituicao": 1, //dps colocar pra pegar da instituicao logada
+            "nr_id_instituicao": Number(localStorage.getItem("id_user")),
             "ds_nome": $('#nomeProposta').val(),
             "ds_desc_projeto": $('#descricao').val(),
             "cd_status": cd,
@@ -110,7 +110,8 @@ function salvarProposta() {
             "qt_participantes": Number($('#qtdeParticipantes').val()),
             "ds_info_contatos": $('#contato').val(),
             "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
-            "dt_geracao": new Date()
+            "dt_geracao": new Date(),
+            "nr_duracao": Number($('#duracao').val())
         }
 
         postProposta(dados)
@@ -178,6 +179,10 @@ function retornaProposta(dados) {
     $('#duracao').val(dados.nr_duracao)
 }
 
+function retornaCadastroProposta(resp){
+    alert("Cadastro feito com sucesso!")
+    location.href = "proposta.html?nr_id="+resp.data[0].nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+}
 
 function salvarImg() {
 

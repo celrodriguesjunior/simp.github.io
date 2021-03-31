@@ -5,7 +5,7 @@ $(document).ready(function () {
     var parametro = url.searchParams.get("nr_id_usuario")
 
     getProposta(url.searchParams.get("nr_id"), parametro === "null" ? "" : parametro)
-    
+
 
 })
 
@@ -44,7 +44,21 @@ function retornaProposta(proposta) {
 
 function retornaCurso(curso) {
     curso = curso.data
-    $('#categoriaProposta').text(curso.ds_nome)
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;">')
+    var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
+    
+    div.addClass("fundoAzul");
+    h6.text("Curso: " + curso.ds_nome)
+    div.append(h6)
+
+
+
+
+
+    $(div).insertAfter("#statos")
+
+    
+    // $('#categoriaProposta').text(curso.ds_nome)
 }
 
 
@@ -81,15 +95,15 @@ function getDetalhesTecnicos(proposta) {
 
     var pInteg = $('<p style="line-height: 1.5; margin-left: 2px;"> ' + proposta.qt_participantes + '</p>')
 
-    var integrantes = $('<b id="integrantes">Integrantes:</b>')
+    var integrantes = $('<b id="integrantes">Integrantes: </b>')
 
     divApoio2.append(integrantes)
     divApoio2.append(pInteg)
 
     var qtdTempo = 1
     var divApoio = $('<div style="display: flex;flex-direction: row;">')
-    var pAnos = $('<p style="line-height: 1.5;  margin-left: 2px;"> ' + proposta.ds_duracao + '</p>')
-    var tempo = $('<b id="tempo">Tempo:</b>')
+    var pAnos = $('<p style="line-height: 1.5;  margin-left: 2px;"> ' + proposta.nr_duracao + ' meses</p>')
+    var tempo = $('<b id="tempo">Tempo: </b>')
 
     divApoio.append(tempo)
     divApoio.append(pAnos)
@@ -109,43 +123,46 @@ function getContato() {
 
 
 
-function getStatus(status){
-    
+function getStatus(status) {
+
     console.log(status)
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;">')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;">')
     var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
     div.append(h6)
     switch (status) {
         case ("AB"):
             div.addClass("fundoVerde");
-            h6.text("Aberto")
+            h6.text("Status: Aberto")
             break;
         case ("NE"):
             div.addClass("fundoAmarelo");
-            h6.text("Em Negociação")
+            h6.text("Status: Em Negociação")
             break;
         case ("DV"):
             div.addClass("fundoAzul");
-            h6.text("Em Desenvolvimento")
+            h6.text("Status: Em Desenvolvimento")
             break;
         case ("CA"):
             div.addClass("fundoVermelho");
-            h6.text("Cancelado")
+            h6.text("Status: Cancelado")
             break;
         case ("CO"):
             div.addClass("fundoBranco");
-            h6.text("Concluido")
+            h6.text("Status: Concluido")
             div.append($('<div class="concluido" style="width: 30px;"></div>'))
             break;
         default:
             div.addClass("fundoBranco");
-            h6.text("Sem Status");
+            h6.text("Status: Sem Status");
             break;
     }
 
 
 
-    
 
-    $(div).insertAfter("#headerTitulo")
+    div[0].id = "statos"
+    var secao = $('<div style="display:flex; justify-content: space-between ; margin-top:30px; margin-bottom:-50px"></div>')
+    secao.insertAfter("#headerTitulo")
+    $(secao).append(div)
+    // $(div).insertAfter("#headerTitulo")
 }
