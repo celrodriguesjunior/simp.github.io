@@ -38,6 +38,8 @@ function retornaAutenticacao(resp){
     usuario = resp.data
     localStorage.setItem('id_user', usuario.nr_id_usuario)
     localStorage.setItem('isInstituicao', usuario.ds_razao_social ? true : false)
+    localStorage.setItem('id_instituicao', localStorage.getItem('isInstituicao') == "true" ? usuario.nr_id : "0")
+    
     window.location.href = "index.html"
  }
 

@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    getPropostasInstituicao(Number(localStorage.getItem('id_user')))
+    getPropostasInstituicao(Number(localStorage.getItem('id_instituicao')))
 
 })
 

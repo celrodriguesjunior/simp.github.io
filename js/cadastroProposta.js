@@ -55,8 +55,10 @@ function retornaCursos(dados) {
 }
 
 
-function salvarProposta() {
 
+function salvarProposta() {
+    
+    
     var cd = "AB"
     switch ($('#status').val()) {
         case "1":
@@ -84,7 +86,7 @@ function salvarProposta() {
         var dados = {
             "nr_id": Number(url.searchParams.get("id")),
             "nr_id_curso": Number($('#categorias').val()),
-            "nr_id_instituicao": Number(localStorage.getItem("id_user")),
+            "nr_id_instituicao": Number(localStorage.getItem("id_instituicao")),
             "ds_nome": $('#nomeProposta').val(),
             "ds_desc_projeto": $('#descricao').val(),
             "cd_status": cd,
@@ -102,7 +104,7 @@ function salvarProposta() {
     else {
         var dados = {
             "nr_id_curso": Number($('#categorias').val()),
-            "nr_id_instituicao": Number(localStorage.getItem("id_user")),
+            "nr_id_instituicao": Number(localStorage.getItem("id_instituicao")),
             "ds_nome": $('#nomeProposta').val(),
             "ds_desc_projeto": $('#descricao').val(),
             "cd_status": cd,
@@ -117,10 +119,6 @@ function salvarProposta() {
         postProposta(dados)
 
     }
-
-
-    // let blob = new Blob([texto], { type: "image" });
-    // saveAs(blob, titulo + ".txt");
 
 
 }
@@ -180,8 +178,15 @@ function retornaProposta(dados) {
 }
 
 function retornaCadastroProposta(resp){
-    alert("Cadastro feito com sucesso!")
-    location.href = "proposta.html?nr_id="+resp.data[0].nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+    alert("Cadastro feito com sucesso! Enviando imagens...")
+    salvarImg()
+    location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+}
+
+function retornaEdicaoProposta(resp){
+    alert("Alterações feitas com sucesso! Enviando imagens...")
+    salvarImg()
+    location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
 }
 
 function salvarImg() {
@@ -197,5 +202,7 @@ function salvarImg() {
     if($('#img3').files.length > 0){
         formData.append("imagem3", $('#img3').files[0]);
     }
+
+    mandaImagem(formData)
     
 }

@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     getProposta(url.searchParams.get("nr_id"), parametro === "null" ? "" : parametro)
 
+    
 
 })
 
@@ -28,6 +29,8 @@ function retornaProposta(proposta) {
 
     var status = "AB"
     getStatus(status)
+
+    getInstituicao(proposta.nr_id_instituicao)
 
 
     $('#textoDescricao').text(proposta.ds_desc_projeto)
@@ -165,4 +168,55 @@ function getStatus(status) {
     secao.insertAfter("#headerTitulo")
     $(secao).append(div)
     // $(div).insertAfter("#headerTitulo")
+}
+
+function retornaInstituicao(resp){
+
+    var card = $('#cardInstituicao')
+
+        var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-4">')
+
+        var divItemWrapper = $('<div class="item-wrapper">')
+
+        var divItemImg = $('<div class="item-img">')
+
+        var img = $('<img src="img/Instituições/furb.jpg">')
+
+        var divItemContent = $('<div class="item-content">')
+
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + resp.data.ds_razao_social + '</strong></h5>')
+
+        var texto = resp.data.ds_resumo
+
+        var p = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + texto + '</p>')
+
+        var divFooter = $('<div class="mbr-section-btn item-footer mt-2">')
+
+        var aLink = $('<a href="instituicao.html?id='+ resp.data.nr_id+'" class="btn btn-primary item-btn display-7" >Saiba Mais</a>')
+
+        
+
+        divFooter.append(aLink)
+
+        divItemContent.append(h5)
+
+        divItemContent.append(p)
+
+        divItemImg.append(img)
+
+        divItemWrapper.append(divItemImg)
+
+        divItemWrapper.append(divItemContent)
+
+        divItemWrapper.append(divFooter)
+
+        divItem.append(divItemWrapper)
+
+        
+
+        card.append(divItem)
+        
+        
+
+
 }
