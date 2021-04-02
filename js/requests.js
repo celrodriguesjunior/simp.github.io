@@ -195,7 +195,7 @@ function putProposta(proposta) {
     $.ajax({
         url: link+"proposta", type: "PUT", data:
             JSON.stringify(proposta), success: function (result) {
-                alert("Alteração feita com sucesso!")
+                retornaEdicaoProposta(result)
             }, contentType: "application/json"
     });
 
@@ -456,7 +456,7 @@ function encodeQueryData(dados) {
 
 function mandaImagem(imagem){
     $.ajax({
-        url: link,
+        url: link+"arquivo?ds_nome=teste",
         data: imagem,
         type: 'POST',
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)

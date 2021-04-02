@@ -186,21 +186,21 @@ function retornaCadastroProposta(resp){
 function retornaEdicaoProposta(resp){
     alert("Alterações feitas com sucesso! Enviando imagens...")
     salvarImg()
-    location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+    // location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
 }
 
 function salvarImg() {
     var formData = new FormData();
-    if($('#img1').files.length > 0){
-        formData.append("imagem1", $('#img1').files[0]);
+    if($('#img1')[0].files.length > 0){
+        formData.append("fileinput", $('#img1')[0].files[0]);
     }
 
-    if($('#img2').files.length > 0){
-        formData.append("imagem2", $('#img2').files[0]);
+    if($('#img2')[0].files.length > 0){
+        formData.append("imagem2", $('#img2')[0].files[0]);
     }
 
-    if($('#img3').files.length > 0){
-        formData.append("imagem3", $('#img3').files[0]);
+    if($('#img3')[0].files.length > 0){
+        formData.append("imagem3", $('#img3')[0].files[0]);
     }
 
     mandaImagem(formData)
