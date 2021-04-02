@@ -21,6 +21,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/requests.js"></script>
   <script src="js/geral.js"></script>
+  <script src="js/perfilUsuario.js"></script>
 
 
   <style type="text/css">
@@ -149,7 +150,7 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
                   width="150">
                 <div class="mt-3">
-                  <h4>John Doe</h4>
+                  <h4 id="nomeCompleto">John Doe</h4>
                   <!--<p class="text-secondary mb-1">Full Stack Developer</p>-->
                   <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                   <button class="btn btn-primary" id="btnEditarPerfil">Editar Perfil</button>
@@ -219,15 +220,17 @@
         <div class="col-md-8">
           <div class="card mb-3">
             <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Nome Completo</h6>
+              <!--
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nome Completo</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary" id="nomeCompleto">
+                    Kenneth Valdez
+                  </div>
                 </div>
-                <div class="col-sm-9 text-secondary" id="nomeCompleto">
-                  Kenneth Valdez
-                </div>
-              </div>
-              <hr>
+                <hr>
+              -->
               <div class="row">
                 <div class="col-sm-3">
                   <h6 class="mb-0">Email</h6>
@@ -270,17 +273,10 @@
           <div class="row gutters-sm">
             <div class="col-sm-6 mb-3">
               <div class="card h-100">
-                <div class="card-body" id="projetosParticipados">
+                <div class="card-body">
                   <h6 class="d-flex align-items-center mb-3">Projetos Participados</h6>
-                  <div>
-                    <div style="display: flex; flex-direction: row;">
-                      <h6 class="card-title mbr-fonts-style display-4" style="width: 51%;">Realidade Virtual para Jovens
-                      </h6>
-                      <div class="mbr-section-btn" style="width: 49%;  margin-left: 5px;">
-                        <a href="cadastroProposta.html?id='+dados[i].nr_id+'"
-                          class="btn btn-primary display-3">Detalhes</a>
-                      </div>
-                    </div>
+                  <div  id="projetosParticipados">
+                    
                     <div style="display: flex; flex-direction: row;">
                       <h6 class="card-title mbr-fonts-style display-4" style="width: 51%;">Projeto 1</h6>
                       <div class="mbr-section-btn" style="width: 49%;  margin-left: 5px;">
@@ -338,33 +334,36 @@
               <div class="card h-100">
                 <div class="card-body" id="projetoDesenvolvimento">
                   <h6 class="d-flex align-items-center mb-3">Projetos em Desenvolvimento</h6>
-                  <!--
-                    <small>Web Design</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Website Markup</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>One Page</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Mobile Template</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Backend API</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  -->
+                  <div  id="projetosDesenvolvimento">
+                    <!--
+                      <small>Web Design</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Website Markup</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>One Page</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Mobile Template</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Backend API</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    -->
+
+                  </div>
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     getCursos()
     url = new URL(window.location.href)
-    console.log(url.searchParams.get("id"))
+    //console.log(url.searchParams.get("id"))
 
 
 
