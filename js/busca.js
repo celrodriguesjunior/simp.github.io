@@ -29,9 +29,9 @@ var dados = {
     for (var i = 0; i < dados.length; i++) {
         var option;
         if (i == 0)
-            option = $('<option placeholder="" >' + dados[i].ds_nome + '</option>')
+            option = $('<option value="'+dados[i].nr_id+'">' + dados[i].ds_nome + '</option>')
         else
-            option = $('<option>' + dados[i].ds_nome  + '</option>')
+            option = $('<option value="'+dados[i].nr_id+'">' + dados[i].ds_nome  + '</option>')
 
         selectCategoria.append(option)
 

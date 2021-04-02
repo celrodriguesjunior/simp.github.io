@@ -426,8 +426,7 @@ function getLog(id) {
 function getPesquisaAvancada(dados) {
 
     $.ajax({
-        url: link+"pesquisaavancada" + "?" + dados, type: "GET", data:
-            JSON.stringify(dados),success: function (resp) {
+        url: link+"pesquisaavancada" + "?" + dados, type: "GET",success: function (resp) {
                 retornaPesquisaAvancada(resp)
             },   statusCode: {
                 404: function() {
