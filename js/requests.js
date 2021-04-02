@@ -438,6 +438,19 @@ function getPesquisaAvancada(dados) {
 
 }
 
+function getAutenticacao(email){
+    $.ajax({
+        url: link+"usuario" + "?email=" + email, type: "GET",success: function (resp) {
+                retornaAutenticacao(resp)
+            },   statusCode: {
+                404: function() {
+                    retornaAutenticacaoFalha()
+                }
+              }, contentType: "application/json"
+    });
+    // EX: http://simprestapi.ddns.net:5000/v1/usuario?email=univali@unv.br
+}
+
 function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }

@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // localStorage.setItem("recomendacoes", "0")  //RETIRAR DEPOIS
 
-    if (localStorage.getItem("recomendacoes") === "0" && !localStorage.getItem('isInstituicao')) {
+    if (localStorage.getItem("recomendacoes") === "0" & localStorage.getItem('isInstituicao') == "false") {
         modal.style.display = "block";
         getRecomendacao(localStorage.getItem("id_user"))
         localStorage.setItem("recomendacoes", "1")

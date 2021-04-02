@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="css/cadastroUsuario.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-    <script src="js/login.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/requests.js"></script>
     <title>Log In</title>
 </head>
 
@@ -39,14 +40,16 @@
     <div>
         <div class="container">
             <!--<label for="uname"><b>Usuário</b></label>-->
-            <input type="text" placeholder="Usuário" id="nickname">
-
+            <input type="email" placeholder="Email" id="email">
+            <div id="erroEmail" class="col-75" style="color: crimson;" hidden>Preencha o email</div>
             <!--<label for="psw"><b>Senha</b></label>-->
             <input type="password" placeholder="Senha" id="senha">
+            <div id="erroSenha" style="color: crimson;" hidden>Preencha a senha</div>
 
             <div class="row" style="float: right;padding-right: 0.6rem;">
-                <input type="submit" value="Submit" onclick="logarSistema()">
+                <input type="submit" value="Entrar" onclick="logarSistema()">
             </div>
+            <div id="erroValidacao" style="color: crimson;" hidden>Email ou senha inválidos</div>
 
         </div>
         <div class="container" style="display: flex; flex-direction: column;">
