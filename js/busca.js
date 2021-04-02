@@ -11,7 +11,8 @@ var dados = {
     ds_tipo: $('#tipo')[0][0].value,
     nr_id_curso: $('#selectCategorias')[0][0].value,
     qt_participantes: $('#qtd')[0].value,
-    ds_nome_ds_desc_projeto: $('#search')[0].value
+    ds_nome_ds_desc_projeto: $('#search')[0].value,
+    cd_status: $('#status')[0][0].value
     
   }
   
