@@ -8,9 +8,11 @@ $(document).ready(function () {
 
     //getUniversitario(url.searchParams.get("id"))
     var idpag = url.searchParams.get("id")
+    console.log(idpag);
+    
     //localStorage.setItem("IdUsuario", 1)
-    console.log(localStorage.getItem("IdUsuario"))
-    if (localStorage.getItem("IdUsuario") != idpag)
+    
+    if (localStorage.getItem("id_user") != idpag)
         $('#btnEditarPerfil').hide()
 
 
@@ -22,14 +24,11 @@ $(document).ready(function () {
 
 function retornaUniversitario(dados) {
 
-    //console.log(dados)
+    
+
     dados = dados.data
-
-    $("#nomeCompleto").text(dados.ds_nome + " " + dados.ds_sobrenome)
-    $("#email").text(dados.ds_email)
-    $("#telefone").text(dados.ds_telefone)
-
-
+    console.log(dados)
+ 
 
 }
 
@@ -38,13 +37,27 @@ function retornaUsuario(dados) {
     dados = dados.data;
 
     idUniversitario = dados.nr_id;
+    $("#nomeCompleto").text(dados.ds_nome + " " + dados.ds_sobrenome)
+    $("#email").text(dados.ds_email)
+    $("#telefone").text(dados.ds_telefone)
+
 
     getPropostasUniversitario(idUniversitario, "CO")
 
     getPropostasUniversitario(idUniversitario, "DV")
     
+    getCidade(dados.nr_id_cidade)
+    getEstado(dados.nr_id_estado)
+}
 
+function retornaEstado(resp){
+    $('#endereco').text($('#endereco').text() +", "+ resp.nome)
+    
+}
 
+function retornaCidade(resp){
+    $('#endereco').text(resp.nome)
+    
 }
 
 function retornaPropostasUniversitario(dados) {

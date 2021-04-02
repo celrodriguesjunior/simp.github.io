@@ -1,3 +1,5 @@
+var img= 0;
+
 $(document).ready(function () {
 
     // localStorage.setItem('id_user',1)
@@ -19,17 +21,19 @@ $(document).ready(function () {
         localStorage.setItem("recomendacoes", "1")
     }
 
-
+    getImagem()
 
 });
 
-
+function retornaImagem(resp){
+    img = resp;
+}
 
 // function retornaCursos(curso) {
 //     curso.data[0].ds_nome
 // }
 
-function retornaRecomendacao(rec) {
+function retornaRecomendacao(rec) { 
     modal.style.display = "block";
     dados = rec.data
     var listaResultados = $('#myModal')

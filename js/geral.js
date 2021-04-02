@@ -10,7 +10,7 @@ $(document).ready(function () {
 
         }else{
 
-            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="perfilUsuario.html?id='+ localStorage.getItem("IdUsuario") +'">Meu Perfil</a></li>'))
+            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="perfilUsuario.html?id='+ localStorage.getItem("id_user") +'">Meu Perfil</a></li>'))
 
         }
 

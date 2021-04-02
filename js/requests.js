@@ -465,6 +465,21 @@ function mandaImagem(imagem){
     });
 }
 
+function getImagem(){
+    $.ajax({
+        url: link+"arquivo?ds_nome=teste",success: function (resp) {
+                retornaImagem(resp)
+            },contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+            processData: false, // NEEDED, DON'T OMIT THIS
+               statusCode: {
+                404: function() {
+                    
+                }
+              }, contentType: "application/json"
+    });
+
+}
+
 // const dados = {
 //     var1: 'value1',
 //     var2: 'value2'
