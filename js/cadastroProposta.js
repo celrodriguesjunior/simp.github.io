@@ -185,5 +185,17 @@ function retornaCadastroProposta(resp){
 }
 
 function salvarImg() {
+    var formData = new FormData();
+    if($('#img1').files.length > 0){
+        formData.append("imagem1", $('#img1').files[0]);
+    }
 
+    if($('#img2').files.length > 0){
+        formData.append("imagem2", $('#img2').files[0]);
+    }
+
+    if($('#img3').files.length > 0){
+        formData.append("imagem3", $('#img3').files[0]);
+    }
+    
 }
