@@ -367,6 +367,18 @@ function postUsuario(usuario) {
 
 }
 
+//POST Usuario
+function putUsuario(usuario) {
+
+    $.ajax({
+        url: link + "usuario", type: "POST", data:
+            JSON.stringify(usuario), success: function (result) {
+                alert("Alteração feita com sucesso!")
+            }, contentType: "application/json"
+    });
+
+}
+
 
 //Localizacoes
 //GET localizacao
