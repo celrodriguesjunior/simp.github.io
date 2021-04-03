@@ -18,6 +18,8 @@ function retornaProposta(proposta) {
 
     getCurso(proposta.nr_id_curso)
 
+
+    
     /*
     
                         
