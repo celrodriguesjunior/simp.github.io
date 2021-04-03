@@ -6,7 +6,7 @@ link = "http://simprestapi.ddns.net:5000/v1/"
 //GET cursos
 function getCursos() {
 
-    $.get(link+"cursos", function (resp, status) {
+    $.get(link + "cursos", function (resp, status) {
 
         if (status == 'success') {
             retornaCursos(resp)
@@ -17,7 +17,7 @@ function getCursos() {
 //GET cursos
 function getCursosPopulares() {
 
-    $.get(link+"cursos", function (resp, status) {
+    $.get(link + "cursos", function (resp, status) {
 
         if (status == 'success') {
             retornaCursosPopulares(resp)
@@ -27,7 +27,7 @@ function getCursosPopulares() {
 
 //GET curso
 function getCurso(id) {
-    $.get(link+"curso/" + id, function (resp, status) {
+    $.get(link + "curso/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaCurso(resp)
@@ -38,7 +38,7 @@ function getCurso(id) {
 
 //GET curso
 function getCursosBusca() {
-    $.get(link+"cursos/", function (resp, status) {
+    $.get(link + "cursos/", function (resp, status) {
 
         if (status == 'success') {
             retornaCursos(resp)
@@ -57,7 +57,7 @@ function getCursosBusca() {
                     deleteAll[i].click();
                 }
             });
-            
+
         }
     })
 
@@ -70,7 +70,7 @@ function getCursosBusca() {
 //UNIVERSITARIOS
 //GET Universitarios
 function getUniversitarios() {
-    $.get(link+"universitarios", function (resp, status) {
+    $.get(link + "universitarios", function (resp, status) {
 
         if (status == 'success') {
             retornaUniversitarios(resp)
@@ -81,7 +81,7 @@ function getUniversitarios() {
 
 //GET Universitarios
 function getUniversitario(id) {
-    $.get(link+"universitario/" + id, function (resp, status) {
+    $.get(link + "universitario/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaUniversitario(resp)
@@ -95,7 +95,7 @@ function getUniversitario(id) {
 function postUniversitario(universitario) {
 
     $.ajax({
-        url: link+"universitario", type: "POST", data:
+        url: link + "universitario", type: "POST", data:
             JSON.stringify(universitario), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
@@ -107,7 +107,7 @@ function postUniversitario(universitario) {
 function putUniversitario(universitario) {
 
     $.ajax({
-        url: link+"universitario", type: "PUT", data:
+        url: link + "universitario", type: "PUT", data:
             JSON.stringify(universitario), success: function (result) {
                 alert("Alteração feita com sucesso!")
             }, contentType: "application/json"
@@ -118,7 +118,7 @@ function putUniversitario(universitario) {
 //DELETE Universitario
 function deleteUniversitario(id) {
     $.ajax({
-        url: link+"universitario/" + id, type: "DELETE"
+        url: link + "universitario/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -132,7 +132,7 @@ function deleteUniversitario(id) {
 //PROPOSTAS
 //GET Propostas
 function getPropostas() {
-    $.get(link+"propostas", function (resp, status) {
+    $.get(link + "propostas", function (resp, status) {
 
         if (status == 'success') {
             retornaPropostas(resp)
@@ -143,7 +143,7 @@ function getPropostas() {
 
 //GET Propostas por categoria
 function getPropostasPorCategoria(idCategoria) {
-    $.get(link+"propostas/categoria/" + idCategoria, function (resp, status) {
+    $.get(link + "propostas/categoria/" + idCategoria, function (resp, status) {
 
         if (status == 'success') {
             retornaPropostasPorCategoria(resp)
@@ -154,7 +154,7 @@ function getPropostasPorCategoria(idCategoria) {
 
 //GET Proposta
 function getProposta(id, idUsuario) {
-    $.get(link+"proposta?nr_id="+id+"&nr_id_usuario=" + idUsuario, function (resp, status) {
+    $.get(link + "proposta?nr_id=" + id + "&nr_id_usuario=" + idUsuario, function (resp, status) {
 
         if (status == 'success') {
             retornaProposta(resp)
@@ -165,7 +165,7 @@ function getProposta(id, idUsuario) {
 
 //GET Propostas por categoria
 function getPropostasPorCategoria(idCategoria) {
-    $.get(link+"propostas/categoria/" + idCategoria, function (resp, status) {
+    $.get(link + "propostas/categoria/" + idCategoria, function (resp, status) {
 
         if (status == 'success') {
             retornaPropostasPorCategoria(resp)
@@ -179,11 +179,11 @@ function getPropostasPorCategoria(idCategoria) {
 function postProposta(proposta) {
 
     $.ajax({
-        url: link+"proposta", type: "POST", data:
+        url: link + "proposta", type: "POST", data:
             JSON.stringify(proposta), success: function (result) {
                 retornaCadastroProposta(result)
-                
-                
+
+
             }, contentType: "application/json"
     });
 
@@ -193,7 +193,7 @@ function postProposta(proposta) {
 function putProposta(proposta) {
 
     $.ajax({
-        url: link+"proposta", type: "PUT", data:
+        url: link + "proposta", type: "PUT", data:
             JSON.stringify(proposta), success: function (result) {
                 retornaEdicaoProposta(result)
             }, contentType: "application/json"
@@ -204,7 +204,7 @@ function putProposta(proposta) {
 //DELETE Proposta
 function deleteProposta(id) {
     $.ajax({
-        url: link+"proposta/" + id, type: "DELETE"
+        url: link + "proposta/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -221,30 +221,33 @@ function getPropostasInstituicao(id) {
     //         retornaPropostasInstituicao(resp)
     //     }
     // })
- 
 
-        $.ajax({
-            url: link+"propostas/instituicao/"+ id, type: "GET",success: function (resp) {
-                retornaPropostasInstituicao(resp)
-                },   statusCode: {
-                    404: function() {
-                        retornaPropostasInstituicaoVazia()
-                    }
-                  }, contentType: "application/json"
-        });
-    
-    
+
+    $.ajax({
+        url: link + "propostas/instituicao/" + id, type: "GET", success: function (resp) {
+            retornaPropostasInstituicao(resp)
+        }, statusCode: {
+            404: function () {
+                retornaPropostasInstituicaoVazia()
+            }
+        }, contentType: "application/json"
+    });
+
+
 }
 
 //PROPOSTAS
 //GET Propostas por universitario
 function getPropostasUniversitario(id, status) {
-    $.get(link+"propostas/universitario/"+id+"?status="+status, function (resp, status) {
-
-        if (status == 'success') {
+    $.ajax({
+        url: link + "propostas/universitario/" + id + "?status=" + status, type: "GET", success: function (resp) {
             retornaPropostasUniversitario(resp)
-        }
-    })
+        }, statusCode: {
+            404: function () {
+                nenhumaProsposta()
+            }
+        }, contentType: "application/json"
+    });
 
 }
 
@@ -255,7 +258,7 @@ function getPropostasUniversitario(id, status) {
 //instituicoes
 //GET instituicoes
 function getInstituicoes() {
-    $.get(link+"instituicoes", function (resp, status) {
+    $.get(link + "instituicoes", function (resp, status) {
 
         if (status == 'success') {
             retornaInstituicoes(resp)
@@ -266,7 +269,7 @@ function getInstituicoes() {
 
 //GET instituicao
 function getInstituicao(id) {
-    $.get(link+"instituicao/" + id, function (resp, status) {
+    $.get(link + "instituicao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaInstituicao(resp)
@@ -280,7 +283,7 @@ function getInstituicao(id) {
 function postInstituicao(instituicao) {
 
     $.ajax({
-        url: link+"instituicao", type: "POST", data:
+        url: link + "instituicao", type: "POST", data:
             JSON.stringify(instituicao), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
@@ -292,7 +295,7 @@ function postInstituicao(instituicao) {
 function putinstituicao(instituicao) {
 
     $.ajax({
-        url: link+"instituicao", type: "PUT", data:
+        url: link + "instituicao", type: "PUT", data:
             JSON.stringify(instituicao), success: function (result) {
                 alert("Alteração feita com sucesso!")
             }, contentType: "application/json"
@@ -303,7 +306,7 @@ function putinstituicao(instituicao) {
 //DELETE instituicao
 function deleteInstituicao(id) {
     $.ajax({
-        url: link+"instituicao/" + id, type: "DELETE"
+        url: link + "instituicao/" + id, type: "DELETE"
         , success: function (result) {
             location.reload()
         }
@@ -317,7 +320,7 @@ function deleteInstituicao(id) {
 //Recomendações
 //GET recomendacao
 function getRecomendacao(id) {
-    $.get(link+"recomendacoes/" + id, function (resp, status) {
+    $.get(link + "recomendacoes/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaRecomendacao(resp)
@@ -329,7 +332,7 @@ function getRecomendacao(id) {
 //Temas Populares
 //GET TemasPopulares
 function getTemasPopulares() {
-    $.get(link+"temaspopulares", function (resp, status) {
+    $.get(link + "temaspopulares", function (resp, status) {
 
         if (status == 'success') {
             retornaTemasPopulares(resp)
@@ -342,7 +345,7 @@ function getTemasPopulares() {
 //Novos Temas
 //GET NovosTemas
 function getNovosTemas() {
-    $.get(link+"novostemas", function (resp, status) {
+    $.get(link + "novostemas", function (resp, status) {
 
         if (status == 'success') {
             retornaNovosTemas(resp)
@@ -356,8 +359,8 @@ function getNovosTemas() {
 function postUsuario(usuario) {
 
     $.ajax({
-        url: link+"usuario", type: "POST", data:
-            JSON.stringify(usuario),success: function (result) {
+        url: link + "usuario", type: "POST", data:
+            JSON.stringify(usuario), success: function (result) {
                 alert("Cadastro feito com sucesso!")
             }, contentType: "application/json"
     });
@@ -368,7 +371,7 @@ function postUsuario(usuario) {
 //Localizacoes
 //GET localizacao
 function getLocalizacao(id) {
-    $.get(link+"localizacao/" + id, function (resp, status) {
+    $.get(link + "localizacao/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaLocalizacao(resp)
@@ -386,24 +389,24 @@ function getLocalizacao(id) {
 
 //             retornaPesquisaAvancada(resp)
 //         }
-        
-            
-        
-        
+
+
+
+
 //     }).fail(function(){
 //         // script = document.createElement("script");
 //         // script.setAttribute("src", "resultadoBusca.js")
 //         // document.querySelector('body').appendChild(script)
 //         retornaPesquisaAvancadaVazia()
 //     })
-    
+
 // }
 
 //Usuario (Editar)
 //GET usuario
 function getUsuario(id) {
 
-    $.get(link+"usuario/"+id, function (resp, status) {
+    $.get(link + "usuario/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaUsuario(resp)
@@ -415,7 +418,7 @@ function getUsuario(id) {
 //GET log
 function getLog(id) {
 
-    $.get(link+"acessosproposta/"+id, function (resp, status) {
+    $.get(link + "acessosproposta/" + id, function (resp, status) {
 
         if (status == 'success') {
             retornaLog(resp)
@@ -426,26 +429,26 @@ function getLog(id) {
 function getPesquisaAvancada(dados) {
 
     $.ajax({
-        url: link+"pesquisaavancada" + "?" + dados, type: "GET",success: function (resp) {
-                retornaPesquisaAvancada(resp)
-            },   statusCode: {
-                404: function() {
-                    retornaPesquisaAvancadaVazia()
-                }
-              }, contentType: "application/json"
+        url: link + "pesquisaavancada" + "?" + dados, type: "GET", success: function (resp) {
+            retornaPesquisaAvancada(resp)
+        }, statusCode: {
+            404: function () {
+                retornaPesquisaAvancadaVazia()
+            }
+        }, contentType: "application/json"
     });
 
 }
 
-function getAutenticacao(email){
+function getAutenticacao(email) {
     $.ajax({
-        url: link+"usuario" + "?email=" + email, type: "GET",success: function (resp) {
-                retornaAutenticacao(resp)
-            },   statusCode: {
-                404: function() {
-                    retornaAutenticacaoFalha()
-                }
-              }, contentType: "application/json"
+        url: link + "usuario" + "?email=" + email, type: "GET", success: function (resp) {
+            retornaAutenticacao(resp)
+        }, statusCode: {
+            404: function () {
+                retornaAutenticacaoFalha()
+            }
+        }, contentType: "application/json"
     });
     // EX: http://simprestapi.ddns.net:5000/v1/usuario?email=univali@unv.br
 }
@@ -454,28 +457,28 @@ function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }
 
-function mandaImagem(imagem){
+function mandaImagem(imagem) {
     $.ajax({
-        url: link+"arquivo?ds_nome=teste",
+        url: link + "arquivo?ds_nome=teste",
         data: imagem,
         type: 'POST',
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
-        
+
     });
 }
 
-function getImagem(){
+function getImagem() {
     $.ajax({
-        url: link+"arquivo?ds_nome=teste",success: function (resp) {
-                retornaImagem(resp)
-            },contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-            processData: false, // NEEDED, DON'T OMIT THIS
-               statusCode: {
-                404: function() {
-                    
-                }
-              }, contentType: "application/json"
+        url: link + "arquivo?ds_nome=teste", success: function (resp) {
+            retornaImagem(resp)
+        }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+        statusCode: {
+            404: function () {
+
+            }
+        }, contentType: "application/json"
     });
 
 }
