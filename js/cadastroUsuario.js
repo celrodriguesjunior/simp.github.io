@@ -235,6 +235,7 @@ function cadastrarUsuario() {
 
     console.log(dados)
     postUsuario(dados)
+    window.location.href = "login.html"
 
     //alert("usuario criado")
 }
