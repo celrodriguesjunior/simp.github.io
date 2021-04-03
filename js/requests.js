@@ -483,6 +483,51 @@ function getImagem() {
 
 }
 
+function getImagemInstituicao(id) {
+    $.ajax({
+        url: link + "imagens/instituicao/"+id, success: function (resp) {
+            retornaImagensInstituicao(resp)
+        }, contentType: false, 
+        processData: false,
+        statusCode: {
+            404: function () {
+
+            }
+        }, contentType: "application/json"
+    });
+
+}
+
+function getImagemUniversitario(id) {
+    $.ajax({
+        url: link + "imagens/universitario/"+id, success: function (resp) {
+            retornaImagensUniversitario(resp)
+        }, contentType: false, 
+        processData: false,
+        statusCode: {
+            404: function () {
+
+            }
+        }, contentType: "application/json"
+    });
+
+}
+
+function getImagemProposta(id) {
+    $.ajax({
+        url: link + "imagens/proposta/"+id, success: function (resp) {
+            retornaImagensProposta(resp)
+        }, contentType: false, 
+        processData: false,
+        statusCode: {
+            404: function () {
+
+            }
+        }, contentType: "application/json"
+    });
+
+}
+
 // const dados = {
 //     var1: 'value1',
 //     var2: 'value2'
