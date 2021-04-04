@@ -514,9 +514,9 @@ function postImagemUsuario(usuario, imagem, nomeArquivo) {
     });
 }
 
-async function putImagemUsuario(arquivo, imagem, nome) {
+async function putImagemUsuario(arquivo, imagem) {
     $.ajax({
-        url: link +"imagem/usuario?id_arquivo"+arquivo.nr_id+"&ds_nome="+nome,
+        url: link +"imagem/usuario?id_arquivo"+arquivo.nr_id+"&ds_nome="+arquivo.arquivo.ds_nome,
         data: imagem,
         type: 'PUT',
         success: function (resp) {

@@ -67,8 +67,17 @@ function retornaPropostasInstituicao(propostas) {
 
             var divItemImg = $('<div class="item-img">')
 
-            var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
-
+            var img = $('<img id="abertas'+propostas[i].nr_id+'" src="">')
+        
+            getImagemProposta(propostas[i].nr_id).then( v => {
+                
+                // img = $('<img id="pop'+i+'">')
+                $('#abertas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+                
+                // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+                
+                
+            })
             var divItemContent = $('<div class="item-content">')
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + propostas[i].ds_nome + '</strong></h5>')
@@ -96,7 +105,7 @@ function retornaPropostasInstituicao(propostas) {
         }
     }
     if(qtd == 0){
-        var msg = $('<div id="123">Nenhuma proposta encontrada</div>')
+        var msg = $('<p style="margin:auto">Nenhuma proposta encontrada</p>')
         listaPropostas.append(msg)
     }
 
@@ -111,8 +120,18 @@ function retornaPropostasInstituicao(propostas) {
 
             var divItemImg = $('<div class="item-img">')
 
-            var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
 
+            var img = $('<img id="fin'+propostas[i].nr_id+'" src="">')
+        
+            getImagemProposta(propostas[i].nr_id).then( v => {
+                
+                // img = $('<img id="pop'+i+'">')
+                $('#fin'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+                
+                // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+                
+                
+            })
             var divItemContent = $('<div class="item-content">')
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + propostas[i].ds_nome + '</strong></h5>')
@@ -140,7 +159,7 @@ function retornaPropostasInstituicao(propostas) {
         }
     }
     if(qtd == 0){
-        var msg = $('<p>Nenhuma proposta encontrada</p>')
+        var msg = $('<p style="margin:auto">Nenhuma proposta encontrada</p>')
         listaPropostas.append(msg)
     }
 

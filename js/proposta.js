@@ -29,8 +29,8 @@ function retornaProposta(proposta) {
 
     getImagem(proposta)
 
-    var status = "AB"
-    getStatus(status)
+    
+    getStatus(proposta.cd_status)
 
     getInstituicao(proposta.nr_id_instituicao)
 
