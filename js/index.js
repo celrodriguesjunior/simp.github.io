@@ -82,11 +82,19 @@ function retornaRecomendacao(rec) {
 
         var divImageWrapper = $('<div class="image-wrapper">')
         
+        
+        var img = $('<img id="rec'+dados[i].nr_id+'" src="">')
+
         getImagemProposta(dados[i].nr_id).then( v => {
-            if(v != null){
-            var img = $('<img id="rec'+i+'">')
-            $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)
-            }
+            
+            
+            // img = $('<img id="pop'+i+'">')
+            $('#rec'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            
+            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            
+            
+        }).catch(() => {
         })
         
 
@@ -183,6 +191,7 @@ function retornaTemasPopulares(dados) {
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             
             
+        }).catch(() => {
         })
         
         
@@ -239,6 +248,7 @@ function retornaNovosTemas(dados) {
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             
             
+        }).catch(() => {
         })
 
         // var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')

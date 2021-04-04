@@ -19,17 +19,6 @@ function retornaInstituicoes(dados) {
         // var img = $('<img src="img/Instituições/furb.jpg">')
 
         
-        var img = $('<img id="inst'+dados.data[i].nr_id_usuario+'" src="">')
-        
-    getImagemUsuario(dados.data[i].nr_id_usuario).then( v => {
-            
-        // img = $('<img id="pop'+i+'">')
-        $('#inst'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
-        
-        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-        
-        
-    })
 
 
 
@@ -46,6 +35,8 @@ function retornaInstituicoes(dados) {
         var aLink = $('<a href="instituicao.html?id='+dados.data[i].nr_id+'" class="btn btn-primary item-btn display-7" >Saiba Mais</a>')
 
         
+        var img = $('<img id="inst'+dados.data[i].nr_id_usuario+'" src="">')
+     
 
         divFooter.append(aLink)
 
@@ -54,7 +45,17 @@ function retornaInstituicoes(dados) {
         divItemContent.append(p)
 
         divItemImg.append(img)
-
+   
+        getImagemUsuario(dados.data[i].nr_id_usuario).then( v => {
+            
+            // img = $('<img id="pop'+i+'">')
+            $('#inst'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            
+            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            
+            
+        }).catch(() => {
+        })
         divItemWrapper.append(divItemImg)
 
         divItemWrapper.append(divItemContent)

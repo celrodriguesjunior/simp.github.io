@@ -531,6 +531,7 @@ async function putImagemUsuario(arquivo, imagem) {
 async function getImagemUsuario(id) {
     return $.ajax({
         url: link + "imagens/usuario/"+id, success: function (resp) {
+            resp.data[1] = id
             return resp
         }, contentType: false, 
         processData: false,
