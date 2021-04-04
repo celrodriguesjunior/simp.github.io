@@ -8,17 +8,20 @@ $(document).ready(function () {
             // $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="cadastroUsuario.html">Perfil</a></li>'))
             $('#menusCabecalho').append($('<li class="nav-item"><a class="btn btn-primary item-btn display-7" href="cadastroProposta.html">Cadastrar Proposta</a></li>'))
 
-        }else{
+        } else {
 
-            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="perfilUsuario.html?id='+ localStorage.getItem("id_user") +'">Meu Perfil</a></li>'))
+            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="perfilUsuario.html?id=' + localStorage.getItem("id_user") + '">Meu Perfil</a></li>'))
 
         }
 
+        $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" onClick="logout()">Logout</a></li>'))
     }
 
-
-
-
-
-
 })
+
+
+function logout() {
+
+    document.location = "login.html"
+
+}

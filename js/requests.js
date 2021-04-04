@@ -244,7 +244,7 @@ function getPropostasUniversitario(id, status) {
             retornaPropostasUniversitario(resp)
         }, statusCode: {
             404: function () {
-                nenhumaProsposta()
+                nenhumaProsposta(status)
             }
         }, contentType: "application/json"
     });

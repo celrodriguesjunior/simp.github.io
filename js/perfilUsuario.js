@@ -1,4 +1,4 @@
-var idUniversitario;
+//var finalizado = false;
 
 $(document).ready(function () {
 
@@ -9,11 +9,19 @@ $(document).ready(function () {
     //getUniversitario(url.searchParams.get("id"))
     var idpag = url.searchParams.get("id")
     console.log(idpag);
-    
+
     //localStorage.setItem("IdUsuario", 1)
-    
-    if (localStorage.getItem("id_user") != idpag)
-        $('#btnEditarPerfil').hide()
+    console.log(localStorage.getItem("id_user"))
+    console.log(idpag)
+    console.log(localStorage.getItem("id_user") == idpag)
+    if (localStorage.getItem("id_user") == idpag) {
+        var a = $('<a href="cadastroUsuario.html?id=' + localStorage.getItem("id_user") + '" class="btn btn-primary display-4">Editar Perfil</a>')
+        var div = $('<div class="mbr-section-btn">')
+        div.append(a)
+        console.log(div)
+        console.log($('#menuPerfil'))
+        $('#menuPerfil').append(div)
+    }
 
 
     //getpropostasfeitas
@@ -24,11 +32,11 @@ $(document).ready(function () {
 
 function retornaUniversitario(dados) {
 
-    
+
 
     dados = dados.data
     console.log(dados)
- 
+
 
 }
 
@@ -43,21 +51,21 @@ function retornaUsuario(dados) {
 
 
     getPropostasUniversitario(idUniversitario, "CO")
-
+    //finalizado = true;
     getPropostasUniversitario(idUniversitario, "DV")
-    
+
     getCidade(dados.nr_id_cidade)
     getEstado(dados.nr_id_estado)
 }
 
-function retornaEstado(resp){
-    $('#endereco').text($('#endereco').text() +", "+ resp.nome)
-    
+function retornaEstado(resp) {
+    $('#endereco').text($('#endereco').text() + ", " + resp.nome)
+
 }
 
-function retornaCidade(resp){
+function retornaCidade(resp) {
     $('#endereco').text(resp.nome)
-    
+
 }
 
 function retornaPropostasUniversitario(dados) {
@@ -65,9 +73,12 @@ function retornaPropostasUniversitario(dados) {
     dados = dados.data;
 
     var isFinalizado = true;
-
+    //
     if (dados.length > 0)
         isFinalizado = dados[0].cd_status == "CO";
+
+
+
 
     var div = isFinalizado ? $('#projetosParticipados') : $('#projetosDesenvolvimento');
 
@@ -104,4 +115,13 @@ function retornaPropostasUniversitario(dados) {
     }
 
 
+}
+
+function nenhumaProsposta(status) {
+    if (status == "DV") {
+        $('#projetosDesenvolvimento').append("<div><p>Nenhum Projeto</p></div>");
+    } else {
+        $('#projetosParticipados').append("<div><p>Nenhum Projeto</p></div>");
+
+    }
 }
