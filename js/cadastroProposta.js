@@ -180,14 +180,14 @@ function retornaProposta(dados) {
 function retornaCadastroProposta(resp) {
     resp = resp.data
     alert("Cadastro feito com sucesso! Enviando imagens...")
-    salvarImg(resp.nr_id)
-    location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
+    salvarImg(resp)
+    // location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
 }
 
 function retornaEdicaoProposta(resp) {
     resp = resp.data
     alert("Alterações feitas com sucesso! Enviando imagens...")
-    salvarImg(resp.nr_id)
+    salvarImg(resp)
 
 }
 
@@ -216,5 +216,12 @@ function salvarImg(id) {
     }
 
 
-    location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
+     
 }
+
+function sucessoImagemProposta(resp, proposta){
+    alert("Imagens enviadas com sucesso!")
+    location.href = "proposta.html?nr_id=" + proposta.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
+}
+
+

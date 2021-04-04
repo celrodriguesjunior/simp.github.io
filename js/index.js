@@ -16,7 +16,7 @@ $(document).ready(function () {
     // localStorage.setItem("recomendacoes", "0")  //RETIRAR DEPOIS
 
     if (localStorage.getItem("recomendacoes") === "0" & localStorage.getItem('isInstituicao') == "false") {
-        modal.style.display = "block";
+        
         getRecomendacao(localStorage.getItem("id_user"))
         localStorage.setItem("recomendacoes", "1")
     }
@@ -37,6 +37,7 @@ function retornaImagem(resp){
 // }
 
 function retornaRecomendacao(rec) { 
+    
     modal.style.display = "block";
     dados = rec.data
     var listaResultados = $('#myModal')
@@ -156,6 +157,7 @@ function retornaTemasPopulares(dados) {
     dados = dados.data
 
     var carrosel = $('#carroselSlider')
+    
     for (var i = 0; i < limite; i++) {
         var divCarrossel;
         if (i == 0)
@@ -169,15 +171,17 @@ function retornaTemasPopulares(dados) {
 
         var divImg = $('<div class="item-img">')
 
-        var img = $('<img id="pop'+i+'" src="">')
+        var img = $('<img id="pop'+dados[i].nr_id+'" src="">')
+
+
         getImagemProposta(dados[i].nr_id).then( v => {
             
-            if(v != null){
+            
             // img = $('<img id="pop'+i+'">')
-            $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)            
-            }else{
+            $('#pop'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-            }
+            
             
         })
         
@@ -225,15 +229,15 @@ function retornaNovosTemas(dados) {
         var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
 
-        var img = $('<img id="nov'+i+'" src="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
+        var img = $('<img id="nov'+dados[i].nr_id+'" src="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
+        
         getImagemProposta(dados[i].nr_id).then( v => {
             
-            if(v != null){
             // img = $('<img id="pop'+i+'">')
-            $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)            
-            }else{
+            $('#nov'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-            }
+            
             
         })
 

@@ -371,9 +371,9 @@ function postUsuario(usuario) {
 function putUsuario(usuario) {
 
     $.ajax({
-        url: link + "usuario", type: "POST", data:
+        url: link + "usuario", type: "PUT", data:
             JSON.stringify(usuario), success: function (result) {
-                alert("Alteração feita com sucesso!")
+                respostaUsuarioEdicao(result)
             }, contentType: "application/json"
     });
 
@@ -469,13 +469,13 @@ function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }
 
-function postImagemProposta(id, imagem) {
+function postImagemProposta(proposta, imagem) {
     $.ajax({
-        url: link +"imagens/proposta/"+id,
+        url: link +"imagem/proposta/"+proposta.nr_id+"?nr_agrupador="+proposta.nr_agrupador_arquivo+"&ds_nome="+"Proposta_"+proposta.ds_nome_exibido,
         data: imagem,
         type: 'POST',
         success: function (resp) {
-            sucessoImagemProposta(resp)
+            sucessoImagemProposta(resp, proposta)
         },
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
@@ -484,10 +484,11 @@ function postImagemProposta(id, imagem) {
 }
 
 async function getImagemProposta(id) {
-    $.ajax({
-        url: link + "imagem/proposta/"+id, success: function (resp) {
+    return $.ajax({
+        url: link + "imagens/proposta/"+id, success: function (resp) {
             // retornaImagemProposta(resp)
-            return resp
+            resp.data[1] = id
+            return resp.data
         }, contentType: false, 
         processData: false,
         statusCode: {
@@ -513,7 +514,7 @@ function postImagemUsuario(usuario, imagem) {
     });
 }
 
-function putImagemUsuario(arquivo, imagem) {
+async function putImagemUsuario(arquivo, imagem) {
     $.ajax({
         url: link +"imagem/usuario?"+arquivo.nr_id_arquivo+"&ds_nome="+arquivo.arquivo.ds_nome,
         data: imagem,
@@ -528,14 +529,14 @@ function putImagemUsuario(arquivo, imagem) {
 }
 
 async function getImagemUsuario(id) {
-    $.ajax({
+    return $.ajax({
         url: link + "imagens/usuario/"+id, success: function (resp) {
             return resp
         }, contentType: false, 
         processData: false,
         statusCode: {
             404: function () {
-
+                return null
             }
         }, contentType: "application/json"
     });

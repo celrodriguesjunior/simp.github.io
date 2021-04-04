@@ -18,7 +18,7 @@ function retornaInstituicoes(dados) {
 
         // var img = $('<img src="img/Instituições/furb.jpg">')
         var img = $('<img id="nov'+i+'" src="">')
-        getImagemUsuario(dados.data[i].nr_id).then( v => {
+        getImagemUsuario(dados.data[i].nr_id_usuario).then( v => {
             if(v != null){
             // img = $('<img id="pop'+i+'">')
             $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)            

@@ -52,8 +52,10 @@ $(document).ready(function () {
 function retornaInstituicoes(dados) {
 
     for (var i = 0; i < dados.data.length; i++) {
+        if(dados.data[i].ds_ramo == "3"){
         var opcao = $('<option value="' + dados.data[i].nr_id + '">' + dados.data[i].ds_razao_social + '</option>')
         $('#instituicao').append(opcao)
+        }
     }
 
     $('#instituicao').val(0)
@@ -305,6 +307,7 @@ function cadastrarUsuario() {
     if (localStorage.getItem("id_user") != null) {
         dados.nr_id = localStorage.getItem("id_user")
         putUsuario(dados)
+        
     } else {
         dados.ds_senha = $('#senha').val()
         postUsuario(dados)
@@ -319,15 +322,30 @@ function cadastrarUsuario() {
 
 function respostaUsuario(resp) {
     alert("Cadastro feito com sucesso! Enviando imagem...")
-    salvarImg(resp.data)
+    salvarImgCadastro(resp.data)
 }
 
-function salvarImg(usuario) {
+function respostaUsuarioEdicao(resp) {
+    alert("Alteração feita com sucesso! Enviando imagem...")
+    salvarImgEdicao(resp.data)
+}
+
+function salvarImgCadastro(usuario) {
 
     if ($('#img1')[0].files.length > 0) {
         var formData = new FormData();
         formData.append("fileinput", $('#img1')[0].files[0]);
         postImagemUsuario(usuario, formData)
+    }
+
+}
+
+function salvarImgEdicao(usuario) {
+
+    if ($('#img1')[0].files.length > 0) {
+        var formData = new FormData();
+        formData.append("fileinput", $('#img1')[0].files[0]);
+        putImagemUsuario(usuario, formData)
     }
 
 }

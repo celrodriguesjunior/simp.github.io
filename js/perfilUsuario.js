@@ -56,6 +56,18 @@ function retornaUsuario(dados) {
 
     getCidade(dados.nr_id_cidade)
     getEstado(dados.nr_id_estado)
+    
+    
+    getImagemUsuario(dados.nr_id_usuario).then( resp => {
+            // if(resp != null){
+            // img = $('<img id="pop'+i+'">')
+            // console.log("Resp: " + resp)
+            $('#imagemPerfil').attr("src","data:image/jpg;base64," + resp.data[0].arquivo.bl_arquivo)            
+            // }else{
+            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            // }
+            
+        })
 }
 
 function retornaEstado(resp) {
