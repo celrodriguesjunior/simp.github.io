@@ -8,7 +8,7 @@ $(document).ready(function () {
             // $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="cadastroUsuario.html">Perfil</a></li>'))
             $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="cadastroProposta.html">Cadastrar Proposta</a></li>'))
 
-            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="instituicao.html?id=' + localStorage.getItem("id_user") + '">Meu Perfil</a></li>'))
+            $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="instituicao.html?id=' + localStorage.getItem("id_instituicao") + '">Meu Perfil</a></li>'))
 
         } else {
 
