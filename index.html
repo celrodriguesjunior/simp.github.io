@@ -29,48 +29,57 @@
     <script src="js/index.js"></script>
 
     <style>
-        
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
 
-/* Modal Content */
-.modal-content{
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  /* height: 100%; */
-}
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* height: 100%; */
+        }
 
-/* The Close Button */
-.close {
-    display: flex;
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  margin-left: 98%;
-}
+        /* The Close Button */
+        .close {
+            display: flex;
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            margin-left: 98%;
+        }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -164,27 +173,27 @@
 
 <body>
     <div id="myModal" class="modal">
-        
+
         <!-- Modal content -->
-       
-          <div class="close">&times;</div>
-         
-        
+
+        <div class="close">&times;</div>
+
+
     </div>
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
-        
+
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
 
-        
-       
-        
-        </script>
+
+
+
+    </script>
     <section class="menu menu1 cid-sh0bLgfLHk" once="menu" id="menu1-4">
 
-        
+
         <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
             <div class="container">
                 <div class="navbar-brand">
@@ -205,7 +214,7 @@
                     </div>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true" id="menusCabecalho"> 
+                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true" id="menusCabecalho">
                         <li class="nav-item">
                             <a class="nav-link link text-black display-4" href="index.html">
                                 Pagina Inicial
@@ -226,14 +235,15 @@
                                 Pesquisar
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
         </nav>
     </section>
 
-    <section class="gallery2 cid-sh09emC3TZ" id="gallery2-1" style="background-color: white; padding-top: 50px; padding-bottom: 0px;">
+    <section class="gallery2 cid-sh09emC3TZ" id="gallery2-1"
+        style="background-color: white; padding-top: 50px; padding-bottom: 0px;">
         <img id="123">
 
         <div class="container">
@@ -290,9 +300,9 @@
                 <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
                     <div class="search-container" style="display: flex; flex-direction: column;">
                         <div>
-                            <input type="text" name="q" id="barraPesquisa" placeholder="Pesquisar..." style="width: 80%;">
-                            <input type="submit" value="Pesquisar" style="width: 19%;"
-                                onclick="pesquisar()">
+                            <input type="text" name="q" id="barraPesquisa" placeholder="Pesquisar..."
+                                style="width: 80%;">
+                            <input type="submit" value="Pesquisar" style="width: 19%;" onclick="pesquisar()">
                         </div>
                         <br>
                         <div class="col-lg-4 col-md-12 col-sm-12 mbr-section-btn align-center"

@@ -1,9 +1,8 @@
+var cidade;
 $(document).ready(function () {
-
-
     if (localStorage.getItem("id_user") != null) {
-        $('#tipo').remove()
-        getUsuario()
+
+        getUsuario(localStorage.getItem("id_user"))
     }
 
     setEvents()
@@ -60,12 +59,58 @@ function retornaInstituicoes(dados) {
     $('#instituicao').val(0)
 
 
-    // if (url.searchParams.get("id") != undefined) {
-    //     getProposta(url.searchParams.get("id"), "")
-    //     $('#tituloPaginaProposta').text("Editar Proposta")
-    //     editar = true;
-    // }
+}
 
+function retornaUsuario(dados) {
+
+    $('#labelTela').text("Editar Usuário")
+    //console.log("chguei pra editar")
+    dados = dados.data
+    console.log(dados)
+    console.log(dados.cd_cnpj)
+    if (dados.cd_cnpj == null) {
+        $('#universitario2').click()
+        $('#tipo').remove()
+
+
+        $('#email').val(dados.ds_email)
+        $('#divSenha').hide()
+        $('#fname').val(dados.ds_nome_exibido)
+        $("#country").val(dados.nr_id_instituicao)
+
+        //$('#states').val(dados.nr_id_estado)
+        $("#fname").val(dados.ds_nome)
+        $("#lname").val(dados.ds_sobrenome)
+        $('#phone').val(dados.ds_telefone)
+        $("#grau").val(dados.ds_grau)
+
+
+    } else {
+        $('#instutuicao2').click()
+        $('#tipo').remove()
+
+
+        $('#email').val(dados.ds_email)
+        $('#divSenha').hide()
+        $('#fname').val(dados.ds_nome_exibido)
+        $('#razaoSocial').val(dados.ds_razao_social)
+        $('#cnpj').val(dados.cd_cnpj)
+        $("#ramo").val(dados.ds_ramo)
+        $('#resumo').val(dados.ds_resumo)
+        $('#detalhes').val(dados.ds_descricao)
+        $('#phone').val(dados.ds_telefone)
+        $('#hora').val(dados.ds_horario_funcionamento)
+        //$('#cities').val(dados.nr_id_cidade)
+
+
+        //console.log("inst.")
+    }
+    $('#states').val(dados.nr_id_estado)
+    cidade = dados.nr_id_cidade
+    getCidadesPorEstado($('#states').val())
+
+    $('#confirmarEmail').hide()
+    $('#confirmarSenha').hide()
 
 }
 
@@ -200,8 +245,11 @@ function pegarCidades(dados) {
         var opcao = $('<option value="' + dados[i].id + '">' + dados[i].nome + '</option>')
         $('#cities').append(opcao)
     }
+    if (cidade == undefined)
+        $('#cities').val(0)
+    else
+        $('#cities').val(cidade)
 
-    $('#cities').val(0)
 }
 
 // {
@@ -223,8 +271,9 @@ function cadastrarUsuario() {
 
     if ($('#universitario2').is(':checked')) {
         dados = {
+            
             "ds_email": $('#email').val(),
-            "ds_senha": $('#senha').val(),
+            //"ds_senha": $('#senha').val(),
             "ds_nome_exibido": $('#fname').val() + " " + $('#lname').val(),
             "nr_id_instituicao": Number($("#instituicao").val()),
             "nr_id_cidade": Number($('#cities').val()),
@@ -237,8 +286,9 @@ function cadastrarUsuario() {
         }
     } else {
         dados = {
+            
             "ds_email": $('#email').val(),
-            "ds_senha": $('#senha').val(),
+            //"ds_senha": $('#senha').val(),
             "ds_nome_exibido": $('#fname').val(),
             "ds_razao_social": $('#razaoSocial').val(),
             "cd_cnpj": $('#cnpj').val(),
@@ -252,9 +302,16 @@ function cadastrarUsuario() {
         }
     }
 
+    if (localStorage.getItem("id_user") != null) {
+        dados.nr_id = localStorage.getItem("id_user")
+        putUsuario(dados)
+    } else {
+        dados.ds_senha = $('#senha').val()
+        postUsuario(dados)
+    }
 
 
-    postUsuario(dados)
+    
 
 
 
