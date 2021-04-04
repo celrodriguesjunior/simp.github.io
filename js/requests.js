@@ -452,9 +452,9 @@ function getPesquisaAvancada(dados) {
 
 }
 
-function getAutenticacao(email) {
+function getAutenticacao(email,senha) {
     $.ajax({
-        url: link + "usuario" + "?email=" + email, type: "GET", success: function (resp) {
+        url: link + "usuario" + "?email=" + email+"&senha="+senha, type: "GET", success: function (resp) {
             retornaAutenticacao(resp)
         }, statusCode: {
             404: function () {
