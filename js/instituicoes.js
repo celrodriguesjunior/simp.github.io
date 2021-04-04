@@ -17,16 +17,21 @@ function retornaInstituicoes(dados) {
         var divItemImg = $('<div class="item-img">')
 
         // var img = $('<img src="img/Instituições/furb.jpg">')
-        var img = $('<img id="nov'+i+'" src="">')
-        getImagemUsuario(dados.data[i].nr_id_usuario).then( v => {
-            if(v != null){
-            // img = $('<img id="pop'+i+'">')
-            $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)            
-            }else{
-             img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-            }
+
+        
+        var img = $('<img id="inst'+dados.data[i].nr_id_usuario+'" src="">')
+        
+    getImagemUsuario(dados.data[i].nr_id_usuario).then( v => {
             
-        })
+        // img = $('<img id="pop'+i+'">')
+        $('#inst'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        
+        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        
+        
+    })
+
+
 
         var divItemContent = $('<div class="item-content">')
 

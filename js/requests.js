@@ -500,9 +500,9 @@ async function getImagemProposta(id) {
 
 }
 
-function postImagemUsuario(usuario, imagem) {
+function postImagemUsuario(usuario, imagem, nomeArquivo) {
     $.ajax({
-        url: link +"imagem/usuario/"+usuario.nr_id_usuario+"?nr_agrupador="+usuario.nr_agrupador_arquivo+"&ds_nome="+"Perfil_"+usuario.ds_nome_exibido,
+        url: link +"imagem/usuario/"+usuario.nr_id_usuario+"?nr_agrupador="+usuario.nr_agrupador_arquivo+"&ds_nome="+nomeArquivo,
         data: imagem,
         type: 'POST',
         success: function (resp) {
@@ -514,9 +514,9 @@ function postImagemUsuario(usuario, imagem) {
     });
 }
 
-async function putImagemUsuario(arquivo, imagem) {
+async function putImagemUsuario(arquivo, imagem, nome) {
     $.ajax({
-        url: link +"imagem/usuario?"+arquivo.nr_id_arquivo+"&ds_nome="+arquivo.arquivo.ds_nome,
+        url: link +"imagem/usuario?id_arquivo"+arquivo.nr_id+"&ds_nome="+nome,
         data: imagem,
         type: 'PUT',
         success: function (resp) {

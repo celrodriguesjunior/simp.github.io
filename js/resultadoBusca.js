@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     var url = new URL(window.location.href)
     
@@ -15,6 +13,9 @@ function retornaPesquisaAvancada(dados) {
     var listaResultados = $('#listaResultados')
 
     for (var i = 0; i < dados.length; i++) {
+        
+
+    
 
         var divCard = $('<div class="card">')
 
@@ -26,8 +27,19 @@ function retornaPesquisaAvancada(dados) {
 
         var divImageWrapper = $('<div class="image-wrapper">')
 
-        var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">')
+        
+        var img = $('<img id="result'+dados[i].nr_id+'" src="">')
 
+        
+    getImagemProposta(dados[i].nr_id).then( v => {
+            
+        // img = $('<img id="pop'+i+'">')
+        $('#result'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        
+        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        
+        
+    })
         var divCol23Cont = $('<div class="col-12 col-md">')
 
         var divCardBox = $('<div class="card-box">')
