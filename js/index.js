@@ -87,7 +87,7 @@ function retornaRecomendacao(rec) {
 
         getImagemProposta(dados[i].nr_id).then( v => {
             
-            
+            ///aa
             // img = $('<img id="pop'+i+'">')
             $('#rec'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
             
