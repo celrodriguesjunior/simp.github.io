@@ -28,7 +28,18 @@ function retornaLog(dados){
 
     var divImageWrapper = $('<div class="image-wrapper">')
 
-    var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">')
+    var img = $('<img id="minhasPropostas'+dados.nr_id+'" src="">')
+    getImagemProposta(dados.nr_id).then( v => {
+            
+        // img = $('<img id="pop'+i+'">')
+        $('#minhasPropostas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        
+        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        
+        
+    })
+
+    
 
     var divCol23Cont = $('<div class="col-12 col-md">')
 

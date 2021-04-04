@@ -361,7 +361,7 @@ function postUsuario(usuario) {
     $.ajax({
         url: link + "usuario", type: "POST", data:
             JSON.stringify(usuario), success: function (result) {
-                alert("Cadastro feito com sucesso!")
+                respostaUsuario(result)
             }, contentType: "application/json"
     });
 
@@ -371,9 +371,9 @@ function postUsuario(usuario) {
 function putUsuario(usuario) {
 
     $.ajax({
-        url: link + "usuario", type: "POST", data:
+        url: link + "usuario", type: "PUT", data:
             JSON.stringify(usuario), success: function (result) {
-                alert("Alteração feita com sucesso!")
+                respostaUsuarioEdicao(result)
             }, contentType: "application/json"
     });
 
@@ -469,76 +469,109 @@ function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }
 
-function mandaImagem(imagem) {
+function postImagemProposta(proposta, imagem) {
     $.ajax({
-        url: link + "arquivo/ds_nome=teste",
+        url: link +"imagem/proposta/"+proposta.nr_id+"?nr_agrupador="+proposta.nr_agrupador_arquivo+"&ds_nome="+"Proposta_"+proposta.ds_nome_exibido,
         data: imagem,
         type: 'POST',
+        success: function (resp) {
+            sucessoImagemProposta(resp, proposta)
+        },
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
 
     });
 }
 
-function getImagem() {
-    $.ajax({
-        url: link + "arquivo/1", success: function (resp) {
-            retornaImagem(resp)
-        }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-        processData: false, // NEEDED, DON'T OMIT THIS
-        statusCode: {
-            404: function () {
-
-            }
-        }, contentType: "application/json"
-    });
-
-}
-
-function getImagemInstituicao(id) {
-    $.ajax({
-        url: link + "imagens/instituicao/"+id, success: function (resp) {
-            retornaImagensInstituicao(resp)
-        }, contentType: false, 
-        processData: false,
-        statusCode: {
-            404: function () {
-
-            }
-        }, contentType: "application/json"
-    });
-
-}
-
-function getImagemUniversitario(id) {
-    $.ajax({
-        url: link + "imagens/universitario/"+id, success: function (resp) {
-            retornaImagensUniversitario(resp)
-        }, contentType: false, 
-        processData: false,
-        statusCode: {
-            404: function () {
-
-            }
-        }, contentType: "application/json"
-    });
-
-}
-
-function getImagemProposta(id) {
-    $.ajax({
+async function getImagemProposta(id) {
+    return $.ajax({
         url: link + "imagens/proposta/"+id, success: function (resp) {
-            retornaImagensProposta(resp)
+            // retornaImagemProposta(resp)
+            resp.data[1] = id
+            return resp.data
         }, contentType: false, 
         processData: false,
         statusCode: {
             404: function () {
-
+                return null
             }
         }, contentType: "application/json"
     });
 
 }
+
+function postImagemUsuario(usuario, imagem, nomeArquivo) {
+    $.ajax({
+        url: link +"imagem/usuario/"+usuario.nr_id_usuario+"?nr_agrupador="+usuario.nr_agrupador_arquivo+"&ds_nome="+nomeArquivo,
+        data: imagem,
+        type: 'POST',
+        success: function (resp) {
+            sucessoImagemUsuario(resp)
+        },
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+
+    });
+}
+
+async function putImagemUsuario(arquivo, imagem, nome) {
+    $.ajax({
+        url: link +"imagem/usuario?id_arquivo"+arquivo.nr_id+"&ds_nome="+nome,
+        data: imagem,
+        type: 'PUT',
+        success: function (resp) {
+            sucessoImagemUsuario(resp)
+        },
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+
+    });
+}
+
+async function getImagemUsuario(id) {
+    return $.ajax({
+        url: link + "imagens/usuario/"+id, success: function (resp) {
+            return resp
+        }, contentType: false, 
+        processData: false,
+        statusCode: {
+            404: function () {
+                return null
+            }
+        }, contentType: "application/json"
+    });
+
+}
+
+// function getImagem() {
+//     $.ajax({
+//         url: link + "arquivo/1", success: function (resp) {
+//             retornaImagem(resp)
+//         }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+//         processData: false, // NEEDED, DON'T OMIT THIS
+//         statusCode: {
+//             404: function () {
+
+//             }
+//         }, contentType: "application/json"
+//     });
+
+// }
+
+// function getImagemProposta(id) {
+//     $.ajax({
+//         url: link + "imagens/proposta/"+id, success: function (resp) {
+//             retornaImagensProposta(resp)
+//         }, contentType: false, 
+//         processData: false,
+//         statusCode: {
+//             404: function () {
+
+//             }
+//         }, contentType: "application/json"
+//     });
+
+// }
 
 // const dados = {
 //     var1: 'value1',

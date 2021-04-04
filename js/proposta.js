@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     getProposta(url.searchParams.get("nr_id"), parametro === "null" ? "" : parametro)
 
-    
+
 
 })
 
@@ -19,7 +19,7 @@ function retornaProposta(proposta) {
     getCurso(proposta.nr_id_curso)
 
 
-    
+
     /*
     
                         
@@ -27,7 +27,7 @@ function retornaProposta(proposta) {
     */
     //proposta.cs_status
 
-    getImagem()
+    getImagem(proposta)
 
     var status = "AB"
     getStatus(status)
@@ -51,7 +51,7 @@ function retornaCurso(curso) {
     curso = curso.data
     var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;">')
     var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
-    
+
     div.addClass("fundoAzul");
     h6.text("Curso: " + curso.ds_nome)
     div.append(h6)
@@ -62,31 +62,46 @@ function retornaCurso(curso) {
 
     $(div).insertAfter("#statos")
 
-    
+
     // $('#categoriaProposta').text(curso.ds_nome)
 }
 
 
-function getImagem() {
+function getImagem(dados) {
 
     var carrosel = $('#carroselImagem')
+    getImagemProposta(dados.nr_id).then(resp => {
+        for (var i = 0; i < resp.data.length; i++) {
 
-    for (var i = 0; i < 3; i++) {
+            var divCarrosel;
+            if (i == 0)
+                divCarrosel = $('<div class="carousel-item slider-image item active">')
+            else
+                divCarrosel = $('<div class="carousel-item slider-image item ">')
 
-        var divCarrosel;
-        if (i == 0)
-            divCarrosel = $('<div class="carousel-item slider-image item active">')
-        else
-            divCarrosel = $('<div class="carousel-item slider-image item ">')
+            var img = $('<div class="item-wrapper"><img id="'+"imagem"+i+'" class="d-block w-100" src=""></div>')
+
+            // if(resp != null){
+            // img = $('<img id="pop'+i+'">')
+            // console.log("Resp: " + resp)
+
+            
+            // }else{
+            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            // }
 
 
-        var img = $('<div class="item-wrapper"><img class="d-block w-100" src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg"></div>')
-
-        divCarrosel.append(img)
 
 
-        carrosel.append(divCarrosel)
-    }
+            divCarrosel.append(img)
+
+            
+
+            carrosel.append(divCarrosel)
+            
+            $('#imagem'+i).attr("src", "data:image/jpg;base64," + resp.data[i].arquivo.bl_arquivo)
+        }
+    })
 
 }
 
@@ -172,53 +187,53 @@ function getStatus(status) {
     // $(div).insertAfter("#headerTitulo")
 }
 
-function retornaInstituicao(resp){
+function retornaInstituicao(resp) {
 
     var card = $('#cardInstituicao')
 
-        var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-4">')
+    var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-4">')
 
-        var divItemWrapper = $('<div class="item-wrapper">')
+    var divItemWrapper = $('<div class="item-wrapper">')
 
-        var divItemImg = $('<div class="item-img">')
+    var divItemImg = $('<div class="item-img">')
 
-        var img = $('<img src="img/Instituições/furb.jpg">')
+    var img = $('<img src="img/Instituições/furb.jpg">')
 
-        var divItemContent = $('<div class="item-content">')
+    var divItemContent = $('<div class="item-content">')
 
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + resp.data.ds_razao_social + '</strong></h5>')
+    var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + resp.data.ds_razao_social + '</strong></h5>')
 
-        var texto = resp.data.ds_resumo
+    var texto = resp.data.ds_resumo
 
-        var p = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + texto + '</p>')
+    var p = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + texto + '</p>')
 
-        var divFooter = $('<div class="mbr-section-btn item-footer mt-2">')
+    var divFooter = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var aLink = $('<a href="instituicao.html?id='+ resp.data.nr_id+'" class="btn btn-primary item-btn display-7" >Saiba Mais</a>')
+    var aLink = $('<a href="instituicao.html?id=' + resp.data.nr_id + '" class="btn btn-primary item-btn display-7" >Saiba Mais</a>')
 
-        
 
-        divFooter.append(aLink)
 
-        divItemContent.append(h5)
+    divFooter.append(aLink)
 
-        divItemContent.append(p)
+    divItemContent.append(h5)
 
-        divItemImg.append(img)
+    divItemContent.append(p)
 
-        divItemWrapper.append(divItemImg)
+    divItemImg.append(img)
 
-        divItemWrapper.append(divItemContent)
+    divItemWrapper.append(divItemImg)
 
-        divItemWrapper.append(divFooter)
+    divItemWrapper.append(divItemContent)
 
-        divItem.append(divItemWrapper)
+    divItemWrapper.append(divFooter)
 
-        
+    divItem.append(divItemWrapper)
 
-        card.append(divItem)
-        
-        
+
+
+    card.append(divItem)
+
+
 
 
 }
