@@ -22,11 +22,14 @@ $(document).ready(function () {
     }
 
     getImagem()
+    
 
 });
 
+
+
 function retornaImagem(resp){
-    img = resp;
+    $("#a1").attr("src","data:image/jpg;base64," + resp.data.bl_arquivo)
 }
 
 // function retornaCursos(curso) {
@@ -77,7 +80,7 @@ function retornaRecomendacao(rec) {
         var divCol12Img = $('<div class="col-12 col-md-4">')
 
         var divImageWrapper = $('<div class="image-wrapper">')
-
+        
         var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg" alt="Mobirise">')
 
         var divCol23Cont = $('<div class="col-12 col-md">')
@@ -160,7 +163,7 @@ function retornaTemasPopulares(dados) {
 
         var divImg = $('<div class="item-img">')
 
-        var img = $('<img src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
+        var img = $('<img id="a'+i+'" src="img/temas/107435296-medical-chemistry-biomedicine-experiment.jpg">')
 
         var titulo = dados[i].ds_nome
 

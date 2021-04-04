@@ -471,7 +471,7 @@ function encodeQueryData(dados) {
 
 function mandaImagem(imagem) {
     $.ajax({
-        url: link + "arquivo?ds_nome=teste",
+        url: link + "arquivo/ds_nome=teste",
         data: imagem,
         type: 'POST',
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
@@ -482,7 +482,7 @@ function mandaImagem(imagem) {
 
 function getImagem() {
     $.ajax({
-        url: link + "arquivo?ds_nome=teste", success: function (resp) {
+        url: link + "arquivo/1", success: function (resp) {
             retornaImagem(resp)
         }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
