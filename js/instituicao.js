@@ -48,7 +48,7 @@ function getCabecalho(instituicao) {
 
     var idpag = url.searchParams.get("id")
 
-    if(localStorage.getItem("id_user") == idpag){
+    if(localStorage.getItem("id_instituicao") == idpag){
         var btnEditarPerfil = $('<a href="cadastroUsuario.html?id=' + localStorage.getItem("id_user") + '" class="btn btn-primary display-4">Editar Perfil</a>')
         divBtn.append(btnEditarPerfil)
     }

@@ -17,6 +17,8 @@ $(document).ready(function () {
         }
 
         $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" onClick="logout()">Logout</a></li>'))
+    }else{
+        $('#menusCabecalho').append($('<li class="nav-item"><a class="nav-link link text-black display-4" href="loging.html"">Login</a></li>'))
     }
 
 })
