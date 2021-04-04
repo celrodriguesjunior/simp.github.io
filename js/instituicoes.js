@@ -16,7 +16,17 @@ function retornaInstituicoes(dados) {
 
         var divItemImg = $('<div class="item-img">')
 
-        var img = $('<img src="img/Instituições/furb.jpg">')
+        // var img = $('<img src="img/Instituições/furb.jpg">')
+        var img = $('<img id="nov'+i+'" src="">')
+        getImagemUsuario(dados.data[i].nr_id).then( v => {
+            if(v != null){
+            // img = $('<img id="pop'+i+'">')
+            $(img).attr("src","data:image/jpg;base64," + v.data.bl_arquivo)            
+            }else{
+             img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            }
+            
+        })
 
         var divItemContent = $('<div class="item-content">')
 
@@ -59,30 +69,5 @@ function retornaInstituicoes(dados) {
 
     }
 
-
-
-
-    /*
-    
-    <div class="item features-image сol-12 col-md-6 col-lg-4">
-                    <div class="item-wrapper">
-                        <div class="item-img">
-                            <img src="img/Instituições/furb.jpg">
-                        </div>
-                        <div class="item-content">
-                            <h5 class="item-title mbr-fonts-style display-7"><strong>Instituição 1</strong></h5>
-
-                            <p class="mbr-text mbr-fonts-style mt-3 display-7">
-                                Pellentesque eget sapien vel ipsum efficitur maximus sed eget lorem. Praesent at leo
-                                enim. Duis tempus orci dignissim leo iaculis, eu blandit elit euismod. Phasellus
-                                convallis ipsum eu sem maximus semper et vel nunc. 
-                            </p>
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2">
-                            <a href="instituicao.html" class="btn btn-primary item-btn display-7" target="_blank">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-    */
 
 }

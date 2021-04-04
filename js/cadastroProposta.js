@@ -57,8 +57,8 @@ function retornaCursos(dados) {
 
 
 function salvarProposta() {
-    
-    
+
+
     var cd = "AB"
     switch ($('#status').val()) {
         case "1":
@@ -144,7 +144,7 @@ function retornaProposta(dados) {
 
     http://127.0.0.1:5500/cadastroProposta.html?id=1
     //console.log("cheguei 2")
-    
+
     console.log(dados)
     $('#categorias')[0].selectedIndex = opcao,
         $('#nomeProposta').val(dados.ds_nome),
@@ -177,32 +177,44 @@ function retornaProposta(dados) {
     $('#duracao').val(dados.nr_duracao)
 }
 
-function retornaCadastroProposta(resp){
+function retornaCadastroProposta(resp) {
+    resp = resp.data
     alert("Cadastro feito com sucesso! Enviando imagens...")
-    salvarImg()
-    location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+    salvarImg(resp.nr_id)
+    location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
 }
 
-function retornaEdicaoProposta(resp){
+function retornaEdicaoProposta(resp) {
+    resp = resp.data
     alert("Alterações feitas com sucesso! Enviando imagens...")
-    salvarImg()
-    // location.href = "proposta.html?nr_id="+resp.data.nr_id+"&nr_id_usuario="+localStorage.getItem("id_user")
+    salvarImg(resp.nr_id)
+
 }
 
-function salvarImg() {
-    var formData = new FormData();
-    if($('#img1')[0].files.length > 0){
+function salvarImg(id) {
+
+    if ($('#img1')[0].files.length > 0) {
+        var formData = new FormData();
         formData.append("fileinput", $('#img1')[0].files[0]);
+        postImagemProposta(id, formData)
+
     }
 
-    if($('#img2')[0].files.length > 0){
+
+    if ($('#img2')[0].files.length > 0) {
+        var formData = new FormData();
         formData.append("imagem2", $('#img2')[0].files[0]);
+        postImagemProposta(id, formData)
+
     }
 
-    if($('#img3')[0].files.length > 0){
+
+    if ($('#img3')[0].files.length > 0) {
+        var formData = new FormData();
         formData.append("imagem3", $('#img3')[0].files[0]);
+        postImagemProposta(id, formData)
     }
 
-    mandaImagem(formData)
-    
+
+    location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
 }

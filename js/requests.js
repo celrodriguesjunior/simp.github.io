@@ -361,7 +361,7 @@ function postUsuario(usuario) {
     $.ajax({
         url: link + "usuario", type: "POST", data:
             JSON.stringify(usuario), success: function (result) {
-                alert("Cadastro feito com sucesso!")
+                respostaUsuario(result)
             }, contentType: "application/json"
     });
 
@@ -469,36 +469,68 @@ function encodeQueryData(dados) {
     return new URLSearchParams(dados);
 }
 
-function mandaImagem(imagem) {
+function postImagemProposta(id, imagem) {
     $.ajax({
-        url: link + "arquivo/ds_nome=teste",
+        url: link +"imagens/proposta/"+id,
         data: imagem,
         type: 'POST',
+        success: function (resp) {
+            sucessoImagemProposta(resp)
+        },
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
         processData: false, // NEEDED, DON'T OMIT THIS
 
     });
 }
 
-function getImagem() {
+async function getImagemProposta(id) {
     $.ajax({
-        url: link + "arquivo/1", success: function (resp) {
-            retornaImagem(resp)
-        }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-        processData: false, // NEEDED, DON'T OMIT THIS
+        url: link + "imagem/proposta/"+id, success: function (resp) {
+            // retornaImagemProposta(resp)
+            return resp
+        }, contentType: false, 
+        processData: false,
         statusCode: {
             404: function () {
-
+                return null
             }
         }, contentType: "application/json"
     });
 
 }
 
-function getImagemUsuario(id) {
+function postImagemUsuario(usuario, imagem) {
+    $.ajax({
+        url: link +"imagem/usuario/"+usuario.nr_id_usuario+"?nr_agrupador="+usuario.nr_agrupador_arquivo+"&ds_nome="+"Perfil_"+usuario.ds_nome_exibido,
+        data: imagem,
+        type: 'POST',
+        success: function (resp) {
+            sucessoImagemUsuario(resp)
+        },
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+
+    });
+}
+
+function putImagemUsuario(arquivo, imagem) {
+    $.ajax({
+        url: link +"imagem/usuario?"+arquivo.nr_id_arquivo+"&ds_nome="+arquivo.arquivo.ds_nome,
+        data: imagem,
+        type: 'PUT',
+        success: function (resp) {
+            sucessoImagemUsuario(resp)
+        },
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+
+    });
+}
+
+async function getImagemUsuario(id) {
     $.ajax({
         url: link + "imagens/usuario/"+id, success: function (resp) {
-            retornaImagensUsuario(resp)
+            return resp
         }, contentType: false, 
         processData: false,
         statusCode: {
@@ -510,20 +542,35 @@ function getImagemUsuario(id) {
 
 }
 
-function getImagemProposta(id) {
-    $.ajax({
-        url: link + "imagens/proposta/"+id, success: function (resp) {
-            retornaImagensProposta(resp)
-        }, contentType: false, 
-        processData: false,
-        statusCode: {
-            404: function () {
+// function getImagem() {
+//     $.ajax({
+//         url: link + "arquivo/1", success: function (resp) {
+//             retornaImagem(resp)
+//         }, contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+//         processData: false, // NEEDED, DON'T OMIT THIS
+//         statusCode: {
+//             404: function () {
 
-            }
-        }, contentType: "application/json"
-    });
+//             }
+//         }, contentType: "application/json"
+//     });
 
-}
+// }
+
+// function getImagemProposta(id) {
+//     $.ajax({
+//         url: link + "imagens/proposta/"+id, success: function (resp) {
+//             retornaImagensProposta(resp)
+//         }, contentType: false, 
+//         processData: false,
+//         statusCode: {
+//             404: function () {
+
+//             }
+//         }, contentType: "application/json"
+//     });
+
+// }
 
 // const dados = {
 //     var1: 'value1',

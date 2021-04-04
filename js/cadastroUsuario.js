@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    if(localStorage.getItem("id_user")!= null){
+
+
+    if (localStorage.getItem("id_user") != null) {
         $('#tipo').remove()
         getUsuario()
     }
@@ -39,15 +41,35 @@ $(document).ready(function () {
 
     getEstados()
 
+
     $('#states').change(e => {
         if ($('#states').val() != 0)
             getCidadesPorEstado($('#states').val())
     })
+
+    getInstituicoes()
 })
 
-function retornaUsuario(){
+function retornaInstituicoes(dados) {
+
+    for (var i = 0; i < dados.data.length; i++) {
+        var opcao = $('<option value="' + dados.data[i].nr_id + '">' + dados.data[i].ds_razao_social + '</option>')
+        $('#instituicao').append(opcao)
+    }
+
+    $('#instituicao').val(0)
+
+
+    // if (url.searchParams.get("id") != undefined) {
+    //     getProposta(url.searchParams.get("id"), "")
+    //     $('#tituloPaginaProposta').text("Editar Proposta")
+    //     editar = true;
+    // }
+
 
 }
+
+
 
 
 
@@ -95,7 +117,7 @@ function filtrarUniversitario() {
 
     $('#instituicaoDiv').toggle(true)
     $('#grauDiv').toggle(true)
-    
+
 
 
 }
@@ -204,14 +226,14 @@ function cadastrarUsuario() {
             "ds_email": $('#email').val(),
             "ds_senha": $('#senha').val(),
             "ds_nome_exibido": $('#fname').val() + " " + $('#lname').val(),
-            "nr_id_instituicao":  Number($("#country").val()),
+            "nr_id_instituicao": Number($("#instituicao").val()),
             "nr_id_cidade": Number($('#cities').val()),
             "nr_id_estado": Number($('#states').val()),
             "ds_nome": $("#fname").val(),
             "ds_sobrenome": $("#lname").val(),
             "ds_telefone": $('#phone').val(),
             "ds_grau": $("#grau").val(),
-            
+
         }
     } else {
         dados = {
@@ -228,14 +250,32 @@ function cadastrarUsuario() {
             "nr_id_cidade": Number($('#cities').val()),
             "nr_id_estado": Number($('#states').val())
         }
-        console.log("inst.")
     }
 
 
 
-    console.log(dados)
     postUsuario(dados)
-    window.location.href = "login.html"
 
-    //alert("usuario criado")
+
+
+}
+
+function respostaUsuario(resp) {
+    alert("Cadastro feito com sucesso! Enviando imagem...")
+    salvarImg(resp.data)
+}
+
+function salvarImg(usuario) {
+
+    if ($('#img1')[0].files.length > 0) {
+        var formData = new FormData();
+        formData.append("fileinput", $('#img1')[0].files[0]);
+        postImagemUsuario(usuario, formData)
+    }
+
+}
+
+function sucessoImagemUsuario() {
+    alert("Imagem enviadas com sucesso!")
+    window.location.href = "login.html"
 }
