@@ -8,12 +8,12 @@ $(document).ready(function () {
 
     //getUniversitario(url.searchParams.get("id"))
     var idpag = url.searchParams.get("id")
-    console.log(idpag);
+    //console.log(idpag);
 
     //localStorage.setItem("IdUsuario", 1)
-    console.log(localStorage.getItem("id_user"))
-    console.log(idpag)
-    console.log(localStorage.getItem("id_user") == idpag)
+    //console.log(localStorage.getItem("id_user"))
+    //console.log(idpag)
+    //console.log(localStorage.getItem("id_user") == idpag)
     if (localStorage.getItem("id_user") == idpag) {
         var a = $('<a href="cadastroUsuario.html?id=' + localStorage.getItem("id_user") + '" class="btn btn-primary display-4">Editar Perfil</a>')
         var div = $('<div class="mbr-section-btn">')

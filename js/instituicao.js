@@ -32,12 +32,26 @@ function getCabecalho(instituicao) {
     var resumo = instituicao.ds_resumo;
 
     var pText = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
+    var divBtn = $('<div class="mbr-section-btn pt-3">')
+    var btnSaibaMais = $('<a href="#descricao" class="btn btn-primary display-4">Saiba Mais</a>')
 
-    var btnSaibaMais = $('<div class="mbr-section-btn pt-3"><a href="#descricao" class="btn btn-primary display-4">Saiba Mais</a></div>')
+    
+
 
     cabecalho.append(h5Nome)
     cabecalho.append(pText)
-    cabecalho.append(btnSaibaMais)
+    divBtn.append(btnSaibaMais)
+    cabecalho.append(divBtn)
+
+
+    var url = new URL(window.location.href)
+
+    var idpag = url.searchParams.get("id")
+
+    if(localStorage.getItem("id_user") == idpag){
+        var btnEditarPerfil = $('<a href="cadastroUsuario.html?id=' + localStorage.getItem("id_user") + '" class="btn btn-primary display-4">Editar Perfil</a>')
+        divBtn.append(btnEditarPerfil)
+    }
 
 }
 
