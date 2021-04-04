@@ -495,25 +495,10 @@ function getImagem() {
 
 }
 
-function getImagemInstituicao(id) {
+function getImagemUsuario(id) {
     $.ajax({
-        url: link + "imagens/instituicao/"+id, success: function (resp) {
-            retornaImagensInstituicao(resp)
-        }, contentType: false, 
-        processData: false,
-        statusCode: {
-            404: function () {
-
-            }
-        }, contentType: "application/json"
-    });
-
-}
-
-function getImagemUniversitario(id) {
-    $.ajax({
-        url: link + "imagens/universitario/"+id, success: function (resp) {
-            retornaImagensUniversitario(resp)
+        url: link + "imagens/usuario/"+id, success: function (resp) {
+            retornaImagensUsuario(resp)
         }, contentType: false, 
         processData: false,
         statusCode: {
