@@ -8,8 +8,6 @@ $(document).ready(function () {
 
 function retornaInstituicao(dados) {
     var instituicao = dados.data
-
-
     getCabecalho(instituicao)
 
     getDescricao(instituicao)
@@ -17,6 +15,17 @@ function retornaInstituicao(dados) {
     getPropostasInstituicao(instituicao.nr_id)
 
     getContatos(instituicao)
+
+    
+    getImagemUsuario(instituicao.nr_id_usuario).then( v => {
+        // img = $('<img id="pop'+i+'">')
+        $('#principal').attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        
+        
+    }).catch(() => {
+    })
+    
 
 }
 
@@ -91,6 +100,7 @@ function retornaPropostasInstituicao(propostas) {
                 // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
                 
                 
+            }).catch(() => {
             })
             var divItemContent = $('<div class="item-content">')
 
@@ -145,6 +155,7 @@ function retornaPropostasInstituicao(propostas) {
                 // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
                 
                 
+            }).catch(() => {
             })
             var divItemContent = $('<div class="item-content">')
 

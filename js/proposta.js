@@ -101,6 +101,7 @@ function getImagem(dados) {
             
             $('#imagem'+i).attr("src", "data:image/jpg;base64," + resp.data[i].arquivo.bl_arquivo)
         }
+    }).catch(() => {
     })
 
 }
@@ -198,6 +199,17 @@ function retornaInstituicao(resp) {
     var divItemImg = $('<div class="item-img">')
 
     var img = $('<img src="img/Instituições/furb.jpg">')
+
+    var img = $('<img id="autora" src="">')
+        
+    getImagemUsuario(resp.data.nr_id_usuario).then( v => {
+        // img = $('<img id="pop'+i+'">')
+        $('#autora').attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        
+        
+    }).catch(() => {
+    })
 
     var divItemContent = $('<div class="item-content">')
 

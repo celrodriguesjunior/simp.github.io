@@ -39,6 +39,7 @@ function retornaPesquisaAvancada(dados) {
         // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
         
         
+    }).catch(() => {
     })
         var divCol23Cont = $('<div class="col-12 col-md">')
 

@@ -67,6 +67,7 @@ function retornaUsuario(dados) {
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             // }
             
+        }).catch(() => {
         })
 }
 
