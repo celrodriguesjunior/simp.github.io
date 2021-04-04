@@ -359,6 +359,10 @@ function salvarImgEdicao(usuario) {
         var formData = new FormData();
         formData.append("fileinput", $('#img1')[0].files[0]);
         putImagemUsuario(v.data[0], formData)
+    }).catch(() => {
+        var formData = new FormData();
+        formData.append("fileinput", $('#img1')[0].files[0]);
+        postImagemUsuario(usuario, formData,$('#img1')[0].files[0].name)
     })
        
 
