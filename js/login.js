@@ -9,6 +9,8 @@ function logarSistema() {
     temEmail =false
     temSenha = false
 
+    
+
     if(!$('#email')[0].value){
         $('#erroEmail')[0].hidden = false
     }else{
