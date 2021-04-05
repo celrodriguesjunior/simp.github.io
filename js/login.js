@@ -28,7 +28,7 @@ function logarSistema() {
         $('#erroEmail')[0].hidden = true
         $('#erroSenha')[0].hidden = true
         $('#erroValidacao')[0].hidden = true
-        getAutenticacao($('#email')[0].value)
+        getAutenticacao($('#email')[0].value, $('#senha')[0].value)
     }
    
     
