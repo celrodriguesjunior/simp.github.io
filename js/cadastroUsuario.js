@@ -6,7 +6,7 @@ $(document).ready(function () {
     }
 
     setEvents()
-    // $('#universitario2').click()
+    $('#universitario2').click()
 
     $("#cnpj").on("keyup", function (e) {
         $(this).val(
