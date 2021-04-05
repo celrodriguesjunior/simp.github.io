@@ -9,6 +9,8 @@ function logarSistema() {
     temEmail =false
     temSenha = false
 
+    
+
     if(!$('#email')[0].value){
         $('#erroEmail')[0].hidden = false
     }else{
@@ -28,7 +30,7 @@ function logarSistema() {
         $('#erroEmail')[0].hidden = true
         $('#erroSenha')[0].hidden = true
         $('#erroValidacao')[0].hidden = true
-        getAutenticacao($('#email')[0].value)
+        getAutenticacao($('#email')[0].value, $('#senha')[0].value)
     }
    
     

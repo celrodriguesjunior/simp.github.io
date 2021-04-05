@@ -452,7 +452,7 @@ function getPesquisaAvancada(dados) {
 
 }
 
-function getAutenticacao(email,senha) {
+function getAutenticacao(email, senha) {
     $.ajax({
         url: link + "usuario" + "?email=" + email+"&senha="+senha, type: "GET", success: function (resp) {
             retornaAutenticacao(resp)
