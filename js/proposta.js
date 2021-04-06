@@ -146,7 +146,7 @@ function getContato() {
 
 function getStatus(status) {
 
-    console.log(status)
+    // console.log(status)
     var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;">')
     var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
     div.append(h6)

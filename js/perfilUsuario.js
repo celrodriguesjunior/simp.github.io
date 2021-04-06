@@ -18,8 +18,8 @@ $(document).ready(function () {
         var a = $('<a href="cadastroUsuario.html?id=' + localStorage.getItem("id_user") + '" class="btn btn-primary display-4">Editar Perfil</a>')
         var div = $('<div class="mbr-section-btn">')
         div.append(a)
-        console.log(div)
-        console.log($('#menuPerfil'))
+        // console.log(div)
+        // console.log($('#menuPerfil'))
         $('#menuPerfil').append(div)
     }
 
@@ -35,7 +35,7 @@ function retornaUniversitario(dados) {
 
 
     dados = dados.data
-    console.log(dados)
+    // console.log(dados)
 
 
 }

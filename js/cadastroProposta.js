@@ -31,7 +31,7 @@ function retornaCursos(dados) {
 
     if (url.searchParams.get("id") != undefined) {
         getProposta(url.searchParams.get("id"), "")
-        console.log("cheguei 1")
+        // console.log("cheguei 1")
         $('#tituloPaginaProposta').text("Editar Proposta")
         editar = true;
     }
@@ -96,8 +96,8 @@ function salvarProposta() {
             "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
             "nr_duracao": Number($('#duracao').val())
         }
-        console.log("update")
-        console.log(dados)
+        // console.log("update")
+        // console.log(dados)
         putProposta(dados)
 
     }
@@ -145,7 +145,7 @@ function retornaProposta(dados) {
     http://127.0.0.1:5500/cadastroProposta.html?id=1
     //console.log("cheguei 2")
 
-    console.log(dados)
+    // console.log(dados)
     $('#categorias')[0].selectedIndex = opcao,
         $('#nomeProposta').val(dados.ds_nome),
         $('#descricao').val(dados.ds_desc_projeto),

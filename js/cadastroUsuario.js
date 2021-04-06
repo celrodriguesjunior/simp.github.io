@@ -68,8 +68,8 @@ function retornaUsuario(dados) {
     $('#labelTela').text("Editar Usuário")
     //console.log("chguei pra editar")
     dados = dados.data
-    console.log(dados)
-    console.log(dados.cd_cnpj)
+    // console.log(dados)
+    // console.log(dados.cd_cnpj)
     if (dados.cd_cnpj == null ||dados.cd_cnpj == "") {
         $('#universitario2').click()
         $('#tipo').hide()

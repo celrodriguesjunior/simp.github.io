@@ -52,6 +52,6 @@ function retornaCursos(dados) {
 
 
     }
-    console.log(dados)
+    // console.log(dados)
 
 }

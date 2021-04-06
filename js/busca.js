@@ -38,7 +38,7 @@ var dados = {
 
     }
 
-    console.log(selectCategoria)
+    
 
 
     /*

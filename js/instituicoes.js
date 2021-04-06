@@ -64,7 +64,7 @@ function retornaInstituicoes(dados) {
 
         divItem.append(divItemWrapper)
 
-        console.log(divItem)
+        // console.log(divItem)
 
         listaIntituicoes.append(divItem)
 
