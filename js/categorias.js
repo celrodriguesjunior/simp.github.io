@@ -20,7 +20,10 @@ function retornaCursos(dados) {
 
         var divItemImg = $('<div class="item-img">')
 
-        var img = $('<img src="img/cursos/'+i+'">')
+        
+            var img = $('<img src="img/cursos/'+i+'.jpg">')
+        
+        
 
         var divItemContent = $('<div class="item-content">')
 
