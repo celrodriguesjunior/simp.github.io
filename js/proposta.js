@@ -293,11 +293,16 @@ function retornaInstituicao(resp) {
 
 
 function share(){
+    var link = window.location.href;
+    var sub = link.substr(link.indexOf('&'), link.length - link.indexOf('&'))
+    link = link.replace(sub.toString(), "")
+
+    console.log(link);
 	if (navigator.share !== undefined) {
 		navigator.share({
 			title: 'Compartilhar Proposta',
 			text: 'De uma olhada nessa proposta!!',
-			url: window.location.href,
+			url: link,
 		})
 		.then(() => console.log('Successful share'))
 		.catch((error) => console.log('Error sharing', error));
