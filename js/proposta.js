@@ -2,9 +2,9 @@ $(document).ready(function () {
     var url = new URL(window.location.href)
 
 
-    var parametro = url.searchParams.get("nr_id_usuario")
+    var parametro = url.searchParams.get("id_usuario")
 
-    getProposta(url.searchParams.get("nr_id"), parametro === "null" ? "" : parametro)
+    getProposta(url.searchParams.get("id"), parametro === "null" ? "" : parametro)
 
 
 
@@ -18,18 +18,9 @@ function retornaProposta(proposta) {
 
     getCurso(proposta.nr_id_curso)
 
-
-
-    /*
-    
-                        
-                    </div>
-    */
-    //proposta.cs_status
-
     getImagem(proposta)
 
-    
+
     getStatus(proposta.cd_status)
 
     getInstituicao(proposta.nr_id_instituicao)
@@ -43,8 +34,71 @@ function retornaProposta(proposta) {
 
     $('#contatoProposta').text(proposta.ds_info_contatos)
 
-    getContato(proposta)
+    montaUniversitarios(proposta)
+    // getContato(proposta)
 
+}
+
+function montaUniversitarios(proposta) {
+
+    var univs = proposta.universitarios
+    var listaUnv = $("#UnvTrab")
+
+    var qtd = 0
+    if (univs) {
+        for (var i = 0; i < univs.length; i++) {
+
+            var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
+
+            var divItemWrapper = $('<div class="item-wrapper">')
+
+            var divItemImg = $('<div class="item-img">')
+
+            // var img = $('<img id="univ' + univs[i].nr_id + '" src="">')
+
+            // $('#univ' + univs[i].nr_id).attr("src", "data:image/jpg;base64," + univs[i].agrupadorArquivo[0].arquivo.bl_arquivo)
+            var img = $('<img id="univ" src="data:image/jpg;base64,' + univs[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">')
+
+
+            // img[0].style.height = '300px'
+            // img[0].style.width = '300px'
+
+            var divItemContent = $('<div class="item-content">')
+
+            var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + univs[i].ds_nome_exibido + '</strong></h5>')
+
+            // var textoResumo = univs[i].ds_desc_projeto
+
+            // var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
+
+            var aLink = $('<a href="perfilUsuario.html?id=' + localStorage.getItem("id_user") + '" class="text-primary"> <br>Ver Perfil</a>')
+
+            // pResumo.append(aLink)
+
+            divItemContent.append(h5)
+            // divItemContent.append(pResumo)
+            divItemContent.append(aLink)
+
+            divItemImg.append(img)
+
+            divItemWrapper.append(divItemImg)
+            divItemWrapper.append(divItemContent)
+
+
+            divItem.append(divItemWrapper)
+
+            listaUnv.append(divItem)
+
+
+
+            qtd++
+
+        }
+    }
+    if (qtd == 0) {
+        var msg = $('<p style="margin:auto">Nenhum universitario participa desta proposta. Seja o primeiro!</p>')
+        listaUnv.append(msg)
+    }
 }
 
 function retornaCurso(curso) {
@@ -79,13 +133,13 @@ function getImagem(dados) {
             else
                 divCarrosel = $('<div class="carousel-item slider-image item ">')
 
-            var img = $('<div class="item-wrapper"><img id="'+"imagem"+i+'" class="d-block w-100" src=""></div>')
+            var img = $('<div class="item-wrapper"><img id="' + "imagem" + i + '" class="d-block w-100" src=""></div>')
 
             // if(resp != null){
             // img = $('<img id="pop'+i+'">')
             // console.log("Resp: " + resp)
 
-            
+
             // }else{
             // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             // }
@@ -95,11 +149,11 @@ function getImagem(dados) {
 
             divCarrosel.append(img)
 
-            
+
 
             carrosel.append(divCarrosel)
-            
-            $('#imagem'+i).attr("src", "data:image/jpg;base64," + resp.data[i].arquivo.bl_arquivo)
+
+            $('#imagem' + i).attr("src", "data:image/jpg;base64," + resp.data[i].arquivo.bl_arquivo)
         }
     }).catch(() => {
     })
@@ -200,16 +254,13 @@ function retornaInstituicao(resp) {
 
     var img = $('<img src="img/Instituições/furb.jpg">')
 
-    var img = $('<img id="autora" src="">')
-        
-    getImagemUsuario(resp.data.nr_id_usuario).then( v => {
-        // img = $('<img id="pop'+i+'">')
-        $('#autora').attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
-        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-        
-        
-    }).catch(() => {
-    })
+    var img = $('<img id="autora" src="data:image/jpg;base64,' + resp.data.agrupadorArquivo[0].arquivo.bl_arquivo + '">')
+    // console.log(resp.data.agrupadorArquivo[0].arquivo.bl_arquivo)
+
+    // $('#autora').attr("src", "data:image/jpg;base64," + resp.data.agrupadorArquivo[0].arquivo.bl_arquivo)
+
+    // $('#autora').attr("src", "data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)
+
 
     var divItemContent = $('<div class="item-content">')
 

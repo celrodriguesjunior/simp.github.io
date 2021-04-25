@@ -114,7 +114,7 @@ function retornaRecomendacao(rec) {
 
         var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
-        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary display-4">Visitar Página</a></div></div>')
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?id=' + dados[i].nr_id + '&id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary display-4">Visitar Página</a></div></div>')
 
         divColMd.append(h6Titulo)
         divColMd.append(p)
@@ -201,7 +201,7 @@ function retornaTemasPopulares(dados) {
 
         var divSectionBtn = $('<div class="mbr-section-btn item-footer mt-2">')
 
-        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
+        var linkProposta = $('<a href="proposta.html?id=' + dados[i].nr_id + '&id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" class="btn btn-primary item-btn display-7">Acesse a Pagina</a>')
 
 
 
@@ -235,7 +235,7 @@ function retornaNovosTemas(dados) {
 
         var divItemGalery = $('<div class="col-12 col-md-6 col-lg-3 item gallery-image">')
 
-        var linkProposta = $('<a href="proposta.html?nr_id=' + dados[i].nr_id + '&nr_id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" style="color: white;">')
+        var linkProposta = $('<a href="proposta.html?id=' + dados[i].nr_id + '&id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
 
         var img = $('<img id="nov'+dados[i].nr_id+'" src="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')

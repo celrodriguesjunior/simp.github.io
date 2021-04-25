@@ -57,7 +57,7 @@ function retornaPesquisaAvancada(dados) {
 
         var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
-        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?nr_id='+dados[i].nr_id+'&nr_id_usuario='+(localStorage.getItem("id_user")?localStorage.getItem("id_user"):"")+'" class="btn btn-primary display-4">Visitar Página</a></div></div>')
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?id='+dados[i].nr_id+'&id_usuario='+(localStorage.getItem("id_user")?localStorage.getItem("id_user"):"")+'" class="btn btn-primary display-4">Visitar Página</a></div></div>')
 
         divColMd.append(h6Titulo)
         divColMd.append(p)

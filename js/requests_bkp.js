@@ -151,7 +151,7 @@ function getPropostasPorCategoria(idCategoria) {
 
 //GET Proposta
 function getProposta(id, idUsuario) {
-    $.get("http://simprestapi.ddns.net:5000/v1/proposta?nr_id="+id+"&nr_id_usuario=" + idUsuario, function (resp, status) {
+    $.get("http://simprestapi.ddns.net:5000/v1/proposta?id="+id+"&id_usuario=" + idUsuario, function (resp, status) {
 
         if (status == 'success') {
             retornaProposta(resp)

@@ -1,6 +1,6 @@
 
-// link = "https://private-51e72-simp3.apiary-mock.com/v1/"
-link = "http://simprestapi.ddns.net:5000/v1/"
+// link = "http://private-anon-7837cc2bc7-simp3.apiary-mock.com/"
+link = "http://simprestapi.ddns.net:5000/"
 
 //CURSOS
 //GET cursos
@@ -154,7 +154,7 @@ function getPropostasPorCategoria(idCategoria) {
 
 //GET Proposta
 function getProposta(id, idUsuario) {
-    $.get(link + "proposta?nr_id=" + id + "&nr_id_usuario=" + idUsuario, function (resp, status) {
+    $.get(link + "proposta?id=" + id + "&id_usuario=" + idUsuario, function (resp, status) {
 
         if (status == 'success') {
             retornaProposta(resp)
@@ -471,7 +471,7 @@ function encodeQueryData(dados) {
 
 function postImagemProposta(proposta, imagem) {
     $.ajax({
-        url: link +"imagem/proposta/"+proposta.nr_id+"?nr_agrupador="+proposta.nr_agrupador_arquivo+"&ds_nome="+"Proposta_"+proposta.ds_nome_exibido,
+        url: link +"imagem/proposta/"+proposta.nr_id+"?nr_agrupador="+proposta.nr_agrupador_arquivo,//+"&ds_nome="+"Proposta_"+proposta.ds_nome,
         data: imagem,
         type: 'POST',
         success: function (resp) {

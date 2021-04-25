@@ -83,6 +83,17 @@ function salvarProposta() {
 
 
     if (editar) {
+        
+        lista = JSON.parse(localStorage.getItem("agrupadorArquivo"))
+
+        for (let i = 1; i < 4; i++) {
+            if ($('#img' + i)[0].files.length > 0) {
+                if (lista[i - 1] != null) {
+                    lista.splice(i - 1,1)
+                }
+            }
+        }
+// console.log(lista)
         var dados = {
             "nr_id": Number(url.searchParams.get("id")),
             "nr_id_curso": Number($('#categorias').val()),
@@ -94,11 +105,14 @@ function salvarProposta() {
             "qt_participantes": Number($('#qtdeParticipantes').val()),
             "ds_info_contatos": $('#contato').val(),
             "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
-            "nr_duracao": Number($('#duracao').val())
+            "nr_duracao": Number($('#duracao').val()),
+            "universitarios": JSON.parse(localStorage.getItem("universitarios")),
+            "agrupadorArquivo": lista
         }
+
         // console.log("update")
-        // console.log(dados)
-        putProposta(dados)
+        console.log(dados)
+        // putProposta(dados)
 
     }
     else {
@@ -113,7 +127,9 @@ function salvarProposta() {
             "ds_info_contatos": $('#contato').val(),
             "ds_tipo": $('#tipo').val() == 1 ? "TCC" : "Projeto de Extensão",
             "dt_geracao": new Date(),
-            "nr_duracao": Number($('#duracao').val())
+            "nr_duracao": Number($('#duracao').val()),
+            "universitarios": JSON.parse(localStorage.getItem("universitarios")),
+            "agrupadorArquivo": JSON.parse(localStorage.getItem("agrupadorArquivo"))
         }
 
         postProposta(dados)
@@ -174,7 +190,53 @@ function retornaProposta(dados) {
             $('#status').val(1)
             break;
     }
+
+    localStorage.setItem("universitarios", JSON.stringify(dados.universitarios))
+    localStorage.setItem("agrupadorArquivo", JSON.stringify(dados.agrupadorArquivo))
+
+    //EXIBE AS IMAGENS ATUAIS DA PROPOSTA
+    for (let i = 0; i < dados.agrupadorArquivo.length; i++) {
+        var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
+
+        var divItemWrapper = $('<div class="item-wrapper">')
+
+        var divItemImg = $('<div class="item-img">')
+
+        var img = $('<img id="imgs' + dados.agrupadorArquivo[i].arquivo.ds_nome + '" src="data:image/jpg;base64,' + dados.agrupadorArquivo[i].arquivo.bl_arquivo + '">')
+
+        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Imagem ' + (i + 1) + '</strong></h5>')
+
+
+        divItemImg.append(img)
+
+        divItemWrapper.append(divItemImg)
+        divItemWrapper.append(h5)
+
+
+        divItem.append(divItemWrapper)
+
+        $('#ImagensAtuais').append(divItem)
+
+
+        $('#imagem'+(i+1)).text("Substituir imagem " + (i+1) + " por:")
+
+
+    }
+
+
+
     $('#duracao').val(dados.nr_duracao)
+    if (dados.cd_status == "DV") {
+        if (dados.universitarios != null) {
+
+            for (let i = 1; i < dados.universitarios.length; i++) {
+                // $('#Dados')[0]
+                $($('#Universitario')[0].cloneNode(true)).insertBefore($('#Submit'))
+            }
+        }
+    } else {
+        $('#Universitario').hide()
+    }
 }
 
 function retornaCadastroProposta(resp) {
@@ -191,37 +253,54 @@ function retornaEdicaoProposta(resp) {
 
 }
 
+// function salvarImg(id) {
+
+//     if ($('#img1')[0].files.length > 0) {
+//         var formData = new FormData();
+//         formData.append("fileinput", $('#img1')[0].files[0]);
+//         postImagemProposta(id, formData)
+
+//     }
+
+
+//     if ($('#img2')[0].files.length > 0) {
+//         var formData2 = new FormData();
+//         formData2.append("fileinput", $('#img2')[0].files[0]);
+//         postImagemProposta(id, formData2)
+
+//     }
+
+
+//     if ($('#img3')[0].files.length > 0) {
+//         var formData3 = new FormData();
+//         formData3.append("fileinput", $('#img3')[0].files[0]);
+//         postImagemProposta(id, formData3)
+//     }
+
+
+
+// }
+
 function salvarImg(id) {
+    var formData = new FormData();
 
-    if ($('#img1')[0].files.length > 0) {
-        var formData = new FormData();
-        formData.append("fileinput", $('#img1')[0].files[0]);
-        postImagemProposta(id, formData)
+    for (let i = 1; i < 4; i++) {
 
+
+
+        if ($('#img' + i)[0].files.length > 0) {
+            formData.append("fileInput", $('#img' + i)[0].files[0])
+
+        }
     }
 
+    postImagemProposta(id, formData)
 
-    if ($('#img2')[0].files.length > 0) {
-        var formData = new FormData();
-        formData.append("imagem2", $('#img2')[0].files[0]);
-        postImagemProposta(id, formData)
-
-    }
-
-
-    if ($('#img3')[0].files.length > 0) {
-        var formData = new FormData();
-        formData.append("imagem3", $('#img3')[0].files[0]);
-        postImagemProposta(id, formData)
-    }
-
-
-     
 }
 
-function sucessoImagemProposta(resp, proposta){
+function sucessoImagemProposta(resp, proposta) {
     alert("Imagens enviadas com sucesso!")
-    location.href = "proposta.html?nr_id=" + proposta.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
+    // location.href = "proposta.html?id=" + proposta.nr_id + "&id_usuario=" + localStorage.getItem("id_user")
 }
 
 
