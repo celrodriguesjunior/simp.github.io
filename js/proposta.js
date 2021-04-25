@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#universitarios').hide()
     var url = new URL(window.location.href)
 
 
@@ -34,7 +35,11 @@ function retornaProposta(proposta) {
 
     $('#contatoProposta').text(proposta.ds_info_contatos)
 
-    montaUniversitarios(proposta)
+    if (proposta.cd_status == "DV") {
+        $('#universitarios').show()
+        montaUniversitarios(proposta)
+
+    }
     // getContato(proposta)
 
 }
@@ -124,39 +129,22 @@ function retornaCurso(curso) {
 function getImagem(dados) {
 
     var carrosel = $('#carroselImagem')
-    getImagemProposta(dados.nr_id).then(resp => {
-        for (var i = 0; i < resp.data.length; i++) {
+    for (var i = 0; i < dados.agrupadorArquivo.length; i++) {
 
-            var divCarrosel;
-            if (i == 0)
-                divCarrosel = $('<div class="carousel-item slider-image item active">')
-            else
-                divCarrosel = $('<div class="carousel-item slider-image item ">')
+        var divCarrosel;
+        if (i == 0)
+            divCarrosel = $('<div class="carousel-item slider-image item active">')
+        else
+            divCarrosel = $('<div class="carousel-item slider-image item ">')
 
-            var img = $('<div class="item-wrapper"><img id="' + "imagem" + i + '" class="d-block w-100" src=""></div>')
+        var img = $('<div class="item-wrapper"><img id="' + "imagem" + i + '" class="d-block w-100" src=""></div>')
 
-            // if(resp != null){
-            // img = $('<img id="pop'+i+'">')
-            // console.log("Resp: " + resp)
+        divCarrosel.append(img)
 
+        carrosel.append(divCarrosel)
 
-            // }else{
-            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
-            // }
-
-
-
-
-            divCarrosel.append(img)
-
-
-
-            carrosel.append(divCarrosel)
-
-            $('#imagem' + i).attr("src", "data:image/jpg;base64," + resp.data[i].arquivo.bl_arquivo)
-        }
-    }).catch(() => {
-    })
+        $('#imagem' + i).attr("src", "data:image/jpg;base64," + dados.agrupadorArquivo[i].arquivo.bl_arquivo)
+    }
 
 }
 

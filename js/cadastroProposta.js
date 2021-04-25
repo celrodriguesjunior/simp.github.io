@@ -112,7 +112,7 @@ function salvarProposta() {
 
         // console.log("update")
         console.log(dados)
-        // putProposta(dados)
+        putProposta(dados)
 
     }
     else {
