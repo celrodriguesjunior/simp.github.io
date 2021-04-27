@@ -71,4 +71,17 @@ input[type=email], select, textarea{
       width: 100%;
       margin-top: 0;
     }
+    .col-6, .col-5{
+      display: contents;
+    }
+
+  }
+
+  @media (max-width:800px) {
+    
+    .tipoUsuario{
+      width: 100%;
+      margin-top: 0;
+    }
+
   }
