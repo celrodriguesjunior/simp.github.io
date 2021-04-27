@@ -28,17 +28,18 @@ function retornaLog(dados){
 
     var divImageWrapper = $('<div class="image-wrapper">')
 
-    var img = $('<img id="minhasPropostas'+dados.nr_id+'" src="">')
-    getImagemProposta(dados.nr_id).then( v => {
+    // var img = $('<img id="minhasPropostas'+dados.nr_id+'" src="">')
+    var img = $('<img style="height:300px;width:400px" id="minhasPropostas'+dados.nr_id+'" src="data:image/jpg;base64,' + (dados.agrupadorArquivo != null ? dados.agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
+    // getImagemProposta(dados.nr_id).then( v => {
             
-        // img = $('<img id="pop'+i+'">')
-        $('#minhasPropostas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+    //     // img = $('<img id="pop'+i+'">')
+    //     $('#minhasPropostas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
         
-        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+    //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
         
         
-    }).catch(() => {
-    })
+    // }).catch(() => {
+    // })
 
     
 

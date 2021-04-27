@@ -117,7 +117,7 @@ function salvarProposta() {
         }
 
         // console.log("update")
-        console.log(dados)
+        // console.log(dados)
         putProposta(dados)
 
     }
@@ -222,7 +222,7 @@ function retornaProposta(dados) {
 
             var divItemImg = $('<div class="item-img">')
 
-            var img = $('<img id="imgs' + dados.agrupadorArquivo[i].arquivo.ds_nome + '" src="data:image/jpg;base64,' + dados.agrupadorArquivo[i].arquivo.bl_arquivo + '">')
+            var img = $('<img style="height:200px;width:300px" id="imgs' + dados.agrupadorArquivo[i].arquivo.ds_nome + '" src="data:image/jpg;base64,' + dados.agrupadorArquivo[i].arquivo.bl_arquivo + '">')
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Imagem ' + (i + 1) + '</strong></h5>')
 
@@ -353,6 +353,7 @@ function salvarImg(id) {
         alert("Alterações feitas com sucesso! Enviando imagens...")
         postImagemProposta(id, formData)
     }else{
+        alert("Alterações feitas com sucesso!")
         location.reload()
     }
     

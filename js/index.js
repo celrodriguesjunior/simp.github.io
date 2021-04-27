@@ -83,19 +83,20 @@ function retornaRecomendacao(rec) {
         var divImageWrapper = $('<div class="image-wrapper">')
         
         
-        var img = $('<img id="rec'+dados[i].nr_id+'" src="">')
+        // var img = $('<img id="rec'+dados[i].nr_id+'" src="">')
+        var img = $('<img style="height:300px;width:400px" id="rec'+dados[i].nr_id+'" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
 
-        getImagemProposta(dados[i].nr_id).then( v => {
+        // getImagemProposta(dados[i].nr_id).then( v => {
             
-            ///aa
-            // img = $('<img id="pop'+i+'">')
-            $('#rec'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        //     ///aa
+        //     // img = $('<img id="pop'+i+'">')
+        //     $('#rec'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
             
-            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             
             
-        }).catch(() => {
-        })
+        // }).catch(() => {
+        // })
         
 
         var divCol23Cont = $('<div class="col-12 col-md">')
@@ -179,20 +180,22 @@ function retornaTemasPopulares(dados) {
 
         var divImg = $('<div class="item-img">')
 
-        var img = $('<img id="pop'+dados[i].nr_id+'" src="">')
+        // var img = $('<img style="height:300px;width:400px" id="pop'+dados[i].nr_id+'" src="">')
+
+        var img = $('<img style="height:300px;width:400px" id="pop'+dados[i].nr_id+'" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
 
 
-        getImagemProposta(dados[i].nr_id).then( v => {
+        // getImagemProposta(dados[i].nr_id).then( v => {
             
             
-            // img = $('<img id="pop'+i+'">')
-            $('#pop'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        //     // img = $('<img id="pop'+i+'">')
+        //     $('#pop'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
             
-            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             
             
-        }).catch(() => {
-        })
+        // }).catch(() => {
+        // })
         
         
         var titulo = dados[i].ds_nome
@@ -238,18 +241,19 @@ function retornaNovosTemas(dados) {
         var linkProposta = $('<a href="proposta.html?id=' + dados[i].nr_id + '&id_usuario=' + (localStorage.getItem("id_user") ? localStorage.getItem("id_user") : "") + '" style="color: white;">')
         var divItemWrapper = $('<div class="item-wrapper" data-toggle="modal" data-target="#sh0kN6Fw0c-modal">')
 
-        var img = $('<img id="nov'+dados[i].nr_id+'" src="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
-        
-        getImagemProposta(dados[i].nr_id).then( v => {
+        // var img = $('<img id="nov'+dados[i].nr_id+'" src="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
+        var img = $('<img style="height:300px;width:400px" id="nov'+dados[i].nr_id+'" data-slide-to="3" data-target="#lb-sh0kN6Fw0c" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
+
+        // getImagemProposta(dados[i].nr_id).then( v => {
             
-            // img = $('<img id="pop'+i+'">')
-            $('#nov'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+        //     // img = $('<img id="pop'+i+'">')
+        //     $('#nov'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
             
-            // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+        //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
             
             
-        }).catch(() => {
-        })
+        // }).catch(() => {
+        // })
 
         // var img = $('<img class="w-100" src="img/temas/unknown.png" alt="" data-slide-to="3" data-target="#lb-sh0kN6Fw0c">')
         var iconWrapper = $('<div class="icon-wrapper">')

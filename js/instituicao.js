@@ -16,15 +16,18 @@ function retornaInstituicao(dados) {
 
     getContatos(instituicao)
 
-    
-    getImagemUsuario(instituicao.nr_id_usuario).then( v => {
-        // img = $('<img id="pop'+i+'">')
-        $('#principal').attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
-        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+    // var img = $('<img style="height:300px;width:400px" id="abertas'+propostas[i].nr_id+'" src="data:image/jpg;base64,' + (propostas[i].agrupadorArquivo != null ? propostas[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
+imagem = instituicao.agrupadorArquivo != null ? instituicao.agrupadorArquivo[0].arquivo.bl_arquivo : ""
+    $('#principal').attr("src","data:image/jpg;base64," + imagem)            
+
+    // getImagemUsuario(instituicao.nr_id_usuario).then( v => {
+    //     // img = $('<img id="pop'+i+'">')
+    //     $('#principal').attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+    //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
         
         
-    }).catch(() => {
-    })
+    // }).catch(() => {
+    // })
     
 
 }
@@ -90,18 +93,19 @@ function retornaPropostasInstituicao(propostas) {
 
             var divItemImg = $('<div class="item-img">')
 
-            var img = $('<img id="abertas'+propostas[i].nr_id+'" src="">')
+            // var img = $('<img id="abertas'+propostas[i].nr_id+'" src="">')
+            var img = $('<img style="height:300px;width:400px" id="abertas'+propostas[i].nr_id+'" src="data:image/jpg;base64,' + (propostas[i].agrupadorArquivo != null ? propostas[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
         
-            getImagemProposta(propostas[i].nr_id).then( v => {
+            // getImagemProposta(propostas[i].nr_id).then( v => {
                 
-                // img = $('<img id="pop'+i+'">')
-                $('#abertas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            //     // img = $('<img id="pop'+i+'">')
+            //     $('#abertas'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
                 
-                // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
                 
                 
-            }).catch(() => {
-            })
+            // }).catch(() => {
+            // })
             var divItemContent = $('<div class="item-content">')
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + propostas[i].ds_nome + '</strong></h5>')
@@ -145,18 +149,19 @@ function retornaPropostasInstituicao(propostas) {
             var divItemImg = $('<div class="item-img">')
 
 
-            var img = $('<img id="fin'+propostas[i].nr_id+'" src="">')
+            // var img = $('<img id="fin'+propostas[i].nr_id+'" src="">')
+            var img = $('<img style="height:300px;width:400px" id="fin'+propostas[i].nr_id+'" src="data:image/jpg;base64,' + (propostas[i].agrupadorArquivo != null ? propostas[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
         
-            getImagemProposta(propostas[i].nr_id).then( v => {
+            // getImagemProposta(propostas[i].nr_id).then( v => {
                 
-                // img = $('<img id="pop'+i+'">')
-                $('#fin'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+            //     // img = $('<img id="pop'+i+'">')
+            //     $('#fin'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
                 
-                // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+            //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
                 
                 
-            }).catch(() => {
-            })
+            // }).catch(() => {
+            // })
             var divItemContent = $('<div class="item-content">')
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + propostas[i].ds_nome + '</strong></h5>')

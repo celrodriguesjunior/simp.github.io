@@ -275,7 +275,7 @@ function retornaInstituicao(resp) {
 
     var divItemImg = $('<div class="item-img">')
 
-    var img = $('<img src="img/Instituições/furb.jpg">')
+    // var img = $('<img src="img/Instituições/furb.jpg">')
 
     var img = $('<img id="autora" src="data:image/jpg;base64,' + resp.data.agrupadorArquivo[0].arquivo.bl_arquivo + '">')
     // console.log(resp.data.agrupadorArquivo[0].arquivo.bl_arquivo)

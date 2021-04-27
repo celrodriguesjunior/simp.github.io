@@ -28,19 +28,20 @@ function retornaPesquisaAvancada(dados) {
         var divImageWrapper = $('<div class="image-wrapper">')
 
         
-        var img = $('<img id="result'+dados[i].nr_id+'" src="">')
+        // var img = $('<img id="result'+dados[i].nr_id+'" src="">')
+        
+        var img = $('<img style="height:300px;width:400px" id="result'+dados[i].nr_id+'" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">':'">'))
 
-        
-    getImagemProposta(dados[i].nr_id).then( v => {
+    // getImagemProposta(dados[i].nr_id).then( v => {
             
-        // img = $('<img id="pop'+i+'">')
-        $('#result'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
+    //     // img = $('<img id="pop'+i+'">')
+    //     $('#result'+v.data[1]).attr("src","data:image/jpg;base64," + v.data[0].arquivo.bl_arquivo)            
         
-        // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
+    //     // img = $('<img src="123" id="pop'+i+'" alt="Sem Imagem">')
         
         
-    }).catch(() => {
-    })
+    // }).catch(() => {
+    // })
         var divCol23Cont = $('<div class="col-12 col-md">')
 
         var divCardBox = $('<div class="card-box">')
