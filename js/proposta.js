@@ -11,6 +11,40 @@ $(document).ready(function () {
 
 })
 
+function getInteresse() {
+
+    var interesse = true
+    if (interesse) {
+
+        var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center; ">')
+        var h6 = $('<a style="text-align: center;padding-top: 14px;width:100%;" id="linkInteresse">Interessado</a>')
+        div.append(h6)
+        div.insertAfter("#statos")
+
+    } else {
+        var div = $('<div style="border: 0px black solid; border-radius: 5px; width: 250px; display:flex; flex-direction:row; justify-content:center;">')
+        var aLink = $('<a class="btn btn-primary item-btn display-7" style="margin: 0;" id="sinalizarIntersse">Sinalizar Interesse</a>')
+        div.append(aLink)
+        aLink.insertAfter("#statos")
+
+    }
+
+    $('#linkInteresse').hover(e => {
+        $('#linkInteresse').text("Cancelar Interesse")
+    }, e => {
+        $('#linkInteresse').text("Interessado")
+    })
+
+    $('#linkInteresse').click(e=>{
+        alert("Interesse cancelado")
+        document.location.reload(true);
+    })
+
+    $('#sinalizarIntersse').click(e=>{
+        alert("tenho interesse")
+    })
+
+}
 
 function retornaProposta(proposta) {
     proposta = proposta.data
@@ -23,6 +57,7 @@ function retornaProposta(proposta) {
 
 
     getStatus(proposta.cd_status)
+    getInteresse()
 
     getInstituicao(proposta.nr_id_instituicao)
 
@@ -287,4 +322,24 @@ function retornaInstituicao(resp) {
 
 
 
+}
+
+
+
+
+function share() {
+    var link = window.location.href;
+    var sub = link.substr(link.indexOf('&'), link.length - link.indexOf('&'))
+    link = link.replace(sub.toString(), "")
+
+    console.log(link);
+    if (navigator.share !== undefined) {
+        navigator.share({
+            title: 'Compartilhar Proposta',
+            text: 'De uma olhada nessa proposta!!',
+            url: link,
+        })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing', error));
+    }
 }
