@@ -34,6 +34,12 @@ function retornaCursos(dados) {
         // console.log("cheguei 1")
         $('#tituloPaginaProposta').text("Editar Proposta")
         editar = true;
+    } else {
+        a = []
+        localStorage.setItem("universitarios", JSON.stringify(a))
+        a = []
+        localStorage.setItem("agrupadorArquivo", JSON.stringify(a))
+
     }
 
     // if (editar) {
@@ -83,17 +89,17 @@ function salvarProposta() {
 
 
     if (editar) {
-        
+
         lista = JSON.parse(localStorage.getItem("agrupadorArquivo"))
 
         for (let i = 1; i < 4; i++) {
             if ($('#img' + i)[0].files.length > 0) {
                 if (lista[i - 1] != null) {
-                    lista.splice(i - 1,1)
+                    lista.splice(i - 1, 1)
                 }
             }
         }
-// console.log(lista)
+        // console.log(lista)
         var dados = {
             "nr_id": Number(url.searchParams.get("id")),
             "nr_id_curso": Number($('#categorias').val()),
@@ -191,39 +197,58 @@ function retornaProposta(dados) {
             break;
     }
 
-    localStorage.setItem("universitarios", JSON.stringify(dados.universitarios))
-    localStorage.setItem("agrupadorArquivo", JSON.stringify(dados.agrupadorArquivo))
-
-    //EXIBE AS IMAGENS ATUAIS DA PROPOSTA
-    for (let i = 0; i < dados.agrupadorArquivo.length; i++) {
-        var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
-
-        var divItemWrapper = $('<div class="item-wrapper">')
-
-        var divItemImg = $('<div class="item-img">')
-
-        var img = $('<img id="imgs' + dados.agrupadorArquivo[i].arquivo.ds_nome + '" src="data:image/jpg;base64,' + dados.agrupadorArquivo[i].arquivo.bl_arquivo + '">')
-
-        var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Imagem ' + (i + 1) + '</strong></h5>')
-
-
-        divItemImg.append(img)
-
-        divItemWrapper.append(divItemImg)
-        divItemWrapper.append(h5)
-
-
-        divItem.append(divItemWrapper)
-
-        $('#ImagensAtuais').append(divItem)
-
-
-        $('#imagem'+(i+1)).text("Substituir imagem " + (i+1) + " por:")
-
-
+    if (dados.universitarios != null) {
+        localStorage.setItem("universitarios", JSON.stringify(dados.universitarios))
+    } else {
+        a = []
+        localStorage.setItem("universitarios", JSON.stringify(a))
     }
 
+    if (dados.agrupadorArquivo != null) {
+        localStorage.setItem("agrupadorArquivo", JSON.stringify(dados.agrupadorArquivo))
+    } else {
+        a = []
+        localStorage.setItem("agrupadorArquivo", JSON.stringify(a))
+    }
 
+    if (dados.agrupadorArquivo != null) {
+
+
+        //EXIBE AS IMAGENS ATUAIS DA PROPOSTA
+        for (let i = 0; i < dados.agrupadorArquivo.length; i++) {
+            var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
+
+            var divItemWrapper = $('<div class="item-wrapper">')
+
+            var divItemImg = $('<div class="item-img">')
+
+            var img = $('<img id="imgs' + dados.agrupadorArquivo[i].arquivo.ds_nome + '" src="data:image/jpg;base64,' + dados.agrupadorArquivo[i].arquivo.bl_arquivo + '">')
+
+            var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Imagem ' + (i + 1) + '</strong></h5>')
+
+            var aLink = $('<a href="" class="text-primary" onclick="removerImg('+i+')"> <br>Remover</a>')
+
+            var divItemContent = $('<div class="item-content">')
+
+            divItemContent.append(aLink)
+
+            divItemImg.append(img)
+
+            divItemWrapper.append(divItemImg)
+            divItemWrapper.append(h5)
+            divItemWrapper.append(divItemContent)
+
+            divItem.append(divItemWrapper)
+
+            $('#ImagensAtuais').append(divItem)
+
+
+            $('#imagem' + (i + 1)).text("Substituir imagem " + (i + 1) + " por:")
+
+
+        }
+
+    }
 
     $('#duracao').val(dados.nr_duracao)
     if (dados.cd_status == "DV") {
@@ -233,13 +258,30 @@ function retornaProposta(dados) {
                 // $('#Dados')[0]
                 $($('#Universitario')[0].cloneNode(true)).insertBefore($('#Submit'))
             }
+
+            for (let i = 0; i < dados.universitarios.length; i++) {
+
+                carregaInteressados(dados)
+            }
         }
     } else {
         $('#Universitario').hide()
     }
 }
 
+//FALTA FAZER
+// function removerImg(i){
+//     $('#ImagensAtuais').
+// }
+
+//FALTA FAZER
+function carregaInteressados(dados) {
+
+}
+
 function retornaCadastroProposta(resp) {
+    localStorage.removeItem("universitarios")
+    localStorage.removeItem("agrupadorArquivo")
     resp = resp.data
     alert("Cadastro feito com sucesso! Enviando imagens...")
     salvarImg(resp)
