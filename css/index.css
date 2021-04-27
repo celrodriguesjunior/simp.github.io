@@ -1,0 +1,9 @@
+@media (max-width: 767px) {
+    .pesquisar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    
+}
