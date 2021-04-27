@@ -226,7 +226,12 @@ function retornaProposta(dados) {
 
             var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>Imagem ' + (i + 1) + '</strong></h5>')
 
-            var aLink = $('<a href="" class="text-primary" onclick="removerImg('+i+')"> <br>Remover</a>')
+            var aLink = $('<a class="text-primary" <br>Remover</a>')
+
+            $(aLink).click(function () {
+                removerImg(i, dados.agrupadorArquivo)
+            }
+            );
 
             var divItemContent = $('<div class="item-content">')
 
@@ -270,9 +275,18 @@ function retornaProposta(dados) {
 }
 
 //FALTA FAZER
-// function removerImg(i){
-//     $('#ImagensAtuais').
-// }
+function removerImg(i, agrupadorArquivo) {
+    if (confirm('Tem certeza que quer remover a imagem ' + agrupadorArquivo[i].arquivo.ds_nome + '? '+
+    '\n A proposta será recarregada com as informações atuais!')) {
+        agrupadorArquivo.splice(i, 1)
+        localStorage.setItem("agrupadorArquivo", JSON.stringify(agrupadorArquivo))
+        $('#ImagensAtuais').children()[i].remove()
+        salvarProposta()
+    } else {
+        
+    }
+
+}
 
 //FALTA FAZER
 function carregaInteressados(dados) {
@@ -283,14 +297,14 @@ function retornaCadastroProposta(resp) {
     localStorage.removeItem("universitarios")
     localStorage.removeItem("agrupadorArquivo")
     resp = resp.data
-    alert("Cadastro feito com sucesso! Enviando imagens...")
+    
     salvarImg(resp)
     // location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
 }
 
 function retornaEdicaoProposta(resp) {
     resp = resp.data
-    alert("Alterações feitas com sucesso! Enviando imagens...")
+    
     salvarImg(resp)
 
 }
@@ -325,23 +339,29 @@ function retornaEdicaoProposta(resp) {
 
 function salvarImg(id) {
     var formData = new FormData();
-
+    qtd = 0
     for (let i = 1; i < 4; i++) {
 
 
 
         if ($('#img' + i)[0].files.length > 0) {
             formData.append("fileInput", $('#img' + i)[0].files[0])
-
+            qtd ++
         }
     }
-
-    postImagemProposta(id, formData)
+    if(qtd > 0){
+        alert("Alterações feitas com sucesso! Enviando imagens...")
+        postImagemProposta(id, formData)
+    }else{
+        location.reload()
+    }
+    
 
 }
 
 function sucessoImagemProposta(resp, proposta) {
     alert("Imagens enviadas com sucesso!")
+    location.reload()
     // location.href = "proposta.html?id=" + proposta.nr_id + "&id_usuario=" + localStorage.getItem("id_user")
 }
 
