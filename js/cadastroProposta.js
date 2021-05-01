@@ -274,7 +274,7 @@ function retornaProposta(dados) {
     }
 }
 
-//FALTA FAZER
+
 function removerImg(i, agrupadorArquivo) {
     if (confirm('Tem certeza que quer remover a imagem ' + agrupadorArquivo[i].arquivo.ds_nome + '? '+
     '\n A proposta será recarregada com as informações atuais!')) {
@@ -288,7 +288,15 @@ function removerImg(i, agrupadorArquivo) {
 
 }
 
-//FALTA FAZER
+//------------------------------------FALTA FAZER
+//------------------------------------
+//------------------------------------
+//------------------------------------
+//------------------------------------
+//------------------------------------
+//------------------------------------
+//------------------------------------
+
 function carregaInteressados(dados) {
 
 }

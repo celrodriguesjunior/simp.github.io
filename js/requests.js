@@ -544,6 +544,60 @@ async function getImagemUsuario(id) {
 
 }
 
+//POST interesse
+function postInteresse(idProposta,idUniversitario) {
+
+    $.ajax({
+        url: link + "interesse", type: "POST", data:
+            JSON.stringify({"nr_id_proposta" : idProposta,
+            "nr_id_universitario":idUniversitario}), success: function (result) {
+                respostaInteresse(result)
+            }, contentType: "application/json"
+    });
+
+}
+
+//DELETE interesse
+function deleteInteresse(idProposta,idUniversitario) {
+
+    $.ajax({
+        url: link + "interesse?id_proposta="+idProposta+"&id_universitario="+idUniversitario, type: "DELETE", success: function (result) {
+                // respostaInteresse(result)
+            }, contentType: "application/json"
+    });
+
+}
+
+
+
+function getInteressadosProposta(idProposta) {
+    $.ajax({
+        url: link + "proposta/interesse/"+idProposta, type: "GET", success: function (resp) {
+            retornaInteressados(resp)
+        }, statusCode: {
+            404: function () {
+                retornaInteressadosFalha(resp)
+            }
+        }, contentType: "application/json"
+    });
+    
+}
+
+function getPropostasInteressado(idUniversitario) {
+    $.ajax({
+        url: link + "universitario/interesse/"+idUniversitario, type: "GET", success: function (resp) {
+            retornaPropostasInteressado(resp)
+        }, statusCode: {
+            404: function () {
+                retornaPropostasInteressadoFalha(resp)
+            }
+        }, contentType: "application/json"
+    });
+    
+}
+
+
+
 // function getImagem() {
 //     $.ajax({
 //         url: link + "arquivo/1", success: function (resp) {
