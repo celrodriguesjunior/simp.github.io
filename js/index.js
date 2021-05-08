@@ -159,6 +159,7 @@ function retornaCursosPopulares(dados) {
 
 }
 
+
 function retornaTemasPopulares(dados) {
     //console.log(dados   )
     var limite = dados.data.length < 3 ? dados.data.length : 3

@@ -21,6 +21,8 @@ function getCursosPopulares() {
 
         if (status == 'success') {
             retornaCursosPopulares(resp)
+        }else{
+            retornaCursosPopularesFalha()
         }
     })
 }
@@ -576,7 +578,7 @@ function getInteressadosProposta(idProposta) {
             retornaInteressados(resp)
         }, statusCode: {
             404: function () {
-                retornaInteressadosFalha(resp)
+                retornaInteressadosFalha()
             }
         }, contentType: "application/json"
     });

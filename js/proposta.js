@@ -111,8 +111,8 @@ function montaUniversitarios(proposta) {
 
             // var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
 
-            var aLink = $('<a href="perfilUsuario.html?id=' + localStorage.getItem("id_user") + '" class="text-primary"> <br>Ver Perfil</a>')
-
+            var aLink = $('<a href="perfilUsuario.html?id=' + univs[i].nr_id_usuario  + '" class="text-primary"> <br>Ver Perfil</a>')
+// localStorage.getItem("id_user")
             // pResumo.append(aLink)
 
             divItemContent.append(h5)
