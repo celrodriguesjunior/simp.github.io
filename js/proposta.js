@@ -43,7 +43,7 @@ function getInteresse(interessado, aberto) {
         var result = confirm("Tem certeza que deseja cancelar seu interesse na proposta?\n"
             + "Ao cancelar, você deverá esperar 7 dias para demonstar o interesse novamente.")
         if (result) {
-            alert("Interesse cancelado")
+            alert("Interesse cancelado! Por favor, recarregue a página")
             //console.log(url.searchParams.get("id"))
             //console.log(url.searchParams.get("id_usuario"))
             deleteInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
@@ -59,7 +59,7 @@ function getInteresse(interessado, aberto) {
         //console.log(url.searchParams.get("id"))
         //console.log(url.searchParams.get("id_usuario"))
         postInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
-        alert("tenho interesse")
+        alert("Interesse registrado com sucesso! Por favor, recarregue a página")
     })
 
 }
