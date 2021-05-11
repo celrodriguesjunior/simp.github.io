@@ -546,11 +546,15 @@ async function getImagemUsuario(id) {
 
 //POST interesse
 function postInteresse(idProposta,idUniversitario) {
-
+    //console.log("request")
+    //console.log(idProposta)
+    //console.log(idUniversitario)
+    var dado = JSON.stringify({"nr_id_proposta" : Number(idProposta),
+    "nr_id_universitario":Number(idUniversitario)})
+    //console.log(dado)
     $.ajax({
-        url: link + "interesse", type: "POST", data:
-            JSON.stringify({"nr_id_proposta" : idProposta,
-            "nr_id_universitario":idUniversitario}), success: function (result) {
+        url: link + "interesse", type: "POST", data: dado
+            , success: function (result) {
                 respostaInteresse(result)
             }, contentType: "application/json"
     });
@@ -559,9 +563,10 @@ function postInteresse(idProposta,idUniversitario) {
 
 //DELETE interesse
 function deleteInteresse(idProposta,idUniversitario) {
-
+    var tt = link + "interesse?id_proposta="+idProposta+"&id_universitario="+idUniversitario
+    //console.log(tt)
     $.ajax({
-        url: link + "interesse?id_proposta="+idProposta+"&id_universitario="+idUniversitario, type: "DELETE", success: function (result) {
+        url:tt , type: "DELETE", success: function (result) {
                 // respostaInteresse(result)
             }, contentType: "application/json"
     });

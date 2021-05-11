@@ -11,22 +11,24 @@ $(document).ready(function () {
 
 })
 
-function getInteresse() {
+function getInteresse(interessado, aberto) {
+    console.log(interessado)
+    //var interesse = true
+    if (aberto) {
+        if (interessado) {
 
-    var interesse = true
-    if (interesse) {
+            var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center; ">')
+            var h6 = $('<a style="text-align: center;padding-top: 14px;width:100%;" id="linkInteresse">Interessado</a>')
+            div.append(h6)
+            div.insertAfter("#statos")
 
-        var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center; ">')
-        var h6 = $('<a style="text-align: center;padding-top: 14px;width:100%;" id="linkInteresse">Interessado</a>')
-        div.append(h6)
-        div.insertAfter("#statos")
+        } else {
+            var div = $('<div style="border: 0px black solid; border-radius: 5px; width: 250px; display:flex; flex-direction:row; justify-content:center;">')
+            var aLink = $('<a class="btn btn-primary item-btn display-7" style="margin: 0;" id="sinalizarIntersse">Sinalizar Interesse</a>')
+            div.append(aLink)
+            aLink.insertAfter("#statos")
 
-    } else {
-        var div = $('<div style="border: 0px black solid; border-radius: 5px; width: 250px; display:flex; flex-direction:row; justify-content:center;">')
-        var aLink = $('<a class="btn btn-primary item-btn display-7" style="margin: 0;" id="sinalizarIntersse">Sinalizar Interesse</a>')
-        div.append(aLink)
-        aLink.insertAfter("#statos")
-
+        }
     }
 
     $('#linkInteresse').hover(e => {
@@ -35,22 +37,40 @@ function getInteresse() {
         $('#linkInteresse').text("Interessado")
     })
 
-    $('#linkInteresse').click(e=>{
-        alert("Interesse cancelado")
-        deleteInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
-        document.location.reload(true);
+    var url = new URL(window.location.href)
+
+    $('#linkInteresse').click(e => {
+        var result = confirm("Tem certeza que deseja cancelar seu interesse na proposta?\n"
+            + "Ao cancelar, você deverá esperar 7 dias para demonstar o interesse novamente.")
+        if (result) {
+            alert("Interesse cancelado")
+            //console.log(url.searchParams.get("id"))
+            //console.log(url.searchParams.get("id_usuario"))
+            deleteInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
+            //document.location.reload(true);
+        }
     })
 
-    $('#sinalizarIntersse').click(e=>{
-        postInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
+    $('#sinalizarIntersse').click(e => {
+        if (localStorage.getItem("id_user") == undefined) {
+            alert("Você precisa estar logado para sinalizar interesse!")
+            window.location.href = "login.html"
+        }
+        //console.log(url.searchParams.get("id"))
+        //console.log(url.searchParams.get("id_usuario"))
+        postInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
         alert("tenho interesse")
     })
 
 }
 
+function respostaInteresse(result) {
+    //console.log(result)
+}
+
 function retornaProposta(proposta) {
     proposta = proposta.data
-
+    console.log(proposta)
     $('#tituloProposta').append('<strong>' + proposta.ds_nome + '</strong>')
 
     getCurso(proposta.nr_id_curso)
@@ -59,7 +79,7 @@ function retornaProposta(proposta) {
 
 
     getStatus(proposta.cd_status)
-    getInteresse()
+    getInteresse(proposta.usuario_interessado, proposta.cd_status == "AB")
 
     getInstituicao(proposta.nr_id_instituicao)
 
