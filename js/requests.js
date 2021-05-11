@@ -21,6 +21,8 @@ function getCursosPopulares() {
 
         if (status == 'success') {
             retornaCursosPopulares(resp)
+        }else{
+            retornaCursosPopularesFalha()
         }
     })
 }
@@ -158,6 +160,16 @@ function getProposta(id, idUsuario) {
 
         if (status == 'success') {
             retornaProposta(resp)
+        }
+    })
+
+}
+
+async function getProposta2(id, idUsuario) {
+    return $.get(link + "proposta?id=" + id + "&id_usuario=" + idUsuario, function (resp, status) {
+
+        if (status == 'success') {
+            return resp
         }
     })
 
@@ -581,7 +593,7 @@ function getInteressadosProposta(idProposta) {
             retornaInteressados(resp)
         }, statusCode: {
             404: function () {
-                retornaInteressadosFalha(resp)
+                retornaInteressadosFalha()
             }
         }, contentType: "application/json"
     });
