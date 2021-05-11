@@ -165,6 +165,16 @@ function getProposta(id, idUsuario) {
 
 }
 
+async function getProposta2(id, idUsuario) {
+    return $.get(link + "proposta?id=" + id + "&id_usuario=" + idUsuario, function (resp, status) {
+
+        if (status == 'success') {
+            return resp
+        }
+    })
+
+}
+
 //GET Propostas por categoria
 function getPropostasPorCategoria(idCategoria) {
     $.get(link + "propostas/categoria/" + idCategoria, function (resp, status) {

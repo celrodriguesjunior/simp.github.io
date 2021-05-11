@@ -1,3 +1,4 @@
+var id_aceite = null
 
 $(document).ready(function () {
     url = new URL(window.location.href)
@@ -43,7 +44,11 @@ function retornaInteressados(dados) {
         var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
 
-        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="perfilUsuario.html?id=' + dados[i].nr_id_usuario + '" class="btn btn-primary display-4">Visualizar Perfil</a></div><div class="mbr-section-btn"><a href="aceitarInteresse.html?id=' + dados[i].nr_id + '" class="btn btn-primary display-4">Aceitar Interesse</a></div></div>')
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="perfilUsuario.html?id=' + dados[i].nr_id_usuario + '" class="btn btn-primary display-4">Visualizar Perfil</a></div><div class="mbr-section-btn"><a id="aceitar' + dados[i].nr_id + '" class="btn btn-primary display-4">Aceitar Interesse</a></div></div>')
+
+
+
+
 
         divColMd.append(h6Titulo)
         divColMd.append(p)
@@ -69,6 +74,12 @@ function retornaInteressados(dados) {
 
         listaResultados.append(divCard)
 
+        $("#aceitar" + dados[i].nr_id).click(function () {
+
+            id = dados[i].nr_id
+            aceitaInteresse(id)
+        }
+        );
 
     }
 
@@ -79,4 +90,33 @@ function retornaInteressadosFalha() {
     var div = $('<div style="margin-top:50px;"><p style="text-align:center;">NENHUM INTERESSADO ATÉ AGORA</p></div>')
     $('#content4-n').append(div)
 }
+
+function aceitaInteresse(id) {
+
+    id_aceite=id
+
+    getProposta2(url.searchParams.get("id"), 0).then( v => {
+        proposta = v.data
+            
+            
+
+    console.log(id_aceite)
+            
+        }).catch(() => {
+        })
+        
+
+}
+
+function retornaProposta(resp) {
+    
+    
+    
+}
+
+
+
+
+
+
 
