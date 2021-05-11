@@ -37,10 +37,12 @@ function getInteresse() {
 
     $('#linkInteresse').click(e=>{
         alert("Interesse cancelado")
+        deleteInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
         document.location.reload(true);
     })
 
     $('#sinalizarIntersse').click(e=>{
+        postInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
         alert("tenho interesse")
     })
 
