@@ -43,11 +43,16 @@ function getInteresse(interessado, aberto) {
         var result = confirm("Tem certeza que deseja cancelar seu interesse na proposta?\n"
             + "Ao cancelar, você deverá esperar 7 dias para demonstar o interesse novamente.")
         if (result) {
-            alert("Interesse cancelado! Por favor, recarregue a página")
+
             //console.log(url.searchParams.get("id"))
             //console.log(url.searchParams.get("id_usuario"))
-            deleteInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
+            deleteInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario")).then(v => {
+                alert("Interesse cancelado! A página será recarregada.")
+                window.location.href = window.location.href;
+            }).catch(() => {
+            })
             //document.location.reload(true);
+
         }
     })
 
@@ -58,15 +63,19 @@ function getInteresse(interessado, aberto) {
         }
         //console.log(url.searchParams.get("id"))
         //console.log(url.searchParams.get("id_usuario"))
-        postInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario"))
-        alert("Interesse registrado com sucesso! Por favor, recarregue a página")
+        postInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario")).then(v => {
+            alert("Interesse registrado com sucesso! A página será recarregada.")
+            window.location.href = window.location.href;
+        }).catch(() => {
+        })
+
     })
 
 }
 
-function respostaInteresse(result) {
-    //console.log(result)
-}
+// function respostaInteresse(result) {
+//     //console.log(result)
+// }
 
 function retornaProposta(proposta) {
     proposta = proposta.data
@@ -133,8 +142,8 @@ function montaUniversitarios(proposta) {
 
             // var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
 
-            var aLink = $('<a href="perfilUsuario.html?id=' + univs[i].nr_id_usuario  + '" class="text-primary"> <br>Ver Perfil</a>')
-// localStorage.getItem("id_user")
+            var aLink = $('<a href="perfilUsuario.html?id=' + univs[i].nr_id_usuario + '" class="text-primary"> <br>Ver Perfil</a>')
+            // localStorage.getItem("id_user")
             // pResumo.append(aLink)
 
             divItemContent.append(h5)

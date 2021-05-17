@@ -1,13 +1,13 @@
 var id_aceite = null
-var id_proposta = null
+var id_univ = null
 
 $(document).ready(function () {
     url = new URL(window.location.href)
-    id_proposta = url.searchParams.get("id")
-    getInteressadosProposta(url.searchParams.get("id"))
+    id_univ = url.searchParams.get("id")
+    getPropostasInteressado(url.searchParams.get("id"))
 })
 
-function retornaInteressados(dados) {
+function retornaPropostasInteressado(dados) {
     dados = dados.data
     var listaResultados = $('#listaResultados')
 
@@ -26,7 +26,7 @@ function retornaInteressados(dados) {
 
         var divImageWrapper = $('<div class="image-wrapper">')
 
-        var img = $('<img style="height:300px;width:400px" id="interessados' + dados[i].nr_id_usuario + '" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">' : '">'))
+        var img = $('<img style="height:300px;width:400px" id="propostas' + dados[i].nr_id + '" src="data:image/jpg;base64,' + (dados[i].agrupadorArquivo != null ? dados[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">' : '">'))
 
         var divCol23Cont = $('<div class="col-12 col-md">')
 
@@ -36,16 +36,16 @@ function retornaInteressados(dados) {
 
         var divColMd = $('<div class="col-md">')
 
-        var titulo = dados[i].ds_nome_exibido
+        var titulo = dados[i].ds_nome
 
         var h6Titulo = $('<h6 class="card-title mbr-fonts-style display-5"><strong>' + titulo + '</strong></h6>')
 
-        var resumo = dados[i].ds_grau
+        var resumo = dados[i].ds_desc_projeto
 
         var p = $('<p class="mbr-text mbr-fonts-style display-7">' + resumo + '</p>')
 
 
-        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="perfilUsuario.html?id=' + dados[i].nr_id_usuario + '" class="btn btn-primary display-4">Visualizar Perfil</a></div><div class="mbr-section-btn"><a id="aceitar' + dados[i].nr_id + '" class="btn btn-primary display-4">Aceitar Interesse</a></div></div>')
+        var divVisitar = $('<div class="col-md-auto"><div class="mbr-section-btn"><a href="proposta.html?id=' + dados[i].nr_id + '" class="btn btn-primary display-4">Visualizar Proposta</a></div><div class="mbr-section-btn"><a id="aceitar' + dados[i].nr_id + '" class="btn btn-primary display-4">Remover Interesse</a></div></div>')
 
 
 
@@ -77,9 +77,9 @@ function retornaInteressados(dados) {
 
         $("#aceitar" + dados[i].nr_id).click(function () {
 
-            id = dados[i].nr_id_usuario
+            id_proposta = dados[i].nr_id
             
-            aceitarInteresse(id_proposta,id)
+            deleteInteresse(id_proposta, id_univ)
         }
         );
 
@@ -88,24 +88,18 @@ function retornaInteressados(dados) {
 
 }
 
-function sucessoAceite(result){
-    alert("Aceitação realizada com sucesso! Um email foi enviado para o universitário sinalizando a aceitação.")
+function sucessoRemover(result){
+    alert("Remoção realizada com sucesso! Um email foi enviado para a instituição sinalizando a remoção.")
     location.reload()
 
 }
 
-function retornaInteressadosFalha() {
-    var div = $('<div style="margin-top:50px;"><p style="text-align:center;">NENHUM INTERESSADO ATÉ AGORA</p></div>')
+function retornaPropostasInteressadoFalha(resp) {
+    var div = $('<div style="margin-top:50px;"><p style="text-align:center;">VOCÊ NÃO SINALIZOU NENHUM INTERESSE ATÉ AGORA. QUE TAL COMEÇAR A PESQUISAR POR PROPOSTAS?</p></div>')
     $('#content4-n').append(div)
 }
 
 
-
-function retornaProposta(resp) {
-    
-    
-    
-}
 
 
 
