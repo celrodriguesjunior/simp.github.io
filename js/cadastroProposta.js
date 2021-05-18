@@ -310,7 +310,7 @@ function retornaProposta(dados) {
 
 function removerImg(i, agrupadorArquivo) {
     if (confirm('Tem certeza que quer remover a imagem ' + agrupadorArquivo[i].arquivo.ds_nome + '? '+
-    '\n A proposta será recarregada com as informações atuais!')) {
+    '\n A proposta será salva com as informações atuais!')) {
         agrupadorArquivo.splice(i, 1)
         localStorage.setItem("agrupadorArquivo", JSON.stringify(agrupadorArquivo))
         $('#ImagensAtuais').children()[i].remove()
@@ -325,7 +325,7 @@ function removerImg(i, agrupadorArquivo) {
 
 function removerUniv(i, universitarios) {
     if (confirm('Tem certeza que quer remover o universitario ' + universitarios[i].ds_nome_exibido + ' do projeto? '+
-    '\n A proposta será recarregada com as informações atuais!')) {
+    '\n A proposta será salva com as informações atuais!')) {
         universitarios.splice(i, 1)
         localStorage.setItem("universitarios", JSON.stringify(universitarios))
         $('#UniversitariosPart').children()[i].remove()
@@ -421,7 +421,7 @@ function salvarImg(id) {
 
 function sucessoImagemProposta(resp, proposta) {
     alert("Imagens enviadas com sucesso!")
-    location.reload()
+    window.location.href = window.location.href;
     // location.href = "proposta.html?id=" + proposta.nr_id + "&id_usuario=" + localStorage.getItem("id_user")
 }
 
