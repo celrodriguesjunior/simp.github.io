@@ -20,7 +20,7 @@ function getInteresse(interessado, aberto) {
         if (aberto) {
             if (interessado) {
 
-                var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center; ">')
+                var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;height: 80%;margin-top: auto;margin-bottom: auto;">')
                 var h6 = $('<a style="text-align: center;display: flex;align-items: center;justify-content: center;;width:100%;" id="linkInteresse">Interessado</a>')
                 div.append(h6)
                 div.insertAfter("#statos")
@@ -180,8 +180,8 @@ function montaUniversitarios(proposta) {
 
 function retornaCurso(curso) {
     curso = curso.data
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;margin-right: 30px;height: 80%;margin-top: auto;margin-bottom: auto;">')
-    var h6 = $('<h6 style="text-align: center;justify-content: center;align-content: center;align-items: center;margin:0px;display: flex;"></h6>')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;;height: 80%;margin-top: auto;margin-bottom: auto;">')
+    var h6 = $('<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso='+curso.nr_id+'&qt_participantes=&ds_nome_ds_desc_projeto=&cd_status=" style="color: inherit; text-decoration: none;text-align: center;justify-content: center;align-content: center;align-items: center;margin:0px;display: flex;"></a>')
 
     div.addClass("fundoAzul");
     h6.text("Curso: " + curso.ds_nome)
@@ -261,8 +261,8 @@ function getContato() {
 function getStatus(status) {
 
     // console.log(status)
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;margin-left: 30px;height: 80%;margin-top: auto;margin-bottom: auto;">')
-    var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;;height: 80%;margin-top: auto;margin-bottom: auto;">')
+    var h6 = $('<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso=&qt_participantes=&ds_nome_ds_desc_projeto=&cd_status='+status+'" style="color: inherit; text-decoration: none;text-align: center;"></a>')
     div.append(h6)
     switch (status) {
         case ("AB"):
