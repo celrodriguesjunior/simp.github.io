@@ -21,7 +21,7 @@ function getCursosPopulares() {
 
         if (status == 'success') {
             retornaCursosPopulares(resp)
-        }else{
+        } else {
             retornaCursosPopularesFalha()
         }
     })
@@ -466,7 +466,7 @@ function getPesquisaAvancada(dados) {
 
 function getAutenticacao(email, senha) {
     $.ajax({
-        url: link + "usuario" + "?email=" + email+"&senha="+senha, type: "GET", success: function (resp) {
+        url: link + "usuario" + "?email=" + email + "&senha=" + senha, type: "GET", success: function (resp) {
             retornaAutenticacao(resp)
         }, statusCode: {
             404: function () {
@@ -483,7 +483,7 @@ function encodeQueryData(dados) {
 
 function postImagemProposta(proposta, imagem) {
     $.ajax({
-        url: link +"imagem/proposta/"+proposta.nr_id+"?nr_agrupador="+proposta.nr_agrupador_arquivo,//+"&ds_nome="+"Proposta_"+proposta.ds_nome,
+        url: link + "imagem/proposta/" + proposta.nr_id + "?nr_agrupador=" + proposta.nr_agrupador_arquivo,//+"&ds_nome="+"Proposta_"+proposta.ds_nome,
         data: imagem,
         type: 'POST',
         success: function (resp) {
@@ -497,11 +497,11 @@ function postImagemProposta(proposta, imagem) {
 
 async function getImagemProposta(id) {
     return $.ajax({
-        url: link + "imagens/proposta/"+id, success: function (resp) {
+        url: link + "imagens/proposta/" + id, success: function (resp) {
             // retornaImagemProposta(resp)
             resp.data[1] = id
             return resp.data
-        }, contentType: false, 
+        }, contentType: false,
         processData: false,
         statusCode: {
             404: function () {
@@ -514,7 +514,7 @@ async function getImagemProposta(id) {
 
 function postImagemUsuario(usuario, imagem, nomeArquivo) {
     $.ajax({
-        url: link +"imagem/usuario/"+usuario.nr_id_usuario+"?nr_agrupador="+usuario.nr_agrupador_arquivo+"&ds_nome="+nomeArquivo,
+        url: link + "imagem/usuario/" + usuario.nr_id_usuario + "?nr_agrupador=" + usuario.nr_agrupador_arquivo + "&ds_nome=" + nomeArquivo,
         data: imagem,
         type: 'POST',
         success: function (resp) {
@@ -528,7 +528,7 @@ function postImagemUsuario(usuario, imagem, nomeArquivo) {
 
 async function putImagemUsuario(arquivo, imagem) {
     $.ajax({
-        url: link +"imagem/usuario?id_arquivo="+arquivo.nr_id_arquivo+"&ds_nome="+arquivo.arquivo.ds_nome,
+        url: link + "imagem/usuario?id_arquivo=" + arquivo.nr_id_arquivo + "&ds_nome=" + arquivo.arquivo.ds_nome,
         data: imagem,
         type: 'PUT',
         success: function (resp) {
@@ -542,10 +542,10 @@ async function putImagemUsuario(arquivo, imagem) {
 
 async function getImagemUsuario(id) {
     return $.ajax({
-        url: link + "imagens/usuario/"+id, success: function (resp) {
+        url: link + "imagens/usuario/" + id, success: function (resp) {
             resp.data[1] = id
             return resp
-        }, contentType: false, 
+        }, contentType: false,
         processData: false,
         statusCode: {
             404: function () {
@@ -556,31 +556,60 @@ async function getImagemUsuario(id) {
 
 }
 
+
+
+function aceitarInteresse(idProposta, idUniversitario) {
+    var dado = JSON.stringify({
+        "nr_id_proposta": Number(idProposta),
+        "nr_id_universitario": Number(idUniversitario)
+    })
+
+    $.ajax({
+
+        url: link + "interesse?id_proposta=" + idProposta + "&id_universitario=" + idUniversitario, type: "PUT", data: dado
+        , success: function (result) {
+            sucessoAceite(result)
+        },
+        statusCode: {
+            404: function () {
+                return null
+            },
+            409: function () {
+                return null
+            }
+        }, contentType: "application/json"
+    });
+
+}
+
 //POST interesse
-function postInteresse(idProposta,idUniversitario) {
+async function postInteresse(idProposta, idUniversitario) {
     //console.log("request")
     //console.log(idProposta)
     //console.log(idUniversitario)
-    var dado = JSON.stringify({"nr_id_proposta" : Number(idProposta),
-    "nr_id_universitario":Number(idUniversitario)})
+    var dado = JSON.stringify({
+        "nr_id_proposta": Number(idProposta),
+        "nr_id_universitario": Number(idUniversitario)
+    })
     //console.log(dado)
-    $.ajax({
+    return $.ajax({
         url: link + "interesse", type: "POST", data: dado
-            , success: function (result) {
-                respostaInteresse(result)
-            }, contentType: "application/json"
+        , success: function (result) {
+            // respostaInteresse(result)
+            return result
+        }, contentType: "application/json"
     });
 
 }
 
 //DELETE interesse
-function deleteInteresse(idProposta,idUniversitario) {
-    var tt = link + "interesse?id_proposta="+idProposta+"&id_universitario="+idUniversitario
+async function deleteInteresse(idProposta, idUniversitario) {
+    var tt = link + "interesse?id_proposta=" + idProposta + "&id_universitario=" + idUniversitario
     //console.log(tt)
-    $.ajax({
-        url:tt , type: "DELETE", success: function (result) {
-                // respostaInteresse(result)
-            }, contentType: "application/json"
+    return $.ajax({
+        url: tt, type: "DELETE", success: function (result) {
+            sucessoRemover(result)
+        }, contentType: "application/json"
     });
 
 }
@@ -589,7 +618,7 @@ function deleteInteresse(idProposta,idUniversitario) {
 
 function getInteressadosProposta(idProposta) {
     $.ajax({
-        url: link + "proposta/interesse/"+idProposta, type: "GET", success: function (resp) {
+        url: link + "proposta/interesse/" + idProposta, type: "GET", success: function (resp) {
             retornaInteressados(resp)
         }, statusCode: {
             404: function () {
@@ -597,20 +626,20 @@ function getInteressadosProposta(idProposta) {
             }
         }, contentType: "application/json"
     });
-    
+
 }
 
 function getPropostasInteressado(idUniversitario) {
     $.ajax({
-        url: link + "universitario/interesse/"+idUniversitario, type: "GET", success: function (resp) {
+        url: link + "universitario/interesse/" + idUniversitario, type: "GET", success: function (resp) {
             retornaPropostasInteressado(resp)
         }, statusCode: {
             404: function () {
-                retornaPropostasInteressadoFalha(resp)
+                retornaPropostasInteressadoFalha()
             }
         }, contentType: "application/json"
     });
-    
+
 }
 
 
