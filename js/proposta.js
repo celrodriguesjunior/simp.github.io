@@ -11,81 +11,46 @@ $(document).ready(function () {
 
 })
 
-function getInteresse(interessado, aberto) {
-    if (localStorage.getItem("isInstituicao") == "false") {
+function getInteresse() {
 
+    var interesse = true
+    if (interesse) {
 
-        console.log(interessado)
-        //var interesse = true
-        if (aberto) {
-            if (interessado) {
+        var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center; ">')
+        var h6 = $('<a style="text-align: center;padding-top: 14px;width:100%;" id="linkInteresse">Interessado</a>')
+        div.append(h6)
+        div.insertAfter("#statos")
 
-                var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;height: 80%;margin-top: auto;margin-bottom: auto;">')
-                var h6 = $('<a style="text-align: center;display: flex;align-items: center;justify-content: center;;width:100%;" id="linkInteresse">Interessado</a>')
-                div.append(h6)
-                div.insertAfter("#statos")
-
-            } else {
-                var div = $('<div style="border: 0px black solid; border-radius: 5px; width: 250px; display:flex; flex-direction:row; justify-content:center;">')
-                var aLink = $('<a class="btn btn-primary item-btn display-7" style="margin: 0;" id="sinalizarIntersse">Sinalizar Interesse</a>')
-                div.append(aLink)
-                aLink.insertAfter("#statos")
-
-            }
-        }
-
-        $('#linkInteresse').hover(e => {
-            $('#linkInteresse').text("Cancelar Interesse")
-        }, e => {
-            $('#linkInteresse').text("Interessado")
-        })
-
-        var url = new URL(window.location.href)
-
-        $('#linkInteresse').click(e => {
-            var result = confirm("Tem certeza que deseja cancelar seu interesse na proposta?\n"
-                + "Ao cancelar, você deverá esperar 7 dias para demonstar o interesse novamente.")
-            if (result) {
-
-                //console.log(url.searchParams.get("id"))
-                //console.log(url.searchParams.get("id_usuario"))
-                deleteInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario")).then(v => {
-                    alert("Interesse cancelado! A página será recarregada.")
-                    window.location.href = window.location.href;
-                }).catch(() => {
-                })
-                //document.location.reload(true);
-
-            }
-        })
-
-        $('#sinalizarIntersse').click(e => {
-            if (localStorage.getItem("id_user") == undefined) {
-                alert("Você precisa estar logado para sinalizar interesse!")
-                window.location.href = "login.html"
-            }
-            //console.log(url.searchParams.get("id"))
-            //console.log(url.searchParams.get("id_usuario"))
-            postInteresse(url.searchParams.get("id"), url.searchParams.get("id_usuario")).then(v => {
-                alert("Interesse registrado com sucesso! A página será recarregada.")
-                window.location.href = window.location.href;
-            }).catch(() => {
-            })
-
-        })
-
-
+    } else {
+        var div = $('<div style="border: 0px black solid; border-radius: 5px; width: 250px; display:flex; flex-direction:row; justify-content:center;">')
+        var aLink = $('<a class="btn btn-primary item-btn display-7" style="margin: 0;" id="sinalizarIntersse">Sinalizar Interesse</a>')
+        div.append(aLink)
+        aLink.insertAfter("#statos")
 
     }
-}
 
-// function respostaInteresse(result) {
-//     //console.log(result)
-// }
+    $('#linkInteresse').hover(e => {
+        $('#linkInteresse').text("Cancelar Interesse")
+    }, e => {
+        $('#linkInteresse').text("Interessado")
+    })
+
+    $('#linkInteresse').click(e=>{
+        alert("Interesse cancelado")
+        deleteInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
+        document.location.reload(true);
+    })
+
+    $('#sinalizarIntersse').click(e=>{
+        postInteresse(url.searchParams.get("id"),url.searchParams.get("id_usuario"))
+        alert("tenho interesse")
+    })
+
+}
 
 function retornaProposta(proposta) {
     proposta = proposta.data
-    // console.log(proposta)
+
     $('#tituloProposta').append('<strong>' + proposta.ds_nome + '</strong>')
 
     getCurso(proposta.nr_id_curso)
@@ -94,7 +59,7 @@ function retornaProposta(proposta) {
 
 
     getStatus(proposta.cd_status)
-    getInteresse(proposta.usuario_interessado, proposta.cd_status == "AB")
+    getInteresse()
 
     getInstituicao(proposta.nr_id_instituicao)
 
@@ -148,8 +113,8 @@ function montaUniversitarios(proposta) {
 
             // var pResumo = $('<p class="mbr-text mbr-fonts-style mt-3 display-7">' + textoResumo + '</p>')
 
-            var aLink = $('<a href="perfilUsuario.html?id=' + univs[i].nr_id_usuario + '" class="text-primary"> <br>Ver Perfil</a>')
-            // localStorage.getItem("id_user")
+            var aLink = $('<a href="perfilUsuario.html?id=' + localStorage.getItem("id_user") + '" class="text-primary"> <br>Ver Perfil</a>')
+
             // pResumo.append(aLink)
 
             divItemContent.append(h5)
@@ -180,8 +145,8 @@ function montaUniversitarios(proposta) {
 
 function retornaCurso(curso) {
     curso = curso.data
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;;height: 80%;margin-top: auto;margin-bottom: auto;">')
-    var h6 = $('<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso='+curso.nr_id+'&qt_participantes=&ds_nome_ds_desc_projeto=&cd_status=" style="color: inherit; text-decoration: none;text-align: center;justify-content: center;align-content: center;align-items: center;margin:0px;display: flex;"></a>')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex; flex-direction:row; justify-content:center;">')
+    var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
 
     div.addClass("fundoAzul");
     h6.text("Curso: " + curso.ds_nome)
@@ -261,8 +226,8 @@ function getContato() {
 function getStatus(status) {
 
     // console.log(status)
-    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;;height: 80%;margin-top: auto;margin-bottom: auto;">')
-    var h6 = $('<a href="resultadoBusca.html?dt_geracaoIni=&dt_geracaoFim=&ds_tipo=&nr_id_curso=&qt_participantes=&ds_nome_ds_desc_projeto=&cd_status='+status+'" style="color: inherit; text-decoration: none;text-align: center;"></a>')
+    var div = $('<div style="border: 1px black solid; border-radius: 5px; width: 200px; display:flex;align-items: center; flex-direction:row; justify-content:center;">')
+    var h6 = $('<h6 style="text-align: center;padding-top: 7px;"></h6>')
     div.append(h6)
     switch (status) {
         case ("AB"):
@@ -296,7 +261,7 @@ function getStatus(status) {
 
 
     div[0].id = "statos"
-    var secao = $('<div style="display:flex; justify-content: space-between ; margin-top:30px; ;height: 60px;background: ghostwhite;border-radius: 50px;width: 90%;margin-bottom: 10px;"></div>')
+    var secao = $('<div style="display:flex; justify-content: space-between ; margin-top:30px; margin-bottom:-50px"></div>')
     secao.insertAfter("#headerTitulo")
     $(secao).append(div)
     // $(div).insertAfter("#headerTitulo")

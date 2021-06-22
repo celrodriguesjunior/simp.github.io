@@ -4,8 +4,7 @@ $(document).ready(function () {
 
     var url = new URL(window.location.href)
 
-    // getUsuario(localStorage.getItem("id_user"))
-    getUsuario(url.searchParams.get("id"))
+    getUsuario(localStorage.getItem("id_user"))
 
     //getUniversitario(url.searchParams.get("id"))
     var idpag = url.searchParams.get("id")

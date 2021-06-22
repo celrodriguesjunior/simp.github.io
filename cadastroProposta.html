@@ -185,9 +185,9 @@
                 <section style="padding: 10px;" class="gallery3 cid-sh0MhqjwIh" id="gallery3-y">
 
 
-                    <div class="container-fluid" style="margin-bottom: 30px; margin-top: 30px;">
+                    <div class="container-fluid">
                         <div class="mbr-section-head">
-                            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5" id="tituloImg">
+                            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
                                 Imagens da proposta atual
                             </h4>
                         </div>
@@ -226,29 +226,19 @@
                 </div>
 
                 
-                <section style="margin-bottom: 40px; margin-top: 30px;padding: 10px;" class="gallery3 cid-sh0MhqjwIh" id="gallery3-y">
-
-
-                    <div class="container-fluid">
-                        <div class="mbr-section-head">
-                            <h4 id="Universitario" class="mbr-section-title mbr-fonts-style align-center mb-0 display-5">
-                                Universitários Participantes
-                            </h4>
-                        </div>
-                        <div class="row mt-4" id="UniversitariosPart">
-                        </div>
+                <div id="Universitario" class="row">
+                    <div class="col-25">
+                        <label for="univ">Universitários Participantes</label>
                     </div>
-                </section>
-
+                    <div class="col-75">
+                        <select id="univ" name="univ">
+                        </select>
+                    </div>
+                </div>
 
                 <div id="Submit" class="row" style="float: right;padding-right: 0.6rem;">
-                    <input type="submit" value="Cadastrar Prosposta" onclick="salvarProposta()">
+                    <input type="submit" value="Submit" onclick="salvarProposta()">
                 </div>
-<!--                 
-                <div id="Cancelar" class="row" style="float: right;padding-right: 0.6rem;">
-                    
-                </div> -->
-
         </div>
 
     </section>
