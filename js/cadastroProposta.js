@@ -1,4 +1,5 @@
 var editar = false;
+var remocao_img = false;
 var url;
 
 $(document).ready(function () {
@@ -253,21 +254,53 @@ function retornaProposta(dados) {
 
         }
 
+    }else{
+        $("#tituloImg").hide()
     }
 
+
+
     $('#duracao').val(dados.nr_duracao)
-    if (dados.cd_status == "DV") {
+
+    if (dados.cd_status == "DV" || dados.cd_status == "AB") {
         if (dados.universitarios != null) {
 
-            for (let i = 1; i < dados.universitarios.length; i++) {
-                // $('#Dados')[0]
-                $($('#Universitario')[0].cloneNode(true)).insertBefore($('#Submit'))
-            }
-
             for (let i = 0; i < dados.universitarios.length; i++) {
+                var divItem = $('<div class="item features-image сol-12 col-md-6 col-lg-3">')
 
-                carregaInteressados(dados)
+            var divItemWrapper = $('<div class="item-wrapper">')
+
+            var divItemImg = $('<div class="item-img">')
+
+            var img = $('<img style="height:200px;width:300px" id="univs' + dados.universitarios[i].nr_id_usuario+ '" src="data:image/jpg;base64,' + dados.universitarios[i].agrupadorArquivo[0].arquivo.bl_arquivo + '">')
+
+            var h5 = $('<h5 class="item-title mbr-fonts-style display-7"><strong>' + dados.universitarios[i].ds_nome_exibido + '</strong></h5>')
+
+            var aLink = $('<a class="text-primary" <br>Remover</a>')
+
+            $(aLink).click(function () {
+                removerUniv(i, dados.universitarios)
             }
+            );
+
+            var divItemContent = $('<div class="item-content">')
+
+            divItemContent.append(aLink)
+
+            divItemImg.append(img)
+
+            divItemWrapper.append(divItemImg)
+            divItemWrapper.append(h5)
+            divItemWrapper.append(divItemContent)
+
+            divItem.append(divItemWrapper)
+
+            $('#UniversitariosPart').append(divItem)
+
+            }
+
+        }else{
+            $('#Universitario').hide()
         }
     } else {
         $('#Universitario').hide()
@@ -277,10 +310,25 @@ function retornaProposta(dados) {
 
 function removerImg(i, agrupadorArquivo) {
     if (confirm('Tem certeza que quer remover a imagem ' + agrupadorArquivo[i].arquivo.ds_nome + '? '+
-    '\n A proposta será recarregada com as informações atuais!')) {
+    '\n A proposta será salva com as informações atuais!')) {
         agrupadorArquivo.splice(i, 1)
         localStorage.setItem("agrupadorArquivo", JSON.stringify(agrupadorArquivo))
         $('#ImagensAtuais').children()[i].remove()
+        remocao_img = true
+        $("#img"+(i+1))[0].value = null
+        salvarProposta()
+    } else {
+        
+    }
+
+}
+
+function removerUniv(i, universitarios) {
+    if (confirm('Tem certeza que quer remover o universitario ' + universitarios[i].ds_nome_exibido + ' do projeto? '+
+    '\n A proposta será salva com as informações atuais!')) {
+        universitarios.splice(i, 1)
+        localStorage.setItem("universitarios", JSON.stringify(universitarios))
+        $('#UniversitariosPart').children()[i].remove()
         salvarProposta()
     } else {
         
@@ -297,24 +345,27 @@ function removerImg(i, agrupadorArquivo) {
 //------------------------------------
 //------------------------------------
 
-function carregaInteressados(dados) {
-
-}
 
 function retornaCadastroProposta(resp) {
     localStorage.removeItem("universitarios")
     localStorage.removeItem("agrupadorArquivo")
     resp = resp.data
+    if(remocao_img){
+        remocao_img = false
+    }else{
+        salvarImg(resp)
+    }
     
-    salvarImg(resp)
     // location.href = "proposta.html?nr_id=" + resp.data.nr_id + "&nr_id_usuario=" + localStorage.getItem("id_user")
 }
 
 function retornaEdicaoProposta(resp) {
     resp = resp.data
-    
-    salvarImg(resp)
-
+    if(remocao_img){
+        remocao_img = false
+    }else{
+        salvarImg(resp)
+    }
 }
 
 // function salvarImg(id) {
@@ -370,8 +421,16 @@ function salvarImg(id) {
 
 function sucessoImagemProposta(resp, proposta) {
     alert("Imagens enviadas com sucesso!")
-    location.reload()
+    window.location.href = window.location.href;
     // location.href = "proposta.html?id=" + proposta.nr_id + "&id_usuario=" + localStorage.getItem("id_user")
 }
 
+
+function cancelarSalvamento(){
+    if (confirm('Tem certeza que quer cancelar o cadastro/edição? Nenhuma alteração será salva!')) {
+        location.href = "index.html"
+    } else {
+        
+    }
+}
 
