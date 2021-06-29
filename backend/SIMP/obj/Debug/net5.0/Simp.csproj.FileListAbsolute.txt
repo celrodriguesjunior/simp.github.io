@@ -1,0 +1,80 @@
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\appsettings.json
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.exe
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.deps.json
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.runtimeconfig.json
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.runtimeconfig.dev.json
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\ref\Simp.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Simp.pdb
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.csprojAssemblyReference.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.AssemblyInfoInputs.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.AssemblyInfo.cs
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.csproj.CoreCompileInputs.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\staticwebassets\Simp.StaticWebAssets.Manifest.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\staticwebassets\Simp.StaticWebAssets.xml
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\scopedcss\bundle\Simp.styles.css
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.RazorTargetAssemblyInfo.cache
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.csproj.CopyComplete
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.dll
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\ref\Simp.dll
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.pdb
+C:\Users\William\Desktop\Simp\Simp\obj\Debug\net5.0\Simp.genruntimeconfig.cache
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Dapper.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\Oracle.ManagedDataAccess.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\System.DirectoryServices.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\System.DirectoryServices.Protocols.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
+C:\Users\William\Desktop\Simp\Simp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.csprojAssemblyReference.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.GeneratedMSBuildEditorConfig.editorconfig
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.AssemblyInfoInputs.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.AssemblyInfo.cs
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.csproj.CoreCompileInputs.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.MvcApplicationPartsAssemblyInfo.cs
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.MvcApplicationPartsAssemblyInfo.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\ref\SIMP.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.pdb
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\appsettings.Development.json
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\appsettings.json
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.exe
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.deps.json
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.runtimeconfig.json
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.runtimeconfig.dev.json
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\ref\SIMP.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\SIMP.pdb
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Dapper.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Oracle.ManagedDataAccess.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\System.DirectoryServices.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\System.DirectoryServices.Protocols.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\staticwebassets\SIMP.StaticWebAssets.Manifest.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\staticwebassets\SIMP.StaticWebAssets.xml
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\scopedcss\bundle\SIMP.styles.css
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.RazorTargetAssemblyInfo.cache
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.csproj.CopyComplete
+D:\Notebook\FURB\7 Semestre\Projeto de Software II\SIMP\v2.0\Simp\obj\Debug\net5.0\SIMP.genruntimeconfig.cache
